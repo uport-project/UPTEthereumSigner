@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'UPTEthereumSigner_Example' do
+  pod 'UPTEthereumSigner', :path => '../'
+
+  target 'UPTEthereumSigner_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  end
+end
