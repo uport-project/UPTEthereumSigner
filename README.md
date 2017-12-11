@@ -22,7 +22,7 @@ pod 'UPTEthereumSigner'
 
 ## Author
 
-Joshua Bell, joshua.bell@gmail.com
+Joshua Bell, joshua.bell@consensys.net
 
 ## License
 
