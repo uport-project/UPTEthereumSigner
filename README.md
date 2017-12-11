@@ -22,8 +22,8 @@ pod 'UPTEthereumSigner'
 
 ## Author
 
-josh, belljh@gmail.com
+Joshua Bell, joshua.bell@gmail.com
 
 ## License
 
-UPTEthereumSigner is available under the MIT license. See the LICENSE file for more info.
+UPTEthereumSigner is available under the APACHE license. See the LICENSE file for more info.

@@ -1,0 +1,25 @@
+PODS:
+  - Expecta (1.0.6)
+  - Specta (1.0.7)
+  - UPTEthereumSigner (1.0):
+    - Valet
+  - Valet (2.4.2)
+
+DEPENDENCIES:
+  - Expecta
+  - Specta
+  - UPTEthereumSigner (from `../`)
+
+EXTERNAL SOURCES:
+  UPTEthereumSigner:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  UPTEthereumSigner: b7321f2cb79afb7939fb74caa99794125646c74a
+  Valet: 14463ef24fab8fd5809044ecedb61484b799fdd6
+
+PODFILE CHECKSUM: 5aee6d4b5b2d7ab724ad1ac8fee24f6ed4884d82
+
+COCOAPODS: 1.3.1

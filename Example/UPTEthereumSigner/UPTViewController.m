@@ -2,11 +2,12 @@
 //  UPTViewController.m
 //  UPTEthereumSigner
 //
-//  Created by josh on 12/05/2017.
+//  Created bUPTEthereumSignery josh on 12/05/2017.
 //  Copyright (c) 2017 josh. All rights reserved.
 //
 
 #import "UPTViewController.h"
+#import "UPTEthSigner.h"
 
 @interface UPTViewController ()
 
@@ -18,6 +19,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSArray *someAddresses = [UPTEthSigner allAddresses];
+    NSLog( @"someAddresses -> %@", someAddresses );
+    
 }
 
 - (void)didReceiveMemoryWarning

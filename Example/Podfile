@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '9.3'
 
 target 'UPTEthereumSigner_Example' do
   pod 'UPTEthereumSigner', :path => '../'
@@ -7,6 +8,6 @@ target 'UPTEthereumSigner_Example' do
     inherit! :search_paths
 
     pod 'Specta'
-  pod 'Expecta'
+    pod 'Expecta'
   end
 end
