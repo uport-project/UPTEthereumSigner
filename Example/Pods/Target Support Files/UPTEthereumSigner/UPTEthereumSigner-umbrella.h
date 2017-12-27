@@ -11,8 +11,8 @@
 #endif
 
 #import "keccak.h"
-#import "UPTEthSigner+Utils.h"
-#import "UPTEthSigner.h"
+#import "UPTEthereumSigner+Utils.h"
+#import "UPTEthereumSigner.h"
 
 FOUNDATION_EXPORT double UPTEthereumSignerVersionNumber;
 FOUNDATION_EXPORT const unsigned char UPTEthereumSignerVersionString[];

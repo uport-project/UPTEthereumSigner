@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000D7C84EDA9FDBE6DC14C3DB4080328 /* UPTEthereumSigner+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = F48E783BC9ED691424F3985C75DA1A70 /* UPTEthereumSigner+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01F278A54C85C2C865DDAD4090C559B6 /* EXPDoubleTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93C06E2403715C72C7CE7DE98B9C3B /* EXPDoubleTuple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0345821DC8507A84CDB181E83CDCD696 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8391DCF206F6B72B84354F3805ABA2A0 /* SPTSpec.m */; };
 		046DA3A2A7C901107AE54E266BB85589 /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCCE061C264B8D232AA511E626A08A7 /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0560BC87690BE371EA3EA3E874229CA8 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = 58917B23AB0AC7ACBE723862A68AD521 /* keccak.c */; };
 		064D1378B34B5B616A59A37E20576326 /* VALSynchronizableValet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4643DF2DA79CBE0C5026DD73D0AD5CF0 /* VALSynchronizableValet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06A0859F20DEF8964346ECFD665F78B3 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DF04DC2088A5D41316B2DDAF98ED44F6 /* SPTExample.m */; };
 		08ECC42711625D1601713BE15389FE8E /* VALValet.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BA4A2F0C12A6547966906B2DB282DE /* VALValet.m */; };
 		09B18A0AFD81C25D53BC3FC246DA2349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */; };
 		09DD5C41A94598AF6C26705DCB4A1542 /* VALSinglePromptSecureEnclaveValet.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E2563126D539786E71681960509A8A /* VALSinglePromptSecureEnclaveValet.m */; };
+		0DB88E11BADA986248C848AD98EF8D33 /* UPTEthereumSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC21DEE221CAE5470F3AC16AD95BD2D /* UPTEthereumSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E86BBA3A65849769B47995A5E91C881 /* Expecta-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E08560FC3237D99740CC0FED616019EB /* Expecta-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F0D5D75246608374C57F31EE2CF6A1E /* Valet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C30ED7B842886C9CB6BC4B48F7E05B /* Valet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1009851D0C0B3FCBC574C414CC4D31B0 /* EXPMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B5DBBB18C849B0B21F41DE01D51897 /* EXPMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,7 +26,6 @@
 		150503B99F77D3D8897EFFC68C09A351 /* EXPMatcherHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF99C20E47101E8F0802EF8574F54B /* EXPMatcherHelpers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		19D5790216A44C559014E49EA7DFCC48 /* SPTTestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 72ED6633E5DF06BE625313F220DE3D53 /* SPTTestSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D676445A1446539D4B722E6EF0C802A /* ExpectaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1853FC8F10AD1D6FFCC1DE8CA28FC1 /* ExpectaSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1FEB009D00A1341E8C3A70390891BE39 /* keccak.h in Headers */ = {isa = PBXBuildFile; fileRef = 1897F85C9D05FA3F61A99230B27AAEF5 /* keccak.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		214F8D721940BD9AA4BAB0E5AE2E8A1C /* EXPBlockDefinedMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = CB9A9EEF6FEFD634041309C695EE49DA /* EXPBlockDefinedMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24A8AB7C9EC9C677F658337B6F2B3DBE /* VALSynchronizableValet.m in Sources */ = {isa = PBXBuildFile; fileRef = 19026A4C784F2360C22A28719BF7E5AD /* VALSynchronizableValet.m */; };
 		285C6F6BE59E632CB219CD98B4EDC1AA /* EXPMatchers+endWith.m in Sources */ = {isa = PBXBuildFile; fileRef = 656016E9D42EE587DD120E60F279FDA4 /* EXPMatchers+endWith.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -39,11 +41,11 @@
 		425C4DFD1FAB011D70F825631144BC4C /* EXPMatchers+equal.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DCDF71F797F6686150778EC04FD4DE /* EXPMatchers+equal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42F2C6CB1943D1888040E5F6BB0A1DF1 /* Pods-UPTEthereumSigner_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DFB86C3BE10A0400EB57856C5C5E5C2 /* Pods-UPTEthereumSigner_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43A6526DCF7E70A63C35AEB6970AC283 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */; };
+		444474FFDBEF29C03B88A2CADA333AAA /* UPTEthereumSigner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5864B4387EB22D06911427BAEFC8A0B3 /* UPTEthereumSigner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47D171E32EAE4FB61A9971B9BC00226D /* EXPMatchers+beLessThan.m in Sources */ = {isa = PBXBuildFile; fileRef = E5599E293757121EDCF7E5D552879E43 /* EXPMatchers+beLessThan.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4861F2FFD5A4306E7B7BD3CD0D8199AC /* EXPMatchers+beCloseTo.h in Headers */ = {isa = PBXBuildFile; fileRef = D082515373131B63C316A44744D8EDED /* EXPMatchers+beCloseTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4866412FADC34B3A44A89063FF63E1B8 /* Valet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C359FCF7CB21C08977EF2B71407C4312 /* Valet-dummy.m */; };
 		4CA4F8F64565882DCFA174872749C0EF /* EXPFloatTuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 2739C9B41CEDE19249C9372765ECCFD9 /* EXPFloatTuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F1F48297B2B3148BD9DEACDCA1B16DE /* UPTEthereumSigner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C02D7AD19F963BDB4D397CE620F6344 /* UPTEthereumSigner-dummy.m */; };
 		508B6D0572C0C3B4A3E019B814595D4A /* EXPMatchers+beInTheRangeOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BD1B56B2003D7EDB146A462AB00434 /* EXPMatchers+beInTheRangeOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5168FC9705990303B5909F54021EBEE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */; };
 		51FCC9EDD6B60BF63B5EF7CAC94CCF23 /* EXPMatchers+conformTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7504F7752CA242C1DF409980A2251 /* EXPMatchers+conformTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -52,7 +54,6 @@
 		575FC993A98C238CDD857C9CCED9696B /* VALSecureEnclaveValet.h in Headers */ = {isa = PBXBuildFile; fileRef = D51F57E6875F665528FCB0DA7D1F5A68 /* VALSecureEnclaveValet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5922E3B61E351E2A21095BD92E4FE8AC /* NSValue+Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = B6F5289D7178AF7067A3937F84FB85DE /* NSValue+Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		597E5A323FD0306B81C3F7E9C8E5580D /* EXPMatchers+match.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D8C7C04DF4BB00E0F5422916F4B31C /* EXPMatchers+match.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A14F2C92F5567A4870F86D401C8F7A4 /* UPTEthSigner+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = DF8D339E5D82E2E3130C4B4048BC0491 /* UPTEthSigner+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D4700451D6C9DFC6D5FFB86671EA2AC /* EXPDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C527C0A6322318FD3154F4CA35A40E /* EXPDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E298FCF95D6F18E67AEA42F13853558 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */; };
 		5E4F55D319FF771D658CCE335E7CB498 /* EXPFloatTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B65562E393949240A227D4D3FC0F0F /* EXPFloatTuple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -62,10 +63,11 @@
 		60FFA247225BF65C3C49AAE9EA1577A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */; };
 		6320DDD210EC941FD3086FEC32712EFD /* SpectaDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = A3694638B90BAE5C2C112ABC01DB34C0 /* SpectaDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64C46AF200F2347115A0DF2799D6E403 /* EXPMatchers+beNil.h in Headers */ = {isa = PBXBuildFile; fileRef = E17B09C6BC6B767D8D933ED971C12FCB /* EXPMatchers+beNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		650C958C145C4AE2E38DD5391DF28296 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = FF082F8584842B27820929DCCEF24FC3 /* keccak.c */; };
 		69A6C442BB663BAC81D71AA3169DEFB3 /* Pods-UPTEthereumSigner_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF5C0BC2B15B3F0B3E7B5E7F2D5D547 /* Pods-UPTEthereumSigner_Example-dummy.m */; };
+		69B87E1E1052E95F909E58A535E8BA36 /* UPTEthereumSigner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BADBE574901BACDFEC4A34CA95EAE /* UPTEthereumSigner-dummy.m */; };
 		6DC2BE0F115C0835D98A0ADD6829E2DD /* SPTTestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CCAF1E8FDB7B69B8C54B736B713290 /* SPTTestSuite.m */; };
 		6DE4DC6BF1D20C090D91830359F6361A /* Pods-UPTEthereumSigner_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E8400E29299BBF6E23CCDCB8F329B3 /* Pods-UPTEthereumSigner_Tests-dummy.m */; };
+		6E0343187EE61DC330B5938935498C22 /* UPTEthereumSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218CAE19D9F2B78306F2ED2EF591A0F /* UPTEthereumSigner+Utils.m */; };
 		778C9F1A1715E05313578E39AB46726E /* EXPMatchers+beInstanceOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BC61A091D2E5C228F5375CAAAEEB4F /* EXPMatchers+beInstanceOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7A91FB080DE567633096F6A33B416063 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B59A12F1D63268464816FFF762681 /* SpectaUtility.m */; };
 		7E81176499F06E523CE3039B08AB5051 /* EXPMatchers+beGreaterThan.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F1C01C9B77FE85F601DFDABB4F97E3 /* EXPMatchers+beGreaterThan.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -109,6 +111,7 @@
 		BC62C7742AB50855FC6B4F0BA82F0779 /* ValetDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D13BAE4781BECA8EF1EA1F387AFB5A0 /* ValetDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BFC7D32CFE8200730837306AFF61E5AD /* EXPExpect.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAC758DB8FE5AC38B9325488E905507 /* EXPExpect.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C14CD98EE4DDC0B7689F058D5B79CC47 /* EXPMatchers+beGreaterThanOrEqualTo.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD3B909D887E9D00FF6E0EB86DE0FC7 /* EXPMatchers+beGreaterThanOrEqualTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C170AC594A215E251704E1E50C419811 /* UPTEthereumSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C138E98A5809299194CE34BC14F5A0 /* UPTEthereumSigner.m */; };
 		C5A4D4EBF16C91EC78B6B296E1A3EDD0 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 408AF248DB77F701DF3319E0CD77C5FD /* SPTExampleGroup.m */; };
 		C676818DADAC76EE2FDC5533CBF3648A /* EXPMatchers+haveCountOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 27389A6B553DEA8508753FB09D69DA75 /* EXPMatchers+haveCountOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C703B4D969A044CEC3BC1FAEAAF4D482 /* Specta-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C843087FAED06C17E8BB9E146F8D564F /* Specta-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,18 +124,16 @@
 		CE7E4C141657D23213C7FAE616D7FA75 /* EXPMatchers+beLessThanOrEqualTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 690751106F330BAB888F729BBE0A163C /* EXPMatchers+beLessThanOrEqualTo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF56B2248BE69934E43D7B6DF78CC1A5 /* SPTCompiledExample.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1A3A3DB6EE5FF696E2744838444FC /* SPTCompiledExample.m */; };
 		D032AC25BF41EC219F1760CF57B521A4 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DC80D0E68F227834DF309DD79642472 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D07787DD3703206EDB86F01C0447FACB /* UPTEthSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D572F7594D0FA4316756A589291FF0 /* UPTEthSigner.m */; };
 		D1768C977F0CD5B420D1A1D2375CDBD4 /* Expecta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B128FB1C75416125E09B92F11334B2B /* Expecta-dummy.m */; };
-		D26EB87AD54047E14D13C74D787541EE /* UPTEthereumSigner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D8ABCB7CC0A60797E2B4056C86C61F42 /* UPTEthereumSigner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5349D4A99EE34E4FD26B69A3B9F5CC3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8796DEA8D633273F8C1DA5CF5F429C6 /* XCTest.framework */; };
 		D5F4C8E952F25DAB244FF276DE02DCDC /* XCTest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = E377F21460290D1AA199E5BB6703E883 /* XCTest+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB8F3665E9E382DF52E0DCB4DECE5EAE /* NSObject+Expecta.h in Headers */ = {isa = PBXBuildFile; fileRef = 6995DA4072249680B652A028E40476EC /* NSObject+Expecta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC423A980C991970F4D637AC4C47D863 /* EXPMatchers+conformTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 23E8F083819C16175413BC7F536171D7 /* EXPMatchers+conformTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD3CB0C1511421F82BAB7C6A4E83F83E /* VALValet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8267E4DE6485D16B05B394789D500930 /* VALValet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DED9AE33B24B462D4B44FE94383B35F4 /* EXPMatchers+respondTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 76FF830ABF30B89A2764EB370FCFC831 /* EXPMatchers+respondTo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF57E1455654395ABB362394934C180C /* UPTEthSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E9146A7005F567B2FDE4A923F62A422B /* UPTEthSigner+Utils.m */; };
 		DF883524C3F35145D74166C01BCFCFC3 /* EXPMatchers+beKindOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 650CE12F391CE63D1973DFF4B5881A1F /* EXPMatchers+beKindOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E233F5CF4BF16CFB539804C4E995C355 /* EXPMatchers+beLessThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9967FD92710FC2CB92EB065E61A49C93 /* EXPMatchers+beLessThan.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E31651CAB721D0EA49FC832EDD90363C /* keccak.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A90C86A1B312CC3678150757F74F903 /* keccak.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3355DB3F63F6FE79FD8DD6188B0B3A4 /* EXPMatchers+contain.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AACBC6FDF0010F1363D6F1F072565B0 /* EXPMatchers+contain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5BD7E6FEE2F950211E8EC5927A10B96 /* Pods-UPTEthereumSigner_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A5BE7DC3F02CF6DB92773B383756D1 /* Pods-UPTEthereumSigner_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E61E28B50602F353D95914765667969F /* EXPMatcherHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 8823F783CDACD18FAC8AA4BD317B4F0B /* EXPMatcherHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -142,7 +143,6 @@
 		F03CDA49BCE1F0EF89F334352416A000 /* CoreBitcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB67C9F580FD8364BBDE89EDC354B1B7 /* CoreBitcoin.framework */; };
 		F74F0174B426B7EAB501A3788E5D381F /* EXPMatchers+beTruthy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D135DF612146004CFFB90A5A78E8CC2 /* EXPMatchers+beTruthy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CF39301DA7EB981439A12B598830EF /* SpectaUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = CE418D712C4B0D3F2EAE81F5E353CD88 /* SpectaUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FAAD66B21DB64EFE88EAF57B8469068A /* UPTEthSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0F5E302B314F5897DF3C8643B728AC /* UPTEthSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC223395BCEE46EB920CECD38AFD4402 /* EXPMatchers+beInTheRangeOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD203CDD0B30D7C5842C4B3BD0E0B47 /* EXPMatchers+beInTheRangeOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC6474103AA989EBD5368772037BE0BB /* EXPMatchers+beSupersetOf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1BEE95E3B36055ACDBDF16C363CDEF /* EXPMatchers+beSupersetOf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD39ACDEA6F0B6D6DBB730547CE18BA6 /* EXPExpect.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FC99F3FB287A21239F9B83004BAC74D /* EXPExpect.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -195,18 +195,16 @@
 		094119EDE7F36C864182DED9264C2654 /* VALSecureEnclaveValet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VALSecureEnclaveValet.m; path = Valet/VALSecureEnclaveValet.m; sourceTree = "<group>"; };
 		09F7504F7752CA242C1DF409980A2251 /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
 		0B1853FC8F10AD1D6FFCC1DE8CA28FC1 /* ExpectaSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaSupport.m; path = Expecta/ExpectaSupport.m; sourceTree = "<group>"; };
-		0C02D7AD19F963BDB4D397CE620F6344 /* UPTEthereumSigner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UPTEthereumSigner-dummy.m"; sourceTree = "<group>"; };
 		0D8D72ABAA9132C0E877509630E0091E /* UPTEthereumSigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UPTEthereumSigner.framework; path = UPTEthereumSigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCCE061C264B8D232AA511E626A08A7 /* SpectaTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaTypes.h; path = Specta/Specta/SpectaTypes.h; sourceTree = "<group>"; };
-		10D572F7594D0FA4316756A589291FF0 /* UPTEthSigner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UPTEthSigner.m; path = UPTEthereumSigner/Classes/UPTEthSigner.m; sourceTree = "<group>"; };
 		1115429A5D0558C217A3A4FD7CF15821 /* Specta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Specta.framework; path = Specta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1147A859D9F88E0D8B2A98000720B81D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1218CAE19D9F2B78306F2ED2EF591A0F /* UPTEthereumSigner+Utils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UPTEthereumSigner+Utils.m"; path = "UPTEthereumSigner/Classes/UPTEthereumSigner+Utils.m"; sourceTree = "<group>"; };
 		1289DD9A947648336077B9C24D39EFDA /* EXPMatchers+raise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raise.h"; path = "Expecta/Matchers/EXPMatchers+raise.h"; sourceTree = "<group>"; };
 		134AC4329C19E8C6E85B84758A84F69B /* EXPMatchers+raiseWithReason.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+raiseWithReason.h"; path = "Expecta/Matchers/EXPMatchers+raiseWithReason.h"; sourceTree = "<group>"; };
 		13FE73F39DD6E4347B544EDE2CF43CCF /* SPTCallSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTCallSite.m; path = Specta/Specta/SPTCallSite.m; sourceTree = "<group>"; };
 		14C527C0A6322318FD3154F4CA35A40E /* EXPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPDefines.h; path = Expecta/EXPDefines.h; sourceTree = "<group>"; };
 		165A54F2678FD98D873CE3AE52AE38FE /* EXPMatchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatchers.h; path = Expecta/Matchers/EXPMatchers.h; sourceTree = "<group>"; };
-		1897F85C9D05FA3F61A99230B27AAEF5 /* keccak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = keccak.h; path = UPTEthereumSigner/Classes/keccak.h; sourceTree = "<group>"; };
 		19026A4C784F2360C22A28719BF7E5AD /* VALSynchronizableValet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VALSynchronizableValet.m; path = Valet/VALSynchronizableValet.m; sourceTree = "<group>"; };
 		1C9FDF04F6DAFA63B749505506689F84 /* Valet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Valet.framework; path = Valet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECE90F7253C6BCDC39CEEBB6AE037CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 		2739C9B41CEDE19249C9372765ECCFD9 /* EXPFloatTuple.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPFloatTuple.h; path = Expecta/EXPFloatTuple.h; sourceTree = "<group>"; };
 		2828FA8EBEFF668DB83B31CEE87C93BE /* Valet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Valet.modulemap; sourceTree = "<group>"; };
 		29CCAF1E8FDB7B69B8C54B736B713290 /* SPTTestSuite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTTestSuite.m; path = Specta/Specta/SPTTestSuite.m; sourceTree = "<group>"; };
-		2A0F5E302B314F5897DF3C8643B728AC /* UPTEthSigner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UPTEthSigner.h; path = UPTEthereumSigner/Classes/UPTEthSigner.h; sourceTree = "<group>"; };
 		2ACF812EE20C3792BDFA4B379ED86FB2 /* EXPMatchers+haveCountOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveCountOf.h"; path = "Expecta/Matchers/EXPMatchers+haveCountOf.h"; sourceTree = "<group>"; };
 		2BE42EE212345235EDC237C408CA20E4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		314B61D922EF176752E38D81C317E16F /* EXPMatchers+match.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+match.m"; path = "Expecta/Matchers/EXPMatchers+match.m"; sourceTree = "<group>"; };
@@ -237,6 +234,8 @@
 		405D78BE25217021AA703E6AE8AF5C80 /* EXPMatchers+beIdenticalTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beIdenticalTo.h"; path = "Expecta/Matchers/EXPMatchers+beIdenticalTo.h"; sourceTree = "<group>"; };
 		408AF248DB77F701DF3319E0CD77C5FD /* SPTExampleGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTExampleGroup.m; path = Specta/Specta/SPTExampleGroup.m; sourceTree = "<group>"; };
 		44CB345682A0E1D5BFDF262560D6383E /* Specta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Specta-dummy.m"; sourceTree = "<group>"; };
+		44EC6465565279494CE9EF4EC9B04B8F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		459A0086FD005FD5F015DA64FD6AFD19 /* CoreBitcoin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBitcoin.framework; path = UPTEthereumSigner/CoreBitcoin.framework; sourceTree = "<group>"; };
 		46297CF19F84608B63E876DDAFAD6BAB /* EXPUnsupportedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPUnsupportedObject.m; path = Expecta/EXPUnsupportedObject.m; sourceTree = "<group>"; };
 		4643DF2DA79CBE0C5026DD73D0AD5CF0 /* VALSynchronizableValet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALSynchronizableValet.h; path = Valet/VALSynchronizableValet.h; sourceTree = "<group>"; };
 		46C73133FB5FCD4915EC873D048EA669 /* EXPMatchers+beSupersetOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSupersetOf.m"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.m"; sourceTree = "<group>"; };
@@ -247,9 +246,10 @@
 		4B0128BE16E1F2849AC238FDE4C3E921 /* Pods-UPTEthereumSigner_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UPTEthereumSigner_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4F06803317FBF1A534738E1DACC44E1D /* Pods-UPTEthereumSigner_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UPTEthereumSigner_Tests-resources.sh"; sourceTree = "<group>"; };
 		55441604A785814873283D53EFBBF81A /* EXPMatchers+beGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThanOrEqualTo.h"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
+		5864B4387EB22D06911427BAEFC8A0B3 /* UPTEthereumSigner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UPTEthereumSigner-umbrella.h"; sourceTree = "<group>"; };
+		58917B23AB0AC7ACBE723862A68AD521 /* keccak.c */ = {isa = PBXFileReference; includeInIndex = 1; name = keccak.c; path = UPTEthereumSigner/Classes/keccak.c; sourceTree = "<group>"; };
 		5D135DF612146004CFFB90A5A78E8CC2 /* EXPMatchers+beTruthy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beTruthy.h"; path = "Expecta/Matchers/EXPMatchers+beTruthy.h"; sourceTree = "<group>"; };
 		5DB8902EC23C3630ACD48B1606DFA288 /* Pods-UPTEthereumSigner_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UPTEthereumSigner_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		6020C61E1F475A692D5C77D1EA05B168 /* UPTEthereumSigner.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UPTEthereumSigner.xcconfig; sourceTree = "<group>"; };
 		603DEC1253C7F319E0DCEB386FA49CC5 /* Pods_UPTEthereumSigner_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UPTEthereumSigner_Tests.framework; path = "Pods-UPTEthereumSigner_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C17E12C7CC18B3AD49431AE9767877 /* Specta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Specta.xcconfig; sourceTree = "<group>"; };
 		60EC5CCE436AC656035706C258CD69D9 /* EXPMatchers+beTruthy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beTruthy.m"; path = "Expecta/Matchers/EXPMatchers+beTruthy.m"; sourceTree = "<group>"; };
@@ -259,6 +259,7 @@
 		65E3F25AE36A45DB2DB322E02818D8E9 /* Valet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Valet-prefix.pch"; sourceTree = "<group>"; };
 		690751106F330BAB888F729BBE0A163C /* EXPMatchers+beLessThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.m"; sourceTree = "<group>"; };
 		6995DA4072249680B652A028E40476EC /* NSObject+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "Expecta/NSObject+Expecta.h"; sourceTree = "<group>"; };
+		6A90C86A1B312CC3678150757F74F903 /* keccak.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = keccak.h; path = UPTEthereumSigner/Classes/keccak.h; sourceTree = "<group>"; };
 		6AACBC6FDF0010F1363D6F1F072565B0 /* EXPMatchers+contain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+contain.h"; path = "Expecta/Matchers/EXPMatchers+contain.h"; sourceTree = "<group>"; };
 		6B15BBB25379D2948121BCA9D31D2A7D /* Pods-UPTEthereumSigner_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UPTEthereumSigner_Example-resources.sh"; sourceTree = "<group>"; };
 		6C5692216DB003FD251507AFE2A6F931 /* Pods_UPTEthereumSigner_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UPTEthereumSigner_Example.framework; path = "Pods-UPTEthereumSigner_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,21 +281,23 @@
 		86FB904ADCC408D345E98874D3948F97 /* VALSinglePromptSecureEnclaveValet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALSinglePromptSecureEnclaveValet.h; path = Valet/VALSinglePromptSecureEnclaveValet.h; sourceTree = "<group>"; };
 		873F6E22D7B44E4B88EE6E75FFCB552F /* ExpectaObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExpectaObject.h; path = Expecta/ExpectaObject.h; sourceTree = "<group>"; };
 		8823F783CDACD18FAC8AA4BD317B4F0B /* EXPMatcherHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatcherHelpers.h; path = Expecta/Matchers/EXPMatcherHelpers.h; sourceTree = "<group>"; };
-		8A4892004333512654F51FF4DB3E5BCF /* UPTEthereumSigner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = UPTEthereumSigner.modulemap; sourceTree = "<group>"; };
 		8AD203CDD0B30D7C5842C4B3BD0E0B47 /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInTheRangeOf.h"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
 		8B128FB1C75416125E09B92F11334B2B /* Expecta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Expecta-dummy.m"; sourceTree = "<group>"; };
 		8D13BAE4781BECA8EF1EA1F387AFB5A0 /* ValetDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ValetDefines.h; path = Other/ValetDefines.h; sourceTree = "<group>"; };
 		8DC80D0E68F227834DF309DD79642472 /* SPTSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = Specta/Specta/SPTSpec.h; sourceTree = "<group>"; };
 		8FAC758DB8FE5AC38B9325488E905507 /* EXPExpect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPExpect.m; path = Expecta/EXPExpect.m; sourceTree = "<group>"; };
+		91C138E98A5809299194CE34BC14F5A0 /* UPTEthereumSigner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UPTEthereumSigner.m; path = UPTEthereumSigner/Classes/UPTEthereumSigner.m; sourceTree = "<group>"; };
 		930587CEA4EFAB2A6651132DD9DCFBB3 /* Specta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Specta.modulemap; sourceTree = "<group>"; };
 		936D72F8A81FBEF294F3417B804D532F /* Expecta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Expecta.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97286FABF48B4F067B142D4490C0F283 /* EXPMatchers+beGreaterThan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beGreaterThan.m"; path = "Expecta/Matchers/EXPMatchers+beGreaterThan.m"; sourceTree = "<group>"; };
 		9736D12F90A21D2B2AA0A3A52E572048 /* Expecta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Expecta.framework; path = Expecta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9794F77295C640D1F69415662B951382 /* UPTEthereumSigner-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UPTEthereumSigner-prefix.pch"; sourceTree = "<group>"; };
 		97BF99C20E47101E8F0802EF8574F54B /* EXPMatcherHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPMatcherHelpers.m; path = Expecta/Matchers/EXPMatcherHelpers.m; sourceTree = "<group>"; };
 		9967FD92710FC2CB92EB065E61A49C93 /* EXPMatchers+beLessThan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThan.h"; path = "Expecta/Matchers/EXPMatchers+beLessThan.h"; sourceTree = "<group>"; };
 		9A1BEE95E3B36055ACDBDF16C363CDEF /* EXPMatchers+beSupersetOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSupersetOf.h"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.h"; sourceTree = "<group>"; };
 		9A857011572F79A04E7DDF067EFF84DA /* VALValet_Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALValet_Protected.h; path = Valet/VALValet_Protected.h; sourceTree = "<group>"; };
+		9C55789CBDE5E4C9BDA77C52522D15C6 /* UPTEthereumSigner.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UPTEthereumSigner.xcconfig; sourceTree = "<group>"; };
 		9FC99F3FB287A21239F9B83004BAC74D /* EXPExpect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPExpect.h; path = Expecta/EXPExpect.h; sourceTree = "<group>"; };
 		A1945AFAD2F49A9AD8FAE7E555D57B14 /* EXPMatchers+beFalsy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beFalsy.m"; path = "Expecta/Matchers/EXPMatchers+beFalsy.m"; sourceTree = "<group>"; };
 		A1FE2CD2C3A814287017C436D6FF7B9F /* ExpectaSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExpectaSupport.h; path = Expecta/ExpectaSupport.h; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 		B6F5289D7178AF7067A3937F84FB85DE /* NSValue+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		B8B5DBBB18C849B0B21F41DE01D51897 /* EXPMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatcher.h; path = Expecta/EXPMatcher.h; sourceTree = "<group>"; };
 		BA415CB155588732565702F98DDE2058 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		BA6E13450D9D1ECDA9DA3A333E520CE9 /* UPTEthereumSigner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = UPTEthereumSigner.modulemap; sourceTree = "<group>"; };
+		BAC21DEE221CAE5470F3AC16AD95BD2D /* UPTEthereumSigner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UPTEthereumSigner.h; path = UPTEthereumSigner/Classes/UPTEthereumSigner.h; sourceTree = "<group>"; };
 		BB67C9F580FD8364BBDE89EDC354B1B7 /* CoreBitcoin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBitcoin.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreBitcoin.framework; sourceTree = DEVELOPER_DIR; };
 		BB93C06E2403715C72C7CE7DE98B9C3B /* EXPDoubleTuple.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPDoubleTuple.m; path = Expecta/EXPDoubleTuple.m; sourceTree = "<group>"; };
 		C01799E121B674713342B9262DDF4F99 /* XCTestCase+Specta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTestCase+Specta.h"; path = "Specta/Specta/XCTestCase+Specta.h"; sourceTree = "<group>"; };
@@ -323,12 +328,11 @@
 		C3D0C84AE138C9B65D56E3DBEE0ADF5A /* EXPMatchers+beginWith.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beginWith.m"; path = "Expecta/Matchers/EXPMatchers+beginWith.m"; sourceTree = "<group>"; };
 		C42AC5C2F35B8C30F9D162DA1E03AA8A /* Specta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Specta.h; path = Specta/Specta/Specta.h; sourceTree = "<group>"; };
 		C4ED335018F4BD0EDDFE7F836BAA4272 /* EXPMatchers+raiseWithReason.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+raiseWithReason.m"; path = "Expecta/Matchers/EXPMatchers+raiseWithReason.m"; sourceTree = "<group>"; };
-		C549282EB09D99B411663B9B95A55322 /* CoreBitcoin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBitcoin.framework; path = UPTEthereumSigner/CoreBitcoin.framework; sourceTree = "<group>"; };
 		C56C40F189F03CF83016B8D089CA9963 /* Expecta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Expecta.modulemap; sourceTree = "<group>"; };
 		C6F1C01C9B77FE85F601DFDABB4F97E3 /* EXPMatchers+beGreaterThan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThan.h"; path = "Expecta/Matchers/EXPMatchers+beGreaterThan.h"; sourceTree = "<group>"; };
-		C7092C882E70F7B3561B707E486ED648 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7D1A3A3DB6EE5FF696E2744838444FC /* SPTCompiledExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTCompiledExample.m; path = Specta/Specta/SPTCompiledExample.m; sourceTree = "<group>"; };
 		C843087FAED06C17E8BB9E146F8D564F /* Specta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Specta-umbrella.h"; sourceTree = "<group>"; };
+		C95BADBE574901BACDFEC4A34CA95EAE /* UPTEthereumSigner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UPTEthereumSigner-dummy.m"; sourceTree = "<group>"; };
 		CA3C5DC66C2B6D2C682BE20800EB2ADE /* Pods-UPTEthereumSigner_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UPTEthereumSigner_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CB9A9EEF6FEFD634041309C695EE49DA /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
 		CE418D712C4B0D3F2EAE81F5E353CD88 /* SpectaUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaUtility.h; path = Specta/Specta/SpectaUtility.h; sourceTree = "<group>"; };
@@ -338,30 +342,26 @@
 		D0C875E7EA692F77E5EA744C9058B060 /* EXPMatchers+beSubclassOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSubclassOf.m"; path = "Expecta/Matchers/EXPMatchers+beSubclassOf.m"; sourceTree = "<group>"; };
 		D338E3CF1D24E42C418FEC41D40A0966 /* EXPMatchers+beInstanceOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInstanceOf.h"; path = "Expecta/Matchers/EXPMatchers+beInstanceOf.h"; sourceTree = "<group>"; };
 		D51F57E6875F665528FCB0DA7D1F5A68 /* VALSecureEnclaveValet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALSecureEnclaveValet.h; path = Valet/VALSecureEnclaveValet.h; sourceTree = "<group>"; };
-		D8ABCB7CC0A60797E2B4056C86C61F42 /* UPTEthereumSigner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UPTEthereumSigner-umbrella.h"; sourceTree = "<group>"; };
 		D9430E2EE3562B06C983B1CA470A9402 /* SPTCompiledExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTCompiledExample.h; path = Specta/Specta/SPTCompiledExample.h; sourceTree = "<group>"; };
 		DC6CE2C14DFCCF968D510E20DEA79FF8 /* NSValue+Expecta.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Expecta.m"; path = "Expecta/NSValue+Expecta.m"; sourceTree = "<group>"; };
 		DE22BC4864CCE60FF8477C3DDBDA666F /* EXPUnsupportedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPUnsupportedObject.h; path = Expecta/EXPUnsupportedObject.h; sourceTree = "<group>"; };
 		DF04DC2088A5D41316B2DDAF98ED44F6 /* SPTExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTExample.m; path = Specta/Specta/SPTExample.m; sourceTree = "<group>"; };
-		DF8D339E5D82E2E3130C4B4048BC0491 /* UPTEthSigner+Utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UPTEthSigner+Utils.h"; path = "UPTEthereumSigner/Classes/UPTEthSigner+Utils.h"; sourceTree = "<group>"; };
 		E08560FC3237D99740CC0FED616019EB /* Expecta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Expecta-umbrella.h"; sourceTree = "<group>"; };
 		E17B09C6BC6B767D8D933ED971C12FCB /* EXPMatchers+beNil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beNil.h"; path = "Expecta/Matchers/EXPMatchers+beNil.h"; sourceTree = "<group>"; };
 		E36697DC594B4688025F70E3A70B4D40 /* Pods-UPTEthereumSigner_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UPTEthereumSigner_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E377F21460290D1AA199E5BB6703E883 /* XCTest+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTest+Private.h"; path = "Specta/Specta/XCTest+Private.h"; sourceTree = "<group>"; };
 		E5599E293757121EDCF7E5D552879E43 /* EXPMatchers+beLessThan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThan.m"; path = "Expecta/Matchers/EXPMatchers+beLessThan.m"; sourceTree = "<group>"; };
 		E8796DEA8D633273F8C1DA5CF5F429C6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E9146A7005F567B2FDE4A923F62A422B /* UPTEthSigner+Utils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UPTEthSigner+Utils.m"; path = "UPTEthereumSigner/Classes/UPTEthSigner+Utils.m"; sourceTree = "<group>"; };
 		EAAFEEEAB518B313AC87C1754112CE4C /* Pods-UPTEthereumSigner_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UPTEthereumSigner_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ED3E8714E5EA0905F0BAC790D9104FC0 /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExcludeGlobalBeforeAfterEach.h; path = Specta/Specta/SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		EFD3B909D887E9D00FF6E0EB86DE0FC7 /* EXPMatchers+beGreaterThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beGreaterThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.m"; sourceTree = "<group>"; };
 		F471C4DBF07502B6CD1FA739F8824C84 /* Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Expecta.h; path = Expecta/Expecta.h; sourceTree = "<group>"; };
+		F48E783BC9ED691424F3985C75DA1A70 /* UPTEthereumSigner+Utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UPTEthereumSigner+Utils.h"; path = "UPTEthereumSigner/Classes/UPTEthereumSigner+Utils.h"; sourceTree = "<group>"; };
 		F52C74EB4D64A061900A73B10DC67EF8 /* EXPMatchers+contain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+contain.m"; path = "Expecta/Matchers/EXPMatchers+contain.m"; sourceTree = "<group>"; };
 		F6202CE88ADAB56F7FB2B8759A88E9B2 /* ExpectaObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaObject.m; path = Expecta/ExpectaObject.m; sourceTree = "<group>"; };
-		F786915F50AC108CEC2E74BE2C85E420 /* UPTEthereumSigner-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UPTEthereumSigner-prefix.pch"; sourceTree = "<group>"; };
 		FAAC8753AAFDD4F730E6B1D98FF2D75A /* EXPMatchers+beginWith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beginWith.h"; path = "Expecta/Matchers/EXPMatchers+beginWith.h"; sourceTree = "<group>"; };
 		FD7C35755429BCD050346BEB7D9B6A1A /* SPTExampleGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExampleGroup.h; path = Specta/Specta/SPTExampleGroup.h; sourceTree = "<group>"; };
 		FD86FEA2BEAB0CB16D812E205910B12B /* EXPMatchers+endWith.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+endWith.h"; path = "Expecta/Matchers/EXPMatchers+endWith.h"; sourceTree = "<group>"; };
-		FF082F8584842B27820929DCCEF24FC3 /* keccak.c */ = {isa = PBXFileReference; includeInIndex = 1; name = keccak.c; path = UPTEthereumSigner/Classes/keccak.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +422,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A145B0E9CEB4F6574F6F883E315A629 /* UPTEthereumSigner */ = {
+			isa = PBXGroup;
+			children = (
+				58917B23AB0AC7ACBE723862A68AD521 /* keccak.c */,
+				6A90C86A1B312CC3678150757F74F903 /* keccak.h */,
+				BAC21DEE221CAE5470F3AC16AD95BD2D /* UPTEthereumSigner.h */,
+				91C138E98A5809299194CE34BC14F5A0 /* UPTEthereumSigner.m */,
+				F48E783BC9ED691424F3985C75DA1A70 /* UPTEthereumSigner+Utils.h */,
+				1218CAE19D9F2B78306F2ED2EF591A0F /* UPTEthereumSigner+Utils.m */,
+				AB3F01A7F9C542B3E033417540B65251 /* Frameworks */,
+				DD4F133E94126F246A2B186F2174BE82 /* Support Files */,
+			);
+			name = UPTEthereumSigner;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		115B87F7A551311115E369E9250A8BDB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,22 +514,6 @@
 			);
 			name = Valet;
 			path = Valet;
-			sourceTree = "<group>";
-		};
-		2135229E0F9C780541FDF826207624A0 /* UPTEthereumSigner */ = {
-			isa = PBXGroup;
-			children = (
-				FF082F8584842B27820929DCCEF24FC3 /* keccak.c */,
-				1897F85C9D05FA3F61A99230B27AAEF5 /* keccak.h */,
-				2A0F5E302B314F5897DF3C8643B728AC /* UPTEthSigner.h */,
-				10D572F7594D0FA4316756A589291FF0 /* UPTEthSigner.m */,
-				DF8D339E5D82E2E3130C4B4048BC0491 /* UPTEthSigner+Utils.h */,
-				E9146A7005F567B2FDE4A923F62A422B /* UPTEthSigner+Utils.m */,
-				BECCD3B468B4FA4445FA3A4DE900BE32 /* Frameworks */,
-				B7C2D67FEF41054282C1503584AF8198 /* Support Files */,
-			);
-			name = UPTEthereumSigner;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		3D3CE9138586E84913A4E2389DD5DDCC /* Expecta */ = {
@@ -667,6 +667,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		AB3F01A7F9C542B3E033417540B65251 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				459A0086FD005FD5F015DA64FD6AFD19 /* CoreBitcoin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B6856226D17CB1FB70C2273D1D74AD8E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,34 +685,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B7C2D67FEF41054282C1503584AF8198 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C7092C882E70F7B3561B707E486ED648 /* Info.plist */,
-				8A4892004333512654F51FF4DB3E5BCF /* UPTEthereumSigner.modulemap */,
-				6020C61E1F475A692D5C77D1EA05B168 /* UPTEthereumSigner.xcconfig */,
-				0C02D7AD19F963BDB4D397CE620F6344 /* UPTEthereumSigner-dummy.m */,
-				F786915F50AC108CEC2E74BE2C85E420 /* UPTEthereumSigner-prefix.pch */,
-				D8ABCB7CC0A60797E2B4056C86C61F42 /* UPTEthereumSigner-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/UPTEthereumSigner";
-			sourceTree = "<group>";
-		};
-		BECCD3B468B4FA4445FA3A4DE900BE32 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C549282EB09D99B411663B9B95A55322 /* CoreBitcoin.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CD217754253D388A1A9600225E609745 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2135229E0F9C780541FDF826207624A0 /* UPTEthereumSigner */,
+				0A145B0E9CEB4F6574F6F883E315A629 /* UPTEthereumSigner */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DD4F133E94126F246A2B186F2174BE82 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				44EC6465565279494CE9EF4EC9B04B8F /* Info.plist */,
+				BA6E13450D9D1ECDA9DA3A333E520CE9 /* UPTEthereumSigner.modulemap */,
+				9C55789CBDE5E4C9BDA77C52522D15C6 /* UPTEthereumSigner.xcconfig */,
+				C95BADBE574901BACDFEC4A34CA95EAE /* UPTEthereumSigner-dummy.m */,
+				9794F77295C640D1F69415662B951382 /* UPTEthereumSigner-prefix.pch */,
+				5864B4387EB22D06911427BAEFC8A0B3 /* UPTEthereumSigner-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/UPTEthereumSigner";
 			sourceTree = "<group>";
 		};
 		E43AD6FFF5C70796A92C285F74A44C44 /* Support Files */ = {
@@ -783,6 +783,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F3792F72D1EDF8EB20FE2A20E78A8E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E31651CAB721D0EA49FC832EDD90363C /* keccak.h in Headers */,
+				000D7C84EDA9FDBE6DC14C3DB4080328 /* UPTEthereumSigner+Utils.h in Headers */,
+				444474FFDBEF29C03B88A2CADA333AAA /* UPTEthereumSigner-umbrella.h in Headers */,
+				0DB88E11BADA986248C848AD98EF8D33 /* UPTEthereumSigner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92CF8202607080A615609E18CB36CCF1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -827,17 +838,6 @@
 				60CD83FA1B2BF6E93B59834C1E0CBEF0 /* EXPUnsupportedObject.h in Headers */,
 				DB8F3665E9E382DF52E0DCB4DECE5EAE /* NSObject+Expecta.h in Headers */,
 				5922E3B61E351E2A21095BD92E4FE8AC /* NSValue+Expecta.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB8E8439356D1401E93B1108FFC4DD20 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FEB009D00A1341E8C3A70390891BE39 /* keccak.h in Headers */,
-				D26EB87AD54047E14D13C74D787541EE /* UPTEthereumSigner-umbrella.h in Headers */,
-				5A14F2C92F5567A4870F86D401C8F7A4 /* UPTEthSigner+Utils.h in Headers */,
-				FAAD66B21DB64EFE88EAF57B8469068A /* UPTEthSigner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,9 +941,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B13127CE56C7887CB878582F6C4C3587 /* Build configuration list for PBXNativeTarget "UPTEthereumSigner" */;
 			buildPhases = (
-				CAA3006455454B658A0A7889E23C4D58 /* Sources */,
+				43452A4B3DD8BA288A239B90007E2F1D /* Sources */,
 				1CC5FED907B48F059132824F46B2A931 /* Frameworks */,
-				DB8E8439356D1401E93B1108FFC4DD20 /* Headers */,
+				5F3792F72D1EDF8EB20FE2A20E78A8E2 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1014,6 +1014,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43452A4B3DD8BA288A239B90007E2F1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0560BC87690BE371EA3EA3E874229CA8 /* keccak.c in Sources */,
+				6E0343187EE61DC330B5938935498C22 /* UPTEthereumSigner+Utils.m in Sources */,
+				69B87E1E1052E95F909E58A535E8BA36 /* UPTEthereumSigner-dummy.m in Sources */,
+				C170AC594A215E251704E1E50C419811 /* UPTEthereumSigner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77C90F8831C2C4BB41F78C1003CBF6F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1031,17 +1042,6 @@
 				09DD5C41A94598AF6C26705DCB4A1542 /* VALSinglePromptSecureEnclaveValet.m in Sources */,
 				24A8AB7C9EC9C677F658337B6F2B3DBE /* VALSynchronizableValet.m in Sources */,
 				08ECC42711625D1601713BE15389FE8E /* VALValet.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CAA3006455454B658A0A7889E23C4D58 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				650C958C145C4AE2E38DD5391DF28296 /* keccak.c in Sources */,
-				4F1F48297B2B3148BD9DEACDCA1B16DE /* UPTEthereumSigner-dummy.m in Sources */,
-				DF57E1455654395ABB362394934C180C /* UPTEthSigner+Utils.m in Sources */,
-				D07787DD3703206EDB86F01C0447FACB /* UPTEthSigner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,143 +1141,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0DFB6006D34BFF3185D5178FAEAA403F /* Debug */ = {
+		0A6D36B3D210160787FE2795E72891B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04C385EFDEE21DF24D72466E72D882DF /* Pods-UPTEthereumSigner_Example.debug.xcconfig */;
+			baseConfigurationReference = AE56011DE8ADD2E61A134C4497C81448 /* Valet.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_UPTEthereumSigner_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		198AE47891143801A72A95420D434EEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60C17E12C7CC18B3AD49431AE9767877 /* Specta.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Valet/Valet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Valet/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Specta;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		1D6A53FBD0575A2C775BFD1EDA32A7E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 936D72F8A81FBEF294F3417B804D532F /* Expecta.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Expecta;
+				MODULEMAP_FILE = "Target Support Files/Valet/Valet.modulemap";
+				PRODUCT_NAME = Valet;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1287,109 +1170,7 @@
 			};
 			name = Debug;
 		};
-		2E0781AF62A325880EAFA56FE1400CE6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DB8902EC23C3630ACD48B1606DFA288 /* Pods-UPTEthereumSigner_Tests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_UPTEthereumSigner_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		477FA64726BD00870AD885CAF1A47E49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6020C61E1F475A692D5C77D1EA05B168 /* UPTEthereumSigner.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UPTEthereumSigner/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = UPTEthereumSigner;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5CB744F5C1923D1E3DC52EC1B2865B72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6020C61E1F475A692D5C77D1EA05B168 /* UPTEthereumSigner.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UPTEthereumSigner/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = UPTEthereumSigner;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		713AED8F00E7BE3F65A12E03534A470F /* Release */ = {
+		0E99EF816EC50D6BC3E4EDD14E51AF08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B0128BE16E1F2849AC238FDE4C3E921 /* Pods-UPTEthereumSigner_Example.release.xcconfig */;
 			buildSettings = {
@@ -1398,20 +1179,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1420,35 +1197,32 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		A3E2A46C31B1954152ED89038689ACC9 /* Debug */ = {
+		2350C2A04ADF9D85794C9DD0E5547D02 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60C17E12C7CC18B3AD49431AE9767877 /* Specta.xcconfig */;
+			baseConfigurationReference = 9C55789CBDE5E4C9BDA77C52522D15C6 /* UPTEthereumSigner.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UPTEthereumSigner/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Specta;
+				MODULEMAP_FILE = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner.modulemap";
+				PRODUCT_NAME = UPTEthereumSigner;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1458,95 +1232,85 @@
 			};
 			name = Debug;
 		};
-		D35785CCA2420CECB0EE8B86F8E02F3B /* Release */ = {
+		33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 936D72F8A81FBEF294F3417B804D532F /* Expecta.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Expecta;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
 			};
-			name = Release;
+			name = Debug;
 		};
-		D45CD18F82C39E2CB73DC57A0F3D56A3 /* Release */ = {
+		58FB63CE0A10A1FB8C21C69EAABC073F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE56011DE8ADD2E61A134C4497C81448 /* Valet.xcconfig */;
+			baseConfigurationReference = 5DB8902EC23C3630ACD48B1606DFA288 /* Pods-UPTEthereumSigner_Tests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Valet/Valet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Valet/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Valet/Valet.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Valet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DF73CA4127FD54B35A9DD7FD2D0A10FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAAFEEEAB518B313AC87C1754112CE4C /* Pods-UPTEthereumSigner_Tests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1558,58 +1322,215 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		EED546DBB23FC32035C9BDC4E22B30BD /* Debug */ = {
+		731DC216E1A58545B559F6E0A2418060 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
+					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				ONLY_ACTIVE_ARCH = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		AEDEBEE075C9466BC64FCF0DF9034EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C17E12C7CC18B3AD49431AE9767877 /* Specta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
+				PRODUCT_NAME = Specta;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		FD68B52A09028EDF4B14469A0997105A /* Debug */ = {
+		BA4F1ED3346E0B98F9B00E397D96A96B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C55789CBDE5E4C9BDA77C52522D15C6 /* UPTEthereumSigner.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UPTEthereumSigner/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UPTEthereumSigner/UPTEthereumSigner.modulemap";
+				PRODUCT_NAME = UPTEthereumSigner;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BF941798014BAFEC5D7929EE751A72B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04C385EFDEE21DF24D72466E72D882DF /* Pods-UPTEthereumSigner_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_UPTEthereumSigner_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C032723FE6C1C815F8DEB376CB25A4D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C17E12C7CC18B3AD49431AE9767877 /* Specta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Specta/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Specta/Specta.modulemap";
+				PRODUCT_NAME = Specta;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C32A2B860FAB4960C7E591A3A8F31465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 936D72F8A81FBEF294F3417B804D532F /* Expecta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
+				PRODUCT_NAME = Expecta;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E04E0CDEA501A6CAEA30282563A47ACD /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE56011DE8ADD2E61A134C4497C81448 /* Valet.xcconfig */;
 			buildSettings = {
@@ -1618,21 +1539,80 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Valet/Valet-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Valet/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Valet/Valet.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Valet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E3ACB8A7F8D809C89AC711D7DF817231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAAFEEEAB518B313AC87C1754112CE4C /* Pods-UPTEthereumSigner_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_UPTEthereumSigner_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD88F8B1E5A792FF8C0BC3B33047A1D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 936D72F8A81FBEF294F3417B804D532F /* Expecta.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Expecta/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Expecta/Expecta.modulemap";
+				PRODUCT_NAME = Expecta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -1648,8 +1628,8 @@
 		09381A9A84A0A8E73577B2BF10E583E5 /* Build configuration list for PBXNativeTarget "Expecta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1D6A53FBD0575A2C775BFD1EDA32A7E6 /* Debug */,
-				D35785CCA2420CECB0EE8B86F8E02F3B /* Release */,
+				FD88F8B1E5A792FF8C0BC3B33047A1D1 /* Debug */,
+				C32A2B860FAB4960C7E591A3A8F31465 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1657,8 +1637,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EED546DBB23FC32035C9BDC4E22B30BD /* Debug */,
-				157AF0CD5E5AB2A2E74D3B8ECD865185 /* Release */,
+				33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */,
+				731DC216E1A58545B559F6E0A2418060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1666,8 +1646,8 @@
 		396C2888D63435118AB6861070FBAB8A /* Build configuration list for PBXNativeTarget "Pods-UPTEthereumSigner_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0DFB6006D34BFF3185D5178FAEAA403F /* Debug */,
-				713AED8F00E7BE3F65A12E03534A470F /* Release */,
+				BF941798014BAFEC5D7929EE751A72B3 /* Debug */,
+				0E99EF816EC50D6BC3E4EDD14E51AF08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1675,8 +1655,8 @@
 		64283F0A896B6CFAB08EA467E36A1663 /* Build configuration list for PBXNativeTarget "Pods-UPTEthereumSigner_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E0781AF62A325880EAFA56FE1400CE6 /* Debug */,
-				DF73CA4127FD54B35A9DD7FD2D0A10FE /* Release */,
+				58FB63CE0A10A1FB8C21C69EAABC073F /* Debug */,
+				E3ACB8A7F8D809C89AC711D7DF817231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1684,8 +1664,8 @@
 		64A37E57AEAA2E17DC9497175FC71CBB /* Build configuration list for PBXNativeTarget "Specta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A3E2A46C31B1954152ED89038689ACC9 /* Debug */,
-				198AE47891143801A72A95420D434EEB /* Release */,
+				AEDEBEE075C9466BC64FCF0DF9034EE4 /* Debug */,
+				C032723FE6C1C815F8DEB376CB25A4D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1693,8 +1673,8 @@
 		B13127CE56C7887CB878582F6C4C3587 /* Build configuration list for PBXNativeTarget "UPTEthereumSigner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				477FA64726BD00870AD885CAF1A47E49 /* Debug */,
-				5CB744F5C1923D1E3DC52EC1B2865B72 /* Release */,
+				2350C2A04ADF9D85794C9DD0E5547D02 /* Debug */,
+				BA4F1ED3346E0B98F9B00E397D96A96B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1702,8 +1682,8 @@
 		F7E3DCA645540BE40C9DB5DCDBEBD694 /* Build configuration list for PBXNativeTarget "Valet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD68B52A09028EDF4B14469A0997105A /* Debug */,
-				D45CD18F82C39E2CB73DC57A0F3D56A3 /* Release */,
+				0A6D36B3D210160787FE2795E72891B0 /* Debug */,
+				E04E0CDEA501A6CAEA30282563A47ACD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
