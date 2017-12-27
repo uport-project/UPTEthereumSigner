@@ -19,15 +19,6 @@
     return [NSData dataWithBytes:outputBytes length:32];
 }
 
-+ (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
-  NSArray<NSString *> *storageLevels = @[ ReactNativeKeychainProtectionLevelNormal,
-                                          ReactNativeKeychainProtectionLevelICloud,
-                                          ReactNativeKeychainProtectionLevelPromptSecureEnclave,
-                                          ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave];
-  return (UPTEthKeychainProtectionLevel)[storageLevels indexOfObject:storageLevel];
-}
-
-
 + (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
     NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
     if ( characterConverted.length % 4 != 0 ) {

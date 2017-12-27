@@ -25,11 +25,6 @@
 static int     BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key);
 static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check);
 
-NSString *const ReactNativeKeychainProtectionLevelNormal = @"simple";
-NSString *const ReactNativeKeychainProtectionLevelICloud = @"cloud"; // icloud keychain backup
-NSString *const ReactNativeKeychainProtectionLevelPromptSecureEnclave = @"prompt";
-NSString *const ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave = @"singleprompt";
-
 /// @description identifiers so valet can scope and encapsulate our keys in the keychain
 NSString *const UPTPrivateKeyIdentifier = @"UportPrivateKeys";
 NSString *const UPTProtectionLevelIdentifier = @"UportProtectionLevelIdentifier";
