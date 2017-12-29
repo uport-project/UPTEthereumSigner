@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031B79421FF47DE9003EEF5F /* UPTCreateKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */; };
+		031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */; };
 		0338185B1FE890D9000C90EE /* KeyPairsTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0338185A1FE890D9000C90EE /* KeyPairsTestData.plist */; };
 		03381A261FEC3210000C90EE /* ReferenceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03381A251FEC3210000C90EE /* ReferenceData.plist */; };
 		03C47E161FDB1B9C00409082 /* SignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C47E151FDB1B9C00409082 /* SignerTests.m */; };
@@ -17,7 +19,7 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* UPTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* UPTAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* UPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* UPTViewController.m */; };
+		6003F5A7195388D20070C39A /* UPTMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* UPTMainTableViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031B79401FF47DE9003EEF5F /* UPTCreateKeysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTCreateKeysViewController.h; sourceTree = "<group>"; };
+		031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTCreateKeysViewController.m; sourceTree = "<group>"; };
+		031B79441FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTSaveFromPrivateKeyViewController.h; sourceTree = "<group>"; };
+		031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTSaveFromPrivateKeyViewController.m; sourceTree = "<group>"; };
 		0338185A1FE890D9000C90EE /* KeyPairsTestData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyPairsTestData.plist; sourceTree = "<group>"; };
 		03381A251FEC3210000C90EE /* ReferenceData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReferenceData.plist; sourceTree = "<group>"; };
 		033DCCC41FDE25DA00E3E4DF /* CoreBitcoin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBitcoin.framework; path = ../UPTEthereumSigner/CoreBitcoin.framework; sourceTree = "<group>"; };
@@ -55,8 +61,8 @@
 		6003F59B195388D20070C39A /* UPTEthereumSigner-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UPTEthereumSigner-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* UPTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* UPTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* UPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* UPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTViewController.m; sourceTree = "<group>"; };
+		6003F5A5195388D20070C39A /* UPTMainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTMainTableViewController.h; sourceTree = "<group>"; };
+		6003F5A6195388D20070C39A /* UPTMainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTMainTableViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* UPTEthereumSigner_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPTEthereumSigner_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -100,6 +106,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031B79431FF47DF0003EEF5F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6003F59C195388D20070C39A /* UPTAppDelegate.h */,
+				6003F59D195388D20070C39A /* UPTAppDelegate.m */,
+				6003F5A5195388D20070C39A /* UPTMainTableViewController.h */,
+				6003F5A6195388D20070C39A /* UPTMainTableViewController.m */,
+				031B79401FF47DE9003EEF5F /* UPTCreateKeysViewController.h */,
+				031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */,
+				031B79441FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.h */,
+				031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		40891B135CC502C6C2674644 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,11 +170,8 @@
 		6003F593195388D20070C39A /* Example for UPTEthereumSigner */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* UPTAppDelegate.h */,
-				6003F59D195388D20070C39A /* UPTAppDelegate.m */,
+				031B79431FF47DF0003EEF5F /* Classes */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* UPTViewController.h */,
-				6003F5A6195388D20070C39A /* UPTViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -423,8 +441,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				031B79421FF47DE9003EEF5F /* UPTCreateKeysViewController.m in Sources */,
+				031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */,
 				6003F59E195388D20070C39A /* UPTAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* UPTViewController.m in Sources */,
+				6003F5A7195388D20070C39A /* UPTMainTableViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +601,7 @@
 				INFOPLIST_FILE = "UPTEthereumSigner/UPTEthereumSigner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.uport.UPTEthereumSigner-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -598,7 +618,7 @@
 				INFOPLIST_FILE = "UPTEthereumSigner/UPTEthereumSigner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.uport.UPTEthereumSigner-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

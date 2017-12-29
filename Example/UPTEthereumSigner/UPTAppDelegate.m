@@ -12,7 +12,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Some features cannot be used on the simulator like secure enclave private key storage
+#if TARGET_OS_SIMULATOR
+    NSLOG(@"*****FOR BEST RESULTS PLEASE RUN UPTEthereumSigner ON A DEVICE*****")
+#endif
     return YES;
 }
 
