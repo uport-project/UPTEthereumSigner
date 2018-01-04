@@ -11,6 +11,7 @@
 		031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */; };
 		0338185B1FE890D9000C90EE /* KeyPairsTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0338185A1FE890D9000C90EE /* KeyPairsTestData.plist */; };
 		03381A261FEC3210000C90EE /* ReferenceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03381A251FEC3210000C90EE /* ReferenceData.plist */; };
+		034935551FFD75470048A771 /* UPTSignTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 034935541FFD75470048A771 /* UPTSignTransactionViewController.m */; };
 		03C47E161FDB1B9C00409082 /* SignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C47E151FDB1B9C00409082 /* SignerTests.m */; };
 		1D2906FDBC26118C6AEED9C5 /* Pods_UPTEthereumSigner_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB47367B69773EC212752FBC /* Pods_UPTEthereumSigner_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -48,6 +49,8 @@
 		0338185A1FE890D9000C90EE /* KeyPairsTestData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyPairsTestData.plist; sourceTree = "<group>"; };
 		03381A251FEC3210000C90EE /* ReferenceData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReferenceData.plist; sourceTree = "<group>"; };
 		033DCCC41FDE25DA00E3E4DF /* CoreBitcoin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBitcoin.framework; path = ../UPTEthereumSigner/CoreBitcoin.framework; sourceTree = "<group>"; };
+		034935531FFD75470048A771 /* UPTSignTransactionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTSignTransactionViewController.h; sourceTree = "<group>"; };
+		034935541FFD75470048A771 /* UPTSignTransactionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTSignTransactionViewController.m; sourceTree = "<group>"; };
 		03C47E151FDB1B9C00409082 /* SignerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignerTests.m; sourceTree = "<group>"; };
 		316E86DC4A194358DCEC73E5 /* Pods_UPTEthereumSigner_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UPTEthereumSigner_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5530B5FB552E0F3A4D6FEF8A /* Pods-UPTEthereumSigner_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPTEthereumSigner_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */,
 				031B79441FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.h */,
 				031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */,
+				034935531FFD75470048A771 /* UPTSignTransactionViewController.h */,
+				034935541FFD75470048A771 /* UPTSignTransactionViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -413,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FA2B1638DB4C4E53EFAC723B /* [CP] Check Pods Manifest.lock */ = {
@@ -431,7 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -441,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034935551FFD75470048A771 /* UPTSignTransactionViewController.m in Sources */,
 				031B79421FF47DE9003EEF5F /* UPTCreateKeysViewController.m in Sources */,
 				031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */,
 				6003F59E195388D20070C39A /* UPTAppDelegate.m in Sources */,

@@ -12,7 +12,6 @@
 @interface UPTCreateKeysViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *ethereumAddress;
 @property (weak, nonatomic) IBOutlet UITextField *publicKey;
-@property (weak, nonatomic) IBOutlet UITextView *errorDescription;
 
 @end
 
@@ -24,11 +23,10 @@
         if ( !error ) {
             weakSelf.ethereumAddress.text = ethAddress;
             weakSelf.publicKey.text = publicKey;
-            weakSelf.errorDescription.text = @"No error";
         } else {
             weakSelf.ethereumAddress.text = @"";
             weakSelf.publicKey.text = @"";
-            weakSelf.errorDescription.text = error.description;
+            NSLog( @"Error creating keys: %@", error.description );
         }
     }];
 }
