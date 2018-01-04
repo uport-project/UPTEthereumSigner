@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7524153-2a0d-42dd-bd74-b7405c632045" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
-      <change beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
-      <change beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Expecta/Expecta.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Expecta/Expecta.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-acknowledgements.markdown" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-acknowledgements.plist" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-frameworks.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-frameworks.sh" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-resources.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example-resources.sh" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.debug.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Example/Pods-UPTEthereumSigner_Example.release.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests-frameworks.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests-frameworks.sh" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests-resources.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests-resources.sh" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.debug.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-UPTEthereumSigner_Tests/Pods-UPTEthereumSigner_Tests.release.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Specta/Specta.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Specta/Specta.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/UPTEthereumSigner/UPTEthereumSigner.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/UPTEthereumSigner/UPTEthereumSigner.xcconfig" />
-      <change beforePath="$PROJECT_DIR$/Pods/Target Support Files/Valet/Valet.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Valet/Valet.xcconfig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTSignJWTViewController.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTSignJWTViewController.m" />
       <change beforePath="$PROJECT_DIR$/UPTEthereumSigner.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/UPTEthereumSigner.xcodeproj/project.pbxproj" />
       <change beforePath="$PROJECT_DIR$/UPTEthereumSigner/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/UPTEthereumSigner/Base.lproj/Main.storyboard" />
-      <change beforePath="$PROJECT_DIR$/UPTEthereumSigner/UPTCreateKeysViewController.m" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTCreateKeysViewController.m" />
-      <change beforePath="$PROJECT_DIR$/UPTEthereumSigner/UPTSaveFromPrivateKeyViewController.m" afterPath="$PROJECT_DIR$/UPTEthereumSigner/UPTSaveFromPrivateKeyViewController.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +20,8 @@
       <file leaf-file-name="SignerTests.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/SignerTests.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="126" selection-end-column="15" />
+            <state relative-caret-position="651">
+              <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
               <folding>
                 <element signature="e#188#221#0" expanded="true" />
               </folding>
@@ -49,13 +29,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UPTSignTransactionViewController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UPTSignTransactionViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1038">
+            <state relative-caret-position="932">
               <caret line="69" column="103" lean-forward="false" selection-start-line="69" selection-start-column="103" selection-end-line="69" selection-end-column="103" />
               <folding>
                 <element signature="e#158#205#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UPTSignJWTViewController.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignJWTViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1120">
+              <caret line="82" column="78" lean-forward="false" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+              <folding>
+                <element signature="e#150#197#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,16 +115,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keccak.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/keccak.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="keccak.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/keccak.c">
           <provider selected="true" editor-type-id="text-editor">
@@ -169,6 +151,7 @@
         <option value="$PROJECT_DIR$/UPTEthereumSigner/UPTSaveFromPrivateKeyViewController.m" />
         <option value="$PROJECT_DIR$/Podfile" />
         <option value="$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m" />
+        <option value="$PROJECT_DIR$/UPTEthereumSigner/UPTSignJWTViewController.m" />
       </list>
     </option>
   </component>
@@ -200,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -232,6 +214,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,20 +251,20 @@
       <workItem from="1513880854023" duration="1379000" />
       <workItem from="1514997839532" duration="80000" />
       <workItem from="1514997948097" duration="7471000" />
+      <workItem from="1515090289642" duration="1375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11802000" />
+    <option name="totallyTimeSpent" value="13177000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1412" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10476565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11185506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -291,6 +274,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -310,6 +294,92 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Tests/SignerTests.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2088">
+          <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="126" selection-end-column="15" />
+          <folding>
+            <element signature="e#188#221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/UPTEthereumSigner+Utils.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/UPTEthereumSigner.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSaveFromPrivateKeyViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#163#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/UPTEthereumSigner+Utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/UPTEthereumSigner.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/keccak.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../UPTEthereumSigner/Classes/keccak.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="69" column="103" lean-forward="false" selection-start-line="69" selection-start-column="103" selection-end-line="69" selection-end-column="103" />
+          <folding>
+            <element signature="e#158#205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/SignerTests.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -556,22 +626,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="932">
+          <caret line="69" column="103" lean-forward="false" selection-start-line="69" selection-start-column="103" selection-end-line="69" selection-end-column="103" />
+          <folding>
+            <element signature="e#158#205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/SignerTests.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="126" selection-end-column="15" />
+        <state relative-caret-position="651">
+          <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
           <folding>
             <element signature="e#188#221#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignTransactionViewController.m">
+    <entry file="file://$PROJECT_DIR$/UPTEthereumSigner/UPTSignJWTViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1038">
-          <caret line="69" column="103" lean-forward="false" selection-start-line="69" selection-start-column="103" selection-end-line="69" selection-end-column="103" />
+        <state relative-caret-position="1120">
+          <caret line="82" column="78" lean-forward="false" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
           <folding>
-            <element signature="e#158#205#0" expanded="true" />
+            <element signature="e#150#197#0" expanded="true" />
           </folding>
         </state>
       </provider>

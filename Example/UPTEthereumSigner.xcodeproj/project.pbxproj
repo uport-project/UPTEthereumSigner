@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0314F6641FFEA65600912E04 /* UPTSignJWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0314F6631FFEA65600912E04 /* UPTSignJWTViewController.m */; };
 		031B79421FF47DE9003EEF5F /* UPTCreateKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */; };
 		031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */; };
 		0338185B1FE890D9000C90EE /* KeyPairsTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0338185A1FE890D9000C90EE /* KeyPairsTestData.plist */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0314F6621FFEA65600912E04 /* UPTSignJWTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTSignJWTViewController.h; sourceTree = "<group>"; };
+		0314F6631FFEA65600912E04 /* UPTSignJWTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTSignJWTViewController.m; sourceTree = "<group>"; };
 		031B79401FF47DE9003EEF5F /* UPTCreateKeysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTCreateKeysViewController.h; sourceTree = "<group>"; };
 		031B79411FF47DE9003EEF5F /* UPTCreateKeysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTCreateKeysViewController.m; sourceTree = "<group>"; };
 		031B79441FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPTSaveFromPrivateKeyViewController.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				031B79451FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m */,
 				034935531FFD75470048A771 /* UPTSignTransactionViewController.h */,
 				034935541FFD75470048A771 /* UPTSignTransactionViewController.m */,
+				0314F6621FFEA65600912E04 /* UPTSignJWTViewController.h */,
+				0314F6631FFEA65600912E04 /* UPTSignJWTViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 				031B79461FF585DB003EEF5F /* UPTSaveFromPrivateKeyViewController.m in Sources */,
 				6003F59E195388D20070C39A /* UPTAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* UPTMainTableViewController.m in Sources */,
+				0314F6641FFEA65600912E04 /* UPTSignJWTViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
