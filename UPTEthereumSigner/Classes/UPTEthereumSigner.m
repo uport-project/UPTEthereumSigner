@@ -10,7 +10,6 @@
 
 #import "UPTEthereumSigner.h"
 #import "UPTEthereumSigner+Utils.h"
-#import <CoreBitcoin/CoreBitcoin.h>
 #import <CoreBitcoin/CoreBitcoin+Categories.h>
 #import <CoreBitcoin/openssl/rand.h>
 #include <CoreBitcoin/openssl/ec.h>
