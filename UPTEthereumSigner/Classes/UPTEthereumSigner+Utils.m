@@ -1,9 +1,9 @@
 //
-//  UPTEthereumSigner+Utils.m
+//  UPTEthSigner+Utils.m
 //  uPortMobile
 //
 //  Created by josh on 10/18/17.
-//  Copyright © 2017 ConsenSys. All rights reserved.
+//  Copyright © 2017 ConsenSys AG. All rights reserved.
 //
 
 #import <CoreBitcoin/CoreBitcoin.h>
@@ -18,6 +18,23 @@
     sha3_256((unsigned char *)outputBytes, 32, (unsigned char *)[input bytes], (unsigned int)[input length]);
     return [NSData dataWithBytes:outputBytes length:32];
 }
+
++ (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
+  NSArray<NSString *> *storageLevels = @[ ReactNativeKeychainProtectionLevelNormal,
+                                          ReactNativeKeychainProtectionLevelICloud,
+                                          ReactNativeKeychainProtectionLevelPromptSecureEnclave,
+                                          ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave];
+  return (UPTEthKeychainProtectionLevel)[storageLevels indexOfObject:storageLevel];
+}
+
++ (NSString *)hexStringWithDataKey:(NSData *)dataPrivateKey {
+    return BTCHexFromData(dataPrivateKey);
+}
+
++ (NSData *)dataFromHexString:(NSString *)originalHexString {
+    return BTCDataFromHex(originalHexString);
+}
+
 
 + (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
     NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];

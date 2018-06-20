@@ -1,9 +1,9 @@
 //
-//  UPTEthereumSigner.m
+//  UPTEthSigner.m
 //  uPortMobile
 //
 //  Created by josh on 10/18/17.
-//  Copyright © 2017 ConsenSys. All rights reserved.
+//  Copyright © 2017 ConsenSys AG. All rights reserved.
 //
 
 #import "UPTEthereumSigner.h"
@@ -21,11 +21,17 @@
 #include <CoreBitcoin/openssl/bn.h>
 #include <CoreBitcoin/openssl/evp.h>
 #include <CoreBitcoin/openssl/obj_mac.h>
+#include <CoreBitcoin/openssl/rand.h>
 
 static int     BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key);
 static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check);
 
-/// @description identifiers so valet can scope and encapsulate our keys in the keychain
+NSString *const ReactNativeKeychainProtectionLevelNormal = @"simple";
+NSString *const ReactNativeKeychainProtectionLevelICloud = @"cloud"; // icloud keychain backup
+NSString *const ReactNativeKeychainProtectionLevelPromptSecureEnclave = @"prompt";
+NSString *const ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave = @"singleprompt";
+
+/// @description identifiers so valet can encapsulate our keys in the keychain
 NSString *const UPTPrivateKeyIdentifier = @"UportPrivateKeys";
 NSString *const UPTProtectionLevelIdentifier = @"UportProtectionLevelIdentifier";
 NSString *const UPTEthAddressIdentifier = @"UportEthAddressIdentifier";
@@ -219,8 +225,8 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 
-/// @description saves the private key and requested protection level in the keychain
-/// @description private key converted to nsdata without base64 encryption
+/// @description - saves the private key and requested protection level in the keychain
+///              - private key converted to nsdata without base64 encryption
 + (void)saveKey:(NSData *)privateKey protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel result:(UPTEthSignerKeyPairCreationResult)result {
     BTCKey *keyPair = [[BTCKey alloc] initWithPrivateKey:privateKey];
     NSString *ethAddress = [UPTEthereumSigner ethAddressWithPublicKey:keyPair.publicKey];
@@ -299,7 +305,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     [addressKeystore setString:ethAddress forKey:ethAddress];
 }
 
-/// @param userPromptText the string to display to the user when requesting access to the secure enclave
+/// @param usePromptText the string to display to the user when requesting access to the secure enclave
 /// @return private key as NSData
 + (NSData *)privateKeyWithEthAddress:(NSString *)ethAddress userPromptText:(NSString *)userPromptText protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel {
     VALValet *privateKeystore = [self privateKeystoreWithProtectionLevel:protectionLevel];
@@ -332,7 +338,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 
     return privateKey;
 }
-/// @param userPromptText the string to display to the user when requesting access to the secure enclave
+/// @param usePromptText the string to display to the user when requesting access to the secure enclave
 /// @return BTCKey
 + (BTCKey *)keyPairWithEthAddress:(NSString *)ethAddress userPromptText:(NSString *)userPromptText protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel {
   NSData *privateKey = [self privateKeyWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
@@ -343,7 +349,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
   }
 }
 
-/// @param protectionLevel indicates which private keystore to create and return
+/// @param storageLevel indicates which private keystore to create and return
 /// @return returns VALValet or valid subclass: VALSynchronizableValet, VALSecureEnclaveValet, VALSinglePromptSecureEnclaveValet
 + (VALValet *)privateKeystoreWithProtectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel {
     VALValet *keystore;

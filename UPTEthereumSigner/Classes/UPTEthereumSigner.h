@@ -1,9 +1,9 @@
 //
-//  UPTEthereumSigner.h
+//  UPTEthSigner.h
 //  uPortMobile
 //
 //  Created by josh on 10/18/17.
-//  Copyright © 2017 ConsenSys. All rights reserved.
+//  Copyright © 2017 ConsenSys AG. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -29,8 +29,16 @@ typedef NS_ENUM( NSInteger, UPTEthKeychainProtectionLevel ) {
   UPTEthKeychainProtectionLevelNotRecognized = NSNotFound
 };
 
+///
+/// @description: these strings are the possible strings passed in from react native as indicated in clubhouse task 2565
+///
+FOUNDATION_EXPORT NSString *const ReactNativeKeychainProtectionLevelNormal;
+FOUNDATION_EXPORT NSString *const ReactNativeKeychainProtectionLevelICloud;
+FOUNDATION_EXPORT NSString *const ReactNativeKeychainProtectionLevelPromptSecureEnclave;
+FOUNDATION_EXPORT NSString *const ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave;
+
 /// @description level param is not recognized by the system
-/// @debugStrategy add support for new level value or fix possible typo or incompatibility error
+/// @debugStrategy add support for new level value or fix possible typo or incompatibility error on react native js side
 FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelParamNotRecognized;
 FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound;
 
@@ -42,6 +50,8 @@ typedef void (^UPTEthSignerKeyPairCreationResult)(NSString *ethAddress, NSString
 
 typedef void (^UPTEthSignerTransactionSigningResult)(NSDictionary *signature, NSError *error);
 typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
+
+@class VALValet;
 
 @interface UPTEthereumSigner : NSObject
 
