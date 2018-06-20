@@ -6,14 +6,11 @@
 //  Copyright © 2018 ConsenSys AG. All rights reserved.
 //
 
+@import Valet;
 #import "UPTHDSigner.h"
 #import <CoreBitcoin/BTCMnemonic.h>
 #import "keccak.h"
 #import <CoreBitcoin/CoreBitcoin+Categories.h>
-#import <Valet/VALValet.h>
-#import <Valet/VALSynchronizableValet.h>
-#import <Valet/VALSecureEnclaveValet.h>
-#import <Valet/VALSinglePromptSecureEnclaveValet.h>
 #import "UPTHDSigner+Utils.h"
 #import "CoreBitcoin/openssl/obj_mac.h"
 
@@ -61,7 +58,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
         return;
     }
 
-    NSString *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
     if (!masterEntropy) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
@@ -106,7 +103,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
         return;
     }
 
-    NSString *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
     if (!masterEntropy) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, nil, protectionLevelError);
@@ -130,7 +127,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
         return;
     }
 
-    NSString *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
     if (!masterEntropy) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
@@ -147,7 +144,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     callback(signature, nil);
 }
 
-+ (void)signJWT:(NSString *)rootAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
++ (void)signJWT:(NSString *)rootAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
@@ -224,25 +221,25 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     return (UPTHDSignerProtectionLevel)protectionLevel.integerValue;
 }
 
-/// @param storageLevel indicates which private keystore to create and return
+/// @param protectionLevel indicates which private keystore to create and return
 /// @return returns VALValet or valid subclass: VALSynchronizableValet, VALSecureEnclaveValet, VALSinglePromptSecureEnclaveValet
 + (VALValet *)privateKeystoreWithProtectionLevel:(UPTHDSignerProtectionLevel)protectionLevel {
     VALValet *keystore;
     switch ( protectionLevel ) {
         case UPTHDSignerProtectionLevelNormal: {
-            keystore = [[VALValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
+            keystore = [VALValet valetWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityAlwaysThisDeviceOnly];
             break;
         }
         case UPTHDSignerProtectionLevelICloud: {
-            keystore = [[VALSynchronizableValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlocked];
+            keystore = [VALValet iCloudValetWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALCloudAccessibilityWhenUnlocked];
             break;
         }
         case UPTHDSignerProtectionLevelPromptSecureEnclave: {
-            keystore = [[VALSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [VALSecureEnclaveValet valetWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
             break;
         }
         case UPTHDSignerProtectionLevelSinglePromptSecureEnclave: {
-            keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [VALSinglePromptSecureEnclaveValet valetWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
             break;
         }
         case UPTHDSignerProtectionLevelNotRecognized:
@@ -265,7 +262,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)keystoreForProtectionLevels {
-    return [[VALValet alloc] initWithIdentifier:UPTHDProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
+    return [VALValet valetWithIdentifier:UPTHDProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
 }
 
 + (NSString *)entropyLookupKeyNameWithEthAddress:(NSString *)ethAddress {
@@ -277,7 +274,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)ethAddressesKeystore {
-    return [[VALValet alloc] initWithIdentifier:UPTHDAddressIdentifier accessibility:VALAccessibilityAlways];
+    return [VALValet valetWithIdentifier:UPTHDAddressIdentifier accessibility:VALAccessibilityAlways];
 }
 
 /// @return NSString a derived version of UPTEthKeychainProtectionLevel appropriate for keychain storage
@@ -290,7 +287,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     [addressKeystore setString:ethAddress forKey:ethAddress];
 }
 
-/// @param usePromptText the string to display to the user when requesting access to the secure enclave
+/// @param userPromptText the string to display to the user when requesting access to the secure enclave
 /// @return private key as NSData
 + (NSData *)entropyWithEthAddress:(NSString *)ethAddress userPromptText:(NSString *)userPromptText protectionLevel:(UPTHDSignerProtectionLevel)protectionLevel {
     VALValet *entropyKeystore = [self privateKeystoreWithProtectionLevel:protectionLevel];
@@ -306,11 +303,11 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
             break;
         }
         case UPTHDSignerProtectionLevelPromptSecureEnclave: {
-            entropy = [(VALSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText];
+            entropy = [(VALSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText userCancelled:nil];
             break;
         }
         case UPTHDSignerProtectionLevelSinglePromptSecureEnclave: {
-            entropy = [(VALSinglePromptSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText];
+            entropy = [(VALSinglePromptSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText userCancelled:nil];
             break;
         }
         case UPTHDSignerProtectionLevelNotRecognized:

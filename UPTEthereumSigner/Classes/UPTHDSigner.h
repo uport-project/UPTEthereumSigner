@@ -77,10 +77,10 @@ FOUNDATION_EXPORT NSString * const UPORT_ROOT_DERIVATION_PATH;
 + (void)computeAddressForPath:(NSString *)address derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerSeedCreationResult)callback;
 
 
-/// @param  address     a root account Ethereum address
+/// @param  ethereumAddress     a root account Ethereum address
 + (void)signTransaction:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback;
 
-/// @param  address     a root account Ethereum address
+/// @param  ethereumAddress     a root account Ethereum address
 + (void)signJWT:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback;
 
 /// @param rootAddress  a root account Ethereum address
