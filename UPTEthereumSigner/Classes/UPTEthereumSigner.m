@@ -6,12 +6,9 @@
 //  Copyright © 2017 ConsenSys. All rights reserved.
 //
 
-#import "UPTEthereumSigner.h"
+@import Valet;
 
-#import <Valet/VALValet.h>
-#import <Valet/VALSecureEnclaveValet.h>
-#import <Valet/VALSynchronizableValet.h>
-#import <Valet/VALSinglePromptSecureEnclaveValet.h>
+#import "UPTEthereumSigner.h"
 #import "UPTEthereumSigner+Utils.h"
 #import <CoreBitcoin/CoreBitcoin.h>
 #import <CoreBitcoin/CoreBitcoin+Categories.h>
@@ -256,7 +253,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)keystoreForProtectionLevels {
-    return [[VALValet alloc] initWithIdentifier:UPTProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
+    return [VALValet valetWithIdentifier:UPTProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
 }
 
 + (NSString *)privateKeyLookupKeyNameWithEthAddress:(NSString *)ethAddress {
@@ -268,7 +265,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)ethAddressesKeystore {
-    return [[VALValet alloc] initWithIdentifier:UPTEthAddressIdentifier accessibility:VALAccessibilityAlways];
+    return [VALValet valetWithIdentifier:UPTEthAddressIdentifier accessibility:VALAccessibilityAlways];
 }
 
 /// @return NSString a derived version of UPTEthKeychainProtectionLevel appropriate for keychain storage
@@ -315,11 +312,11 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
             break;
         }
         case UPTEthKeychainProtectionLevelPromptSecureEnclave: {
-            privateKey = [(VALSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText];
+            privateKey = [(VALSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText userCancelled:nil];
             break;
         }
         case UPTEthKeychainProtectionLevelSinglePromptSecureEnclave: {
-            privateKey = [(VALSinglePromptSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText];
+            privateKey = [(VALSinglePromptSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText userCancelled:nil];
             break;
         }
         case UPTEthKeychainProtectionLevelNotRecognized:
@@ -349,19 +346,19 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     VALValet *keystore;
     switch ( protectionLevel ) {
         case UPTEthKeychainProtectionLevelNormal: {
-            keystore = [[VALValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
+            keystore = [VALValet valetWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
             break;
         }
         case UPTEthKeychainProtectionLevelICloud: {
-            keystore = [[VALSynchronizableValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlocked];
+            keystore = [VALValet iCloudValetWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlocked];
             break;
         }
         case UPTEthKeychainProtectionLevelPromptSecureEnclave: {
-            keystore = [[VALSecureEnclaveValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [VALSecureEnclaveValet valetWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
             break;
         }
         case UPTEthKeychainProtectionLevelSinglePromptSecureEnclave: {
-            keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [VALSinglePromptSecureEnclaveValet valetWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
             break;
         }
         case UPTEthKeychainProtectionLevelNotRecognized:
