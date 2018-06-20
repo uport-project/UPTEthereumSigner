@@ -1,16 +1,22 @@
 PODS:
   - CoreBitcoin (0.6.8.1):
     - ISO8601DateFormatter
+  - Expecta (1.0.6)
   - ISO8601DateFormatter (0.8)
+  - Specta (1.0.7)
   - Valet (3.1.3)
 
 DEPENDENCIES:
   - CoreBitcoin (from `https://github.com/wjmelements/CoreBitcoin.git`, branch `hsp`)
+  - Expecta
+  - Specta
   - Valet (from `https://github.com/wjmelements/Valet.git`, branch `swift-version`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Expecta
     - ISO8601DateFormatter
+    - Specta
 
 EXTERNAL SOURCES:
   CoreBitcoin:
@@ -30,9 +36,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CoreBitcoin: 57a80926acbd5d5d7ab58ac60171f9b749dbd5d9
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   Valet: c2356be0352c69a01cf72980f3f7d1a3b4f4eaca
 
-PODFILE CHECKSUM: 25c6ee7b6205802f8f3a609527c9c6e28af195bd
+PODFILE CHECKSUM: 57110db41c61a00736545acd592266a007310196
 
 COCOAPODS: 1.5.3
