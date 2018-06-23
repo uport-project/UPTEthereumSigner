@@ -6,7 +6,7 @@
 //  Copyright © 2017 ConsenSys AG. All rights reserved.
 //
 
-#import <CoreBitcoin/CoreBitcoin.h>
+#import "CoreBitcoin/CoreBitcoin.h"
 #import "UPTEthereumSigner+Utils.h"
 #import "UPTEthereumSigner.h"
 #import "keccak.h"
