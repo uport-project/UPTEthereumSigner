@@ -39,7 +39,6 @@ s.source_files = 'UPTEthereumSigner/Classes/**/*'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'CoreBitcoin', 'AVFoundation'
 s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
-s.vendored_frameworks = 'UPTEthereumSigner/CoreBitcoin.framework'
 s.dependency 'Valet'
 end
 
