@@ -14,6 +14,7 @@
 #include <openssl/obj_mac.h>
 #include <openssl/bn.h>
 #include <openssl/rand.h>
+#include "ec_lcl.h"
 
 #define CHECK_IF_CLEARED if (_cleared) { [[NSException exceptionWithName:@"BTCKey: instance was already cleared." reason:@"" userInfo:nil] raise]; }
 
@@ -185,8 +186,8 @@ static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const 
 
     //NSLog(@"ECDSA: r = %@", Kx.hexString);
     //NSLog(@"ECDSA: s = %@", signatureBN.hexString);
-    BIGNUM r; BN_init(&r); BN_copy(&r, Kx.BIGNUM);
-    BIGNUM s; BN_init(&s); BN_copy(&s, signatureBN.BIGNUM);
+    BIGNUM *r = BN_new(); BN_copy(r, Kx.BIGNUM);
+    BIGNUM *s = BN_new(); BN_copy(s, signatureBN.BIGNUM);
 
     [privkeyBN clear];
     [k clear];
@@ -195,8 +196,8 @@ static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const 
     [Kx clear];
     [signatureBN clear];
 
-    sig->r = &r;
-    sig->s = &s;
+    sig->r = r;
+    sig->s = s;
 
     BN_CTX *ctx = BN_CTX_new();
     BN_CTX_start(ctx);
@@ -669,8 +670,8 @@ static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const 
         return nil;
     }
     ECDSA_SIG *sig = ECDSA_SIG_new();
-    BN_bin2bn(&p64[0],  32, sig->r);
-    BN_bin2bn(&p64[32], 32, sig->s);
+    sig->r = BN_bin2bn(&p64[0],  32, sig->r);
+    sig->s = BN_bin2bn(&p64[32], 32, sig->s);
     BOOL result = (1 == ECDSA_SIG_recover_key_GFp(key->_key, sig, (unsigned char*)hash.bytes, (int)hash.length, rec, 0));
     ECDSA_SIG_free(sig);
     

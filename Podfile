@@ -5,6 +5,6 @@ end
 target 'UPTEthereumSigner' do
     platform :ios, '9.0'
     use_frameworks!
-    pod 'Valet'
-    pod 'CoreBitcoin', :git => 'https://github.com/wjmelements/CoreBitcoin.git', :branch => 'min-core-bitcoin'
+    pod 'Valet', :git => 'https://github.com/wjmelements/Valet.git', :branch => 'swift-version'
+    pod 'CoreBitcoin', :git => 'https://github.com/wjmelements/CoreBitcoin.git', :branch => 'hsp'
 end

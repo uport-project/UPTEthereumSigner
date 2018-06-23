@@ -16,17 +16,30 @@
     "git": "https://github.com/oleganza/CoreBitcoin.git",
     "tag": "0.6.8.1"
   },
-  "source_files": "CoreBitcoin",
+  "source_files": [
+    "CoreBitcoin",
+    "openssl/**/*.c"
+  ],
   "exclude_files": [
     "CoreBitcoin/**/*+Tests.{h,m}",
     "CoreBitcoin/BTCScriptTestData.h"
   ],
+  "public_header_files": [
+    "openssl/include/openssl/*.h",
+    "CoreBitcoin/*.h"
+  ],
+  "header_mappings_dir": ".",
   "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/CoreBitcoin/openssl/include",
+    "USER_HEADER_SEARCH_PATHS": "${PODS_ROOT}/CoreBitcoin/openssl/src/**"
+  },
   "frameworks": "Foundation",
+  "preserve_paths": [
+    "openssl/LICENSE",
+    "openssl/**/*.h"
+  ],
   "dependencies": {
-    "OpenSSL-Universal": [
-      "1.0.1.16"
-    ],
     "ISO8601DateFormatter": [
 
     ]

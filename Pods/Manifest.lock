@@ -1,37 +1,38 @@
 PODS:
   - CoreBitcoin (0.6.8.1):
     - ISO8601DateFormatter
-    - OpenSSL-Universal (= 1.0.1.16)
   - ISO8601DateFormatter (0.8)
-  - OpenSSL-Universal (1.0.1.16)
   - Valet (3.1.3)
 
 DEPENDENCIES:
-  - CoreBitcoin (from `https://github.com/wjmelements/CoreBitcoin.git`, branch `min-core-bitcoin`)
-  - Valet
+  - CoreBitcoin (from `https://github.com/wjmelements/CoreBitcoin.git`, branch `hsp`)
+  - Valet (from `https://github.com/wjmelements/Valet.git`, branch `swift-version`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ISO8601DateFormatter
-    - OpenSSL-Universal
-    - Valet
 
 EXTERNAL SOURCES:
   CoreBitcoin:
-    :branch: min-core-bitcoin
+    :branch: hsp
     :git: https://github.com/wjmelements/CoreBitcoin.git
+  Valet:
+    :branch: swift-version
+    :git: https://github.com/wjmelements/Valet.git
 
 CHECKOUT OPTIONS:
   CoreBitcoin:
-    :commit: 17e49530402b28ba755134febbf41b4e3ef7511d
+    :commit: 9fabf1e88df33e11a01b99f48c0cd6ad6ea4081e
     :git: https://github.com/wjmelements/CoreBitcoin.git
+  Valet:
+    :commit: 37dc7de56aa9ffe1297be7a8aa3b09d5401caa8b
+    :git: https://github.com/wjmelements/Valet.git
 
 SPEC CHECKSUMS:
-  CoreBitcoin: 6923ec93ffc0a6655a5098f7a6fdde7db1ddb9cf
+  CoreBitcoin: 57a80926acbd5d5d7ab58ac60171f9b749dbd5d9
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
-  OpenSSL-Universal: 85ef63bf81d0741b03c8719cd29685c37c59518d
-  Valet: fae4295525b1f13048147d30a38f66d266af9338
+  Valet: c2356be0352c69a01cf72980f3f7d1a3b4f4eaca
 
-PODFILE CHECKSUM: 6a2212fcb6c6288e5f1a03e7569192efd6e1cb53
+PODFILE CHECKSUM: 25c6ee7b6205802f8f3a609527c9c6e28af195bd
 
 COCOAPODS: 1.5.3
