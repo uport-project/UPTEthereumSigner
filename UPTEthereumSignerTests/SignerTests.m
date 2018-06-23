@@ -5,12 +5,12 @@
 //  Created by josh on 12/05/2017.
 //  Copyright (c) 2017 josh. All rights reserved.
 //
-
+#import "Specta/Specta.h"
 // https://github.com/Specta/Specta
 
 @import Foundation;
 //@import CoreBitcoin;
-#import <CoreBitcoin/CoreBitcoin.h>
+#import "CoreBitcoin/CoreBitcoin.h"
 
 #import "UPTEthereumSigner.h"
 #import "UPTEthereumSigner+Utils.h"

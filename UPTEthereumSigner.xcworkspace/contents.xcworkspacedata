@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UPTEthereumSignerTests/SignerTests.m">
+   </FileRef>
+   <FileRef
       location = "group:UPTEthereumSigner.xcodeproj">
    </FileRef>
    <FileRef
