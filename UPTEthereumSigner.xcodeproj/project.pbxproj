@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04C8DE7A20D9E02E003381C2 /* UPTHDSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8DE7620D9E02E003381C2 /* UPTHDSigner+Utils.m */; };
 		04C8DE7B20D9E02E003381C2 /* UPTHDSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8DE7820D9E02E003381C2 /* UPTHDSigner.m */; };
+		BE5B094F20EAC08E00E44FCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5B094E20EAC08E00E44FCF /* AppDelegate.m */; };
+		BE5B095120EAC08F00E44FCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5B095020EAC08F00E44FCF /* Assets.xcassets */; };
+		BE5B095420EAC08F00E44FCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5B095220EAC08F00E44FCF /* LaunchScreen.storyboard */; };
+		BE5B095720EAC08F00E44FCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5B095620EAC08F00E44FCF /* main.m */; };
 		BE7FDBBC20D9CC9500D66B37 /* UPTEthereumSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBB820D9CC9500D66B37 /* UPTEthereumSigner.m */; };
 		BE7FDBBE20D9CC9500D66B37 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBBA20D9CC9500D66B37 /* keccak.c */; };
 		BE9AACD620DAC81000C9BA17 /* KeyPairsTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE9AACD520DAC81000C9BA17 /* KeyPairsTestData.plist */; };
@@ -20,6 +24,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BE5B095B20EAC09F00E44FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECA74C020D9CBF7002793C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BECA74C720D9CBF7002793C8;
+			remoteInfo = UPTEthereumSigner;
+		};
+		BE5B095F20EAC0B300E44FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECA74C020D9CBF7002793C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE5B094A20EAC08D00E44FCF;
+			remoteInfo = UPTEthereumSignerTestHostApplication;
+		};
 		BEB5EA6C20DAC64E005239B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BECA74C020D9CBF7002793C8 /* Project object */;
@@ -51,6 +69,13 @@
 		59A986F3024745274B230644 /* Pods-UPTEthereumSigner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPTEthereumSigner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPTEthereumSigner/Pods-UPTEthereumSigner.debug.xcconfig"; sourceTree = "<group>"; };
 		5D81C0305A79098E2D3A8A94 /* Pods_UPTEthereumSigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UPTEthereumSigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		803379E1C20F6073CAC656C7 /* Pods_UPTEthereumSignerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UPTEthereumSignerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5B094B20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPTEthereumSignerTestHostApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5B094D20EAC08E00E44FCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE5B094E20EAC08E00E44FCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE5B095020EAC08F00E44FCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE5B095320EAC08F00E44FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE5B095520EAC08F00E44FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE5B095620EAC08F00E44FCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE7FDBB720D9CC9500D66B37 /* keccak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = keccak.h; path = Classes/keccak.h; sourceTree = "<group>"; };
 		BE7FDBB820D9CC9500D66B37 /* UPTEthereumSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPTEthereumSigner.m; path = Classes/UPTEthereumSigner.m; sourceTree = "<group>"; };
 		BE7FDBBA20D9CC9500D66B37 /* keccak.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keccak.c; path = Classes/keccak.c; sourceTree = "<group>"; };
@@ -67,6 +92,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BE5B094820EAC08D00E44FCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEB5EA6320DAC64E005239B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,6 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE5B094C20EAC08E00E44FCF /* UPTEthereumSignerTestHostApplication */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B094D20EAC08E00E44FCF /* AppDelegate.h */,
+				BE5B094E20EAC08E00E44FCF /* AppDelegate.m */,
+				BE5B095020EAC08F00E44FCF /* Assets.xcassets */,
+				BE5B095220EAC08F00E44FCF /* LaunchScreen.storyboard */,
+				BE5B095520EAC08F00E44FCF /* Info.plist */,
+				BE5B095620EAC08F00E44FCF /* main.m */,
+			);
+			path = UPTEthereumSignerTestHostApplication;
+			sourceTree = "<group>";
+		};
 		BE7FDBBF20D9CCC800D66B37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +159,7 @@
 			children = (
 				BECA74CA20D9CBF7002793C8 /* UPTEthereumSigner */,
 				BEB5EA6720DAC64E005239B2 /* UPTEthereumSignerTests */,
+				BE5B094C20EAC08E00E44FCF /* UPTEthereumSignerTestHostApplication */,
 				BECA74C920D9CBF7002793C8 /* Products */,
 				BE7FDBBF20D9CCC800D66B37 /* Frameworks */,
 				FCDBB97D5ACE75B7B5020340 /* Pods */,
@@ -125,6 +171,7 @@
 			children = (
 				BECA74C820D9CBF7002793C8 /* libUPTEthereumSigner.a */,
 				BEB5EA6620DAC64E005239B2 /* UPTEthereumSignerTests.xctest */,
+				BE5B094B20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +205,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BE5B094A20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE5B095820EAC08F00E44FCF /* Build configuration list for PBXNativeTarget "UPTEthereumSignerTestHostApplication" */;
+			buildPhases = (
+				BE5B094720EAC08D00E44FCF /* Sources */,
+				BE5B094820EAC08D00E44FCF /* Frameworks */,
+				BE5B094920EAC08D00E44FCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE5B095C20EAC09F00E44FCF /* PBXTargetDependency */,
+			);
+			name = UPTEthereumSignerTestHostApplication;
+			productName = UPTEthereumSignerTestHostApplication;
+			productReference = BE5B094B20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BEB5EA6520DAC64E005239B2 /* UPTEthereumSignerTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEB5EA7020DAC64E005239B2 /* Build configuration list for PBXNativeTarget "UPTEthereumSignerTests" */;
@@ -171,6 +236,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BE5B096020EAC0B300E44FCF /* PBXTargetDependency */,
 				BEB5EA6D20DAC64E005239B2 /* PBXTargetDependency */,
 			);
 			name = UPTEthereumSignerTests;
@@ -205,8 +271,12 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = ConsenSys;
 				TargetAttributes = {
+					BE5B094A20EAC08D00E44FCF = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					BEB5EA6520DAC64E005239B2 = {
 						CreatedOnToolsVersion = 9.4;
+						TestTargetID = BE5B094A20EAC08D00E44FCF;
 					};
 					BECA74C720D9CBF7002793C8 = {
 						CreatedOnToolsVersion = 9.4;
@@ -219,6 +289,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BECA74BF20D9CBF7002793C8;
 			productRefGroup = BECA74C920D9CBF7002793C8 /* Products */;
@@ -227,11 +298,21 @@
 			targets = (
 				BECA74C720D9CBF7002793C8 /* UPTEthereumSigner */,
 				BEB5EA6520DAC64E005239B2 /* UPTEthereumSignerTests */,
+				BE5B094A20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE5B094920EAC08D00E44FCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5B095120EAC08F00E44FCF /* Assets.xcassets in Resources */,
+				BE5B095420EAC08F00E44FCF /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEB5EA6420DAC64E005239B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +390,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE5B094720EAC08D00E44FCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5B095720EAC08F00E44FCF /* main.m in Sources */,
+				BE5B094F20EAC08E00E44FCF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEB5EA6220DAC64E005239B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +421,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BE5B095C20EAC09F00E44FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BECA74C720D9CBF7002793C8 /* UPTEthereumSigner */;
+			targetProxy = BE5B095B20EAC09F00E44FCF /* PBXContainerItemProxy */;
+		};
+		BE5B096020EAC0B300E44FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE5B094A20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication */;
+			targetProxy = BE5B095F20EAC0B300E44FCF /* PBXContainerItemProxy */;
+		};
 		BEB5EA6D20DAC64E005239B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BECA74C720D9CBF7002793C8 /* UPTEthereumSigner */;
@@ -338,7 +438,52 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		BE5B095220EAC08F00E44FCF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE5B095320EAC08F00E44FCF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		BE5B095920EAC08F00E44FCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				INFOPLIST_FILE = UPTEthereumSignerTestHostApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.consensys.UPTEthereumSignerTestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE5B095A20EAC08F00E44FCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				INFOPLIST_FILE = UPTEthereumSignerTestHostApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.consensys.UPTEthereumSignerTestHostApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BEB5EA6E20DAC64E005239B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDB2564AFD663FA6879A0761 /* Pods-UPTEthereumSignerTests.debug.xcconfig */;
@@ -359,6 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.consensys.UPTEthereumSignerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UPTEthereumSignerTestHostApplication.app/UPTEthereumSignerTestHostApplication";
 			};
 			name = Debug;
 		};
@@ -382,6 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.consensys.UPTEthereumSignerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UPTEthereumSignerTestHostApplication.app/UPTEthereumSignerTestHostApplication";
 			};
 			name = Release;
 		};
@@ -532,6 +679,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE5B095820EAC08F00E44FCF /* Build configuration list for PBXNativeTarget "UPTEthereumSignerTestHostApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE5B095920EAC08F00E44FCF /* Debug */,
+				BE5B095A20EAC08F00E44FCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BEB5EA7020DAC64E005239B2 /* Build configuration list for PBXNativeTarget "UPTEthereumSignerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
