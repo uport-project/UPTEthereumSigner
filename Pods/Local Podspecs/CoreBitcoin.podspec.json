@@ -1,0 +1,47 @@
+{
+  "name": "CoreBitcoin",
+  "version": "0.6.8.1",
+  "summary": "CoreBitcoin is an implementation of Bitcoin protocol in Objective-C.",
+  "description": "CoreBitcoin is a complete toolkit to work with Bitcoin data structures.",
+  "homepage": "https://github.com/wjmelements/CoreBitcoin",
+  "license": "WTFPL",
+  "authors": {
+    "Oleg Andreev": "oleganza@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.9"
+  },
+  "source": {
+    "git": "https://github.com/oleganza/CoreBitcoin.git",
+    "tag": "0.6.8.1"
+  },
+  "source_files": [
+    "CoreBitcoin",
+    "openssl/**/*.c"
+  ],
+  "exclude_files": [
+    "CoreBitcoin/**/*+Tests.{h,m}",
+    "CoreBitcoin/BTCScriptTestData.h"
+  ],
+  "public_header_files": [
+    "openssl/include/openssl/*.h",
+    "CoreBitcoin/*.h"
+  ],
+  "header_mappings_dir": ".",
+  "requires_arc": true,
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "${PODS_ROOT}/CoreBitcoin/openssl/include",
+    "USER_HEADER_SEARCH_PATHS": "${PODS_ROOT}/CoreBitcoin/openssl/src/**"
+  },
+  "frameworks": "Foundation",
+  "preserve_paths": [
+    "openssl/LICENSE",
+    "openssl/**/*.h"
+  ],
+  "dependencies": {
+    "ISO8601DateFormatter": [
+
+    ]
+  }
+}

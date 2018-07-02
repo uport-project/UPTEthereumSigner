@@ -9,15 +9,15 @@
 @import Valet;
 
 #import "UPTEthereumSigner.h"
-#import "UPTEthereumSigner+Utils.h"
-#import <CoreBitcoin/CoreBitcoin+Categories.h>
-#import <CoreBitcoin/openssl/rand.h>
-#include <CoreBitcoin/openssl/ec.h>
-#include <CoreBitcoin/openssl/ecdsa.h>
-#include <CoreBitcoin/openssl/bn.h>
-#include <CoreBitcoin/openssl/evp.h>
-#include <CoreBitcoin/openssl/obj_mac.h>
-#include <CoreBitcoin/openssl/rand.h>
+#import "CoreBitcoin/CoreBitcoin+Categories.h"
+#import <openssl/rand.h>
+#include <openssl/ec.h>
+#include <openssl/ecdsa.h>
+#include <openssl/bn.h>
+#include <openssl/evp.h>
+#include <openssl/obj_mac.h>
+#include <openssl/rand.h>
+#include "keccak.h"
 
 static int     BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key);
 static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check);
@@ -88,8 +88,8 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 
     BTCBigNumber* signatureBN = [[[privkeyBN multiply:Kx mod:n] add:hashBN mod:n] multiply:[k inverseMod:n] mod:n];
 
-    BIGNUM r; BN_init(&r); BN_copy(&r, Kx.BIGNUM);
-    BIGNUM s; BN_init(&s); BN_copy(&s, signatureBN.BIGNUM);
+    BIGNUM *r = BN_new(); BN_copy(r, Kx.BIGNUM);
+    BIGNUM *s = BN_new(); BN_copy(s, signatureBN.BIGNUM);
   
     BN_clear_free(bignum);
     BTCDataClear(privateKey);
@@ -108,9 +108,9 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     BIGNUM *halforder = BN_CTX_get(ctx);
     EC_GROUP_get_order(group, order, ctx);
     BN_rshift1(halforder, order);
-    if (lowS && BN_cmp(&s, halforder) > 0) {
+    if (lowS && BN_cmp(s, halforder) > 0) {
         // enforce low S values, by negating the value (modulo the order) if above order/2.
-        BN_sub(&s, order, &s);
+        BN_sub(s, order, s);
     }
     EC_KEY_free(key);
 
@@ -119,8 +119,8 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     NSMutableData* rData = [NSMutableData dataWithLength:32];
     NSMutableData* sData = [NSMutableData dataWithLength:32];
   
-    BN_bn2bin(&r,rData.mutableBytes);
-    BN_bn2bin(&s,sData.mutableBytes);
+    BN_bn2bin(r,rData.mutableBytes);
+    BN_bn2bin(s,sData.mutableBytes);
     return @{
              @"r": rData,
              @"s": sData
@@ -134,16 +134,16 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     int rec = -1;
     const unsigned char* hashbytes = hash.bytes;
     int hashlength = (int)hash.length;
-    BIGNUM r; BN_init(&r); BN_bin2bn(rData.bytes ,32, &r);
-    BIGNUM s; BN_init(&s); BN_bin2bn(sData.bytes ,32, &s);
-    int nBitsR = BN_num_bits(&r);
-    int nBitsS = BN_num_bits(&s);
+    BIGNUM *r = BN_new(); BN_bin2bn(rData.bytes ,32, r);
+    BIGNUM *s = BN_new(); BN_bin2bn(sData.bytes ,32, s);
+    int nBitsR = BN_num_bits(r);
+    int nBitsS = BN_num_bits(s);
     if (nBitsR <= 256 && nBitsS <= 256) {
         NSData* pubkey = [keypair compressedPublicKey];
         BOOL foundMatchingPubkey = NO;
         for (int i=0; i < 4; i++) {
             EC_KEY* key2 = EC_KEY_new_by_curve_name(NID_secp256k1);
-            if (ECDSA_SIG_recover_key_GFp(key2, &r, &s, hashbytes, hashlength, i, 1) == 1) {
+            if (ECDSA_SIG_recover_key_GFp(key2, r, s, hashbytes, hashlength, i, 1) == 1) {
                 NSData* pubkey2 = [self compressedPublicKey: key2];
                 if ([pubkey isEqual:pubkey2]) {
                     rec = i;
@@ -472,6 +472,47 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     if (O != NULL) EC_POINT_free(O);
     if (Q != NULL) EC_POINT_free(Q);
     return ret;
+}
+
+#pragma mark - Utils
+
++ (NSData *)keccak256:(NSData *)input {
+    char *outputBytes = malloc(32);
+    sha3_256((uint8_t *)outputBytes, 32, (uint8_t *)[input bytes], (size_t)[input length]);
+    return [NSData dataWithBytesNoCopy:outputBytes length:32 freeWhenDone:YES];
+}
+
++ (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
+    NSArray<NSString *> *storageLevels = @[ ReactNativeKeychainProtectionLevelNormal,
+                                            ReactNativeKeychainProtectionLevelICloud,
+                                            ReactNativeKeychainProtectionLevelPromptSecureEnclave,
+                                            ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave];
+    return (UPTEthKeychainProtectionLevel)[storageLevels indexOfObject:storageLevel];
+}
+
++ (NSString *)hexStringWithDataKey:(NSData *)dataPrivateKey {
+    return BTCHexFromData(dataPrivateKey);
+}
+
++ (NSData *)dataFromHexString:(NSString *)originalHexString {
+    return BTCDataFromHex(originalHexString);
+}
+
+
++ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
+    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
+    if ( characterConverted.length % 4 != 0 ) {
+        NSUInteger numEquals = 4 - characterConverted.length % 4;
+        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
+        [characterConverted appendString:equalsPadding];
+    }
+    
+    return characterConverted;
+    
+}
+
++ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
+    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end
