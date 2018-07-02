@@ -15,7 +15,7 @@
 
 + (NSData *)keccak256:(NSData *)input {
     char *outputBytes = malloc(32);
-    sha3_256((unsigned char *)outputBytes, 32, (unsigned char *)[input bytes], (unsigned int)[input length]);
+    sha3_256((uint8_t *)outputBytes, 32, (uint8_t *)[input bytes], (size_t)[input length]);
     return [NSData dataWithBytesNoCopy:outputBytes length:32 freeWhenDone:YES];
 }
 
