@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		04C8DE7A20D9E02E003381C2 /* UPTHDSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8DE7620D9E02E003381C2 /* UPTHDSigner+Utils.m */; };
 		04C8DE7B20D9E02E003381C2 /* UPTHDSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8DE7820D9E02E003381C2 /* UPTHDSigner.m */; };
+		BE5B094620EAB27500E44FCF /* UPTEthereumSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBB920D9CC9500D66B37 /* UPTEthereumSigner+Utils.m */; };
 		BE7FDBBC20D9CC9500D66B37 /* UPTEthereumSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBB820D9CC9500D66B37 /* UPTEthereumSigner.m */; };
-		BE7FDBBD20D9CC9500D66B37 /* UPTEthereumSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBB920D9CC9500D66B37 /* UPTEthereumSigner+Utils.m */; };
 		BE7FDBBE20D9CC9500D66B37 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBBA20D9CC9500D66B37 /* keccak.c */; };
 		BE9AACD620DAC81000C9BA17 /* KeyPairsTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE9AACD520DAC81000C9BA17 /* KeyPairsTestData.plist */; };
 		BE9AACD820DAC81A00C9BA17 /* ReferenceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE9AACD720DAC81A00C9BA17 /* ReferenceData.plist */; };
-		BE9AACDB20DAC8AC00C9BA17 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		BE9AACDF20DACA8000C9BA17 /* SignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9AACDE20DACA8000C9BA17 /* SignerTests.m */; };
 		BEB5EA6B20DAC64E005239B2 /* libUPTEthereumSigner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BECA74C820D9CBF7002793C8 /* libUPTEthereumSigner.a */; };
+		BEC940E320E9F9C800782F06 /* UPTEthereumSigner+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FDBB920D9CC9500D66B37 /* UPTEthereumSigner+Utils.m */; };
 		CC8F5BF8609D43050A61DD3C /* Pods_UPTEthereumSigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D81C0305A79098E2D3A8A94 /* Pods_UPTEthereumSigner.framework */; };
 		D2009D9B1E6E058DBEA76489 /* Pods_UPTEthereumSignerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803379E1C20F6073CAC656C7 /* Pods_UPTEthereumSignerTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +65,7 @@
 		BE9AACE020DACAEE00C9BA17 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		BEB5EA6620DAC64E005239B2 /* UPTEthereumSignerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPTEthereumSignerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB5EA6A20DAC64E005239B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEC940E020E9F51700782F06 /* Specta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Specta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECA74C820D9CBF7002793C8 /* libUPTEthereumSigner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUPTEthereumSigner.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB2564AFD663FA6879A0761 /* Pods-UPTEthereumSignerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPTEthereumSignerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPTEthereumSignerTests/Pods-UPTEthereumSignerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE9AACDB20DAC8AC00C9BA17 /* BuildFile in Frameworks */,
 				BEB5EA6B20DAC64E005239B2 /* libUPTEthereumSigner.a in Frameworks */,
 				D2009D9B1E6E058DBEA76489 /* Pods_UPTEthereumSignerTests.framework in Frameworks */,
 			);
@@ -94,6 +94,7 @@
 		BE7FDBBF20D9CCC800D66B37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEC940E020E9F51700782F06 /* Specta.framework */,
 				5D81C0305A79098E2D3A8A94 /* Pods_UPTEthereumSigner.framework */,
 				803379E1C20F6073CAC656C7 /* Pods_UPTEthereumSignerTests.framework */,
 			);
@@ -318,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5B094620EAB27500E44FCF /* UPTEthereumSigner+Utils.m in Sources */,
 				BE9AACDF20DACA8000C9BA17 /* SignerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,8 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC940E320E9F9C800782F06 /* UPTEthereumSigner+Utils.m in Sources */,
 				04C8DE7B20D9E02E003381C2 /* UPTHDSigner.m in Sources */,
-				BE7FDBBD20D9CC9500D66B37 /* UPTEthereumSigner+Utils.m in Sources */,
 				BE7FDBBE20D9CC9500D66B37 /* keccak.c in Sources */,
 				BE7FDBBC20D9CC9500D66B37 /* UPTEthereumSigner.m in Sources */,
 				04C8DE7A20D9E02E003381C2 /* UPTHDSigner+Utils.m in Sources */,
