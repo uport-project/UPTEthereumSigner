@@ -16,7 +16,7 @@
 + (NSData *)keccak256:(NSData *)input {
     char *outputBytes = malloc(32);
     sha3_256((unsigned char *)outputBytes, 32, (unsigned char *)[input bytes], (unsigned int)[input length]);
-    return [NSData dataWithBytes:outputBytes length:32];
+    return [NSData dataWithBytesNoCopy:outputBytes length:32 freeWhenDone:YES];
 }
 
 + (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
