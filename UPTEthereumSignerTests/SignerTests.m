@@ -11,7 +11,6 @@
 #import "CoreBitcoin/CoreBitcoin.h"
 
 #import "UPTEthereumSigner.h"
-#import "UPTEthereumSigner+Utils.h"
 
 SpecBegin(UPTEthereumSigner)
 

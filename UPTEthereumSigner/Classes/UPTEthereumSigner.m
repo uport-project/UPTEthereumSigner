@@ -9,7 +9,6 @@
 @import Valet;
 
 #import "UPTEthereumSigner.h"
-#import "UPTEthereumSigner+Utils.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/rand.h>
 #include <openssl/ec.h>
@@ -18,6 +17,7 @@
 #include <openssl/evp.h>
 #include <openssl/obj_mac.h>
 #include <openssl/rand.h>
+#include "keccak.h"
 
 static int     BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key);
 static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check);
@@ -472,6 +472,47 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     if (O != NULL) EC_POINT_free(O);
     if (Q != NULL) EC_POINT_free(Q);
     return ret;
+}
+
+#pragma mark - Utils
+
++ (NSData *)keccak256:(NSData *)input {
+    char *outputBytes = malloc(32);
+    sha3_256((uint8_t *)outputBytes, 32, (uint8_t *)[input bytes], (size_t)[input length]);
+    return [NSData dataWithBytesNoCopy:outputBytes length:32 freeWhenDone:YES];
+}
+
++ (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
+    NSArray<NSString *> *storageLevels = @[ ReactNativeKeychainProtectionLevelNormal,
+                                            ReactNativeKeychainProtectionLevelICloud,
+                                            ReactNativeKeychainProtectionLevelPromptSecureEnclave,
+                                            ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave];
+    return (UPTEthKeychainProtectionLevel)[storageLevels indexOfObject:storageLevel];
+}
+
++ (NSString *)hexStringWithDataKey:(NSData *)dataPrivateKey {
+    return BTCHexFromData(dataPrivateKey);
+}
+
++ (NSData *)dataFromHexString:(NSString *)originalHexString {
+    return BTCDataFromHex(originalHexString);
+}
+
+
++ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
+    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
+    if ( characterConverted.length % 4 != 0 ) {
+        NSUInteger numEquals = 4 - characterConverted.length % 4;
+        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
+        [characterConverted appendString:equalsPadding];
+    }
+    
+    return characterConverted;
+    
+}
+
++ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
+    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end
