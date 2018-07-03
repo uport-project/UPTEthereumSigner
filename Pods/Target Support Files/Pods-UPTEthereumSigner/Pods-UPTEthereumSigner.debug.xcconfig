@@ -1,12 +1,12 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CoreBitcoin" "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601DateFormatter" "${PODS_CONFIGURATION_BUILD_DIR}/Valet"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CoreEthereum" "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601DateFormatter" "${PODS_CONFIGURATION_BUILD_DIR}/Valet"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) ${PODS_ROOT}/CoreBitcoin/openssl/include
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_TARGET_SRCROOT}/openssl/include" "${PODS_ROOT}/CoreEthereum/openssl/include"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks' '@executable_path/../../Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/CoreBitcoin/CoreBitcoin.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Valet/Valet.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "CoreBitcoin" -framework "ISO8601DateFormatter" -framework "Valet"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/CoreEthereum/CoreEthereum.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Valet/Valet.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "CoreEthereum" -framework "ISO8601DateFormatter" -framework "Valet"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
-USER_HEADER_SEARCH_PATHS = ${PODS_ROOT}/CoreBitcoin/openssl/src/**
+USER_HEADER_SEARCH_PATHS = "${PODS_TARGET_SRCROOT}/openssl/src/**" "${PODS_ROOT}/CoreEthereum/openssl/src/**"
