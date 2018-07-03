@@ -90,7 +90,7 @@ as the name is changed.
 			<key>License</key>
 			<string>WTFPL</string>
 			<key>Title</key>
-			<string>CoreBitcoin</string>
+			<string>CoreEthereum</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
