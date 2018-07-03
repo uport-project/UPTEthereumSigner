@@ -32,10 +32,13 @@
   "private_header_files": "openssl/include/internal/*.h",
   "header_mappings_dir": ".",
   "requires_arc": true,
-  "xcconfig": {
+  "user_target_xcconfig": {
     "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/CoreEthereum/openssl/include\"",
-    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/src/**\" \"${PODS_ROOT}/CoreEthereum/openssl/src/**\"",
     "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  },
+  "pod_target_xcconfig": {
+    "HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/include\" \"${PODS_ROOT}/CoreEthereum/openssl/include\"",
+    "USER_HEADER_SEARCH_PATHS": "\"${PODS_TARGET_SRCROOT}/openssl/src/**\" \"${PODS_ROOT}/CoreEthereum/openssl/src/**\""
   },
   "frameworks": "Foundation",
   "preserve_paths": [

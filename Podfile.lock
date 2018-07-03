@@ -7,35 +7,26 @@ PODS:
   - Valet (3.1.4)
 
 DEPENDENCIES:
-  - CoreEthereum (from `https://github.com/wjmelements/CoreBitcoin.git`, tag `1.0.0`)
+  - CoreEthereum
   - Expecta
   - Specta
   - Valet
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CoreEthereum
     - Expecta
     - ISO8601DateFormatter
     - Specta
     - Valet
 
-EXTERNAL SOURCES:
-  CoreEthereum:
-    :git: https://github.com/wjmelements/CoreBitcoin.git
-    :tag: 1.0.0
-
-CHECKOUT OPTIONS:
-  CoreEthereum:
-    :git: https://github.com/wjmelements/CoreBitcoin.git
-    :tag: 1.0.0
-
 SPEC CHECKSUMS:
-  CoreEthereum: 20d525f342ea0d6ffe04b4e8f4f0b76b26a72419
+  CoreEthereum: fdd4475e64dae6f363051854c8e9a0e470ed0e1b
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   Valet: c06af94b443de7e490b3fc5fd28256637ab7fdbd
 
-PODFILE CHECKSUM: c2292515bb07b045f94f02056c31d25d4950cb95
+PODFILE CHECKSUM: a65be48a17283f55ecc80d70238967c5b6fd1ef8
 
 COCOAPODS: 1.5.3
