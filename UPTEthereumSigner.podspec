@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'UPTEthereumSigner'
-s.version          = '1.0'
+s.version          = '1.0.0'
 s.summary          = 'Ethereum signer library'
 
 # This description is used to generate tags and improve search results.
@@ -23,7 +23,6 @@ Signs Ethereum transactions and JWTs with a provided protection level
 DESC
 
 s.homepage         = 'https://github.com/uport-project/UPTEthereumSigner'
-# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 s.license          = { :type => 'APACHE', :file => 'LICENSE' }
 s.author           = { 'josh' => 'joshua.bell@consensys.net' }
 s.source           = { :git => 'https://github.com/uport-project/UPTEthereumSigner.git', :tag => s.version.to_s }
@@ -32,13 +31,10 @@ s.ios.deployment_target = '9.3'
 
 s.source_files = 'UPTEthereumSigner/Classes/**/*'
 
-#s.resource_bundles = {
-#  'UPTEthereumSigner' => ['UPTEthereumSigner/CoreBitcoin.framework']
-#}
-
 # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'CoreBitcoin', 'AVFoundation'
 s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
 s.dependency 'Valet'
+s.dependency 'CoreEthereum'
 end
 
