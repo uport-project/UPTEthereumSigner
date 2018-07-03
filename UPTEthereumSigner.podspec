@@ -32,8 +32,11 @@ s.ios.deployment_target = '9.3'
 s.source_files = 'UPTEthereumSigner/Classes/**/*'
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
-s.frameworks = 'CoreBitcoin', 'AVFoundation'
+s.frameworks = 'CoreEthereum', 'AVFoundation'
 s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
+s.pod_target_xcconfig = {
+  'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CoreEthereum" "${PODS_ROOT}/CoreEthereum/openssl/include"',
+}
 s.dependency 'Valet'
 s.dependency 'CoreEthereum'
 end
