@@ -25,6 +25,7 @@ DESC
 s.homepage         = 'https://github.com/uport-project/UPTEthereumSigner'
 s.license          = { :type => 'APACHE', :file => 'LICENSE' }
 s.author           = { 'josh' => 'joshua.bell@consensys.net' }
+s.author           = { 'William Morriss' => 'william.morriss@consensys.net' }
 s.source           = { :git => 'https://github.com/uport-project/UPTEthereumSigner.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '9.3'
