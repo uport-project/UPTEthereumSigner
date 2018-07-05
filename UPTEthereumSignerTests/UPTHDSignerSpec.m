@@ -23,7 +23,7 @@ describe(@"key creation, address retrieval", ^{
             NSLog(@"eth address: %@ . for public key: %@", ethAddress, publicKey);
             expect(error).to.beNil();
         }];
-        });
+    });
 });
 
 SpecEnd

@@ -11,7 +11,6 @@
 #import "CoreBitcoin/BTCMnemonic.h"
 #import "keccak.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
-#import "UPTHDSigner+Utils.h"
 #import <openssl/obj_mac.h>
 
 // https://github.com/ethereum/EIPs/issues/84#issuecomment-275237722
@@ -561,6 +560,48 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     if (O != NULL) EC_POINT_free(O);
     if (Q != NULL) EC_POINT_free(Q);
     return ret;
+}
+
+#pragma mark - Utils
+
++ (NSArray<NSString *> *)wordsFromPhrase:(NSString *)phrase {
+    NSArray<NSString *> *words = [phrase componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return [words filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+}
+
++ (NSData*)randomEntropy {
+    NSUInteger entropyCapacity = 128 / 8;
+    NSMutableData* entropy = [NSMutableData dataWithCapacity:(128 / 8)];
+    NSUInteger numBytes = entropyCapacity / 4;
+    for( NSUInteger i = 0 ; i < numBytes; ++i ) {
+        u_int32_t randomBits = arc4random();
+        [entropy appendBytes:(void *)&randomBits length:4];
+    }
+
+    return entropy;
+}
+
++ (UPTHDSignerProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
+    NSArray<NSString *> *storageLevels = @[ ReactNativeHDSignerProtectionLevelNormal,
+            ReactNativeHDSignerProtectionLevelICloud,
+            ReactNativeHDSignerProtectionLevelPromptSecureEnclave,
+            ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave];
+    return (UPTHDSignerProtectionLevel)[storageLevels indexOfObject:storageLevel];
+}
+
++ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
+    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
+    if ( characterConverted.length % 4 != 0 ) {
+        NSUInteger numEquals = 4 - characterConverted.length % 4;
+        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
+        [characterConverted appendString:equalsPadding];
+    }
+
+    return characterConverted;
+}
+
++ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
+    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end
