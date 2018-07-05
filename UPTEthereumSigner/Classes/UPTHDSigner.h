@@ -69,7 +69,7 @@ FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
 
 /// @param  callback     a root account Ethereum address and root account public key
 + (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel callback:(UPTHDSignerSeedCreationResult)callback __attribute__((deprecated));
-+ (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel derivationPath:(NSString *)derivationPath callback:(UPTHDSignerSeedCreationResult)callback __attribute__((deprecated));
++ (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel derivationPath:(NSString *)derivationPath callback:(UPTHDSignerSeedCreationResult)callback;
 
 /// @param  callback     a root account Ethereum address and root account public key
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase callback:(UPTHDSignerSeedCreationResult)callback __attribute__((deprecated));
