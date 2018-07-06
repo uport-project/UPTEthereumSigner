@@ -8,35 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM( NSInteger, UPTHDSignerProtectionLevel ) {
-  /// @description stores key via VALValet with VALAccessibilityWhenUnlockedThisDeviceOnly
-  UPTHDSignerProtectionLevelNormal = 0,
-  
-  /// @description stores key via VALSynchronizableValet
-  UPTHDSignerProtectionLevelICloud,
-  
-  /// @description stores key via VALSecureEnclaveValet
-  UPTHDSignerProtectionLevelPromptSecureEnclave,
-  
-  /// @description stores key via VALSinglePromptSecureEnclaveValet
-  UPTHDSignerProtectionLevelSinglePromptSecureEnclave,
-  
-  /// @description Indicates an invalid unrecognized storage level
-  ///  Debug strategy:
-  ///  1. confirm no typo on react native sender side,
-  ///  2. confirm parity with android levels
-  ///  3. maybe update string constants in this class
-  UPTHDSignerProtectionLevelNotRecognized = NSNotFound
-};
-
-///
-/// @description: these strings are the possible strings passed in from react native as indicated in clubhouse task 2565
-///
-FOUNDATION_EXPORT NSString *const ReactNativeHDSignerProtectionLevelNormal;
-FOUNDATION_EXPORT NSString *const ReactNativeHDSignerProtectionLevelICloud;
-FOUNDATION_EXPORT NSString *const ReactNativeHDSignerProtectionLevelPromptSecureEnclave;
-FOUNDATION_EXPORT NSString *const ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave;
-
+#import "UPTProtectionLevel.h"
 
 /// @param ethAddress    an Ethereum adderss with prefix '0x'. May be nil if error occured
 /// @param publicKey    a base 64 encoded representation of the NSData public key. Note: encoded with no line

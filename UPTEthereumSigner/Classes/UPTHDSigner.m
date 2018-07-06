@@ -17,11 +17,6 @@
 NSString * const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
 NSString * const METAMASK_ROOT_DERIVATION_PATH = @"m/44'/60'/0'/0";
 
-NSString *const ReactNativeHDSignerProtectionLevelNormal = @"simple";
-NSString *const ReactNativeHDSignerProtectionLevelICloud = @"cloud"; // icloud keychain backup
-NSString *const ReactNativeHDSignerProtectionLevelPromptSecureEnclave = @"prompt";
-NSString *const ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave = @"singleprompt";
-
 /// @description identifiers so valet can encapsulate our keys in the keychain
 NSString *const UPTHDPrivateKeyIdentifier = @"UportPrivateKeys";
 NSString *const UPTHDProtectionLevelIdentifier = @"UportProtectionLevelIdentifier";
