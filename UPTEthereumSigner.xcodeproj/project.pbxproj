@@ -67,6 +67,7 @@
 		59A986F3024745274B230644 /* Pods-UPTEthereumSigner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPTEthereumSigner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPTEthereumSigner/Pods-UPTEthereumSigner.debug.xcconfig"; sourceTree = "<group>"; };
 		5D81C0305A79098E2D3A8A94 /* Pods_UPTEthereumSigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UPTEthereumSigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		803379E1C20F6073CAC656C7 /* Pods_UPTEthereumSignerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UPTEthereumSignerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE018FA420EF1C460009CD36 /* UPTProtectionLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPTProtectionLevel.h; path = Classes/UPTProtectionLevel.h; sourceTree = "<group>"; };
 		BE4D0AFF20EEC8990027EAAC /* UPTHDSignerSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPTHDSignerSpec.m; sourceTree = "<group>"; };
 		BE5B094B20EAC08D00E44FCF /* UPTEthereumSignerTestHostApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPTEthereumSignerTestHostApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5B094D20EAC08E00E44FCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		BECA74CA20D9CBF7002793C8 /* UPTEthereumSigner */ = {
 			isa = PBXGroup;
 			children = (
+				BE018FA420EF1C460009CD36 /* UPTProtectionLevel.h */,
 				BE7FDBBA20D9CC9500D66B37 /* keccak.c */,
 				BE7FDBB720D9CC9500D66B37 /* keccak.h */,
 				BE7FDBBB20D9CC9500D66B37 /* UPTEthereumSigner.h */,
