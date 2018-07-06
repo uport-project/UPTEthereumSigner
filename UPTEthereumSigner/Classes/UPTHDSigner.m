@@ -11,10 +11,11 @@
 #import "CoreBitcoin/BTCMnemonic.h"
 #import "keccak.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
-#import "UPTHDSigner+Utils.h"
 #import <openssl/obj_mac.h>
 
+// https://github.com/ethereum/EIPs/issues/84
 NSString * const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
+NSString * const METAMASK_ROOT_DERIVATION_PATH = @"m/44'/60'/0'/0";
 
 NSString *const ReactNativeHDSignerProtectionLevelNormal = @"simple";
 NSString *const ReactNativeHDSignerProtectionLevelICloud = @"cloud"; // icloud keychain backup
@@ -71,18 +72,43 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel callback:(UPTHDSignerSeedCreationResult)callback {
+    [UPTHDSigner
+        createHDSeed:protectionLevel
+        rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
+        callback:callback
+    ];
+}
++ (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    rootDerivationPath:(NSString *)rootDerivationPath
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     NSData *randomEntropy = [UPTHDSigner randomEntropy];
     BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:randomEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
     NSString *wordsString = [mnemonic.words componentsJoinedByString:@" "];
-    [UPTHDSigner importSeed:protectionLevel phrase:wordsString callback:callback];
+    [UPTHDSigner importSeed:protectionLevel phrase:wordsString rootDerivationPath:rootDerivationPath callback:callback];
 }
 
-+ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase callback:(UPTHDSignerSeedCreationResult)callback {
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    phrase:(NSString *)phrase
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
+    [UPTHDSigner
+        importSeed:protectionLevel
+        phrase:phrase
+        rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
+        callback:callback
+    ];
+}
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    phrase:(NSString *)phrase
+    rootDerivationPath:(NSString *)derivationPath
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     NSArray<NSString *> *words = [UPTHDSigner wordsFromPhrase:phrase];
     BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
 
-    BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:UPORT_ROOT_DERIVATION_PATH];
+    BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
     NSString *rootPublicKeyString = [rootKeychain.key.uncompressedPublicKey base64EncodedStringWithOptions:0];
     NSString *rootEthereumAddress = [UPTHDSigner ethereumAddressWithPublicKey:rootKeychain.key.uncompressedPublicKey];
 
@@ -544,6 +570,48 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     if (O != NULL) EC_POINT_free(O);
     if (Q != NULL) EC_POINT_free(Q);
     return ret;
+}
+
+#pragma mark - Utils
+
++ (NSArray<NSString *> *)wordsFromPhrase:(NSString *)phrase {
+    NSArray<NSString *> *words = [phrase componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return [words filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+}
+
++ (NSData*)randomEntropy {
+    NSUInteger entropyCapacity = 128 / 8;
+    NSMutableData* entropy = [NSMutableData dataWithCapacity:(128 / 8)];
+    NSUInteger numBytes = entropyCapacity / 4;
+    for( NSUInteger i = 0 ; i < numBytes; ++i ) {
+        u_int32_t randomBits = arc4random();
+        [entropy appendBytes:(void *)&randomBits length:4];
+    }
+
+    return entropy;
+}
+
++ (UPTHDSignerProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
+    NSArray<NSString *> *storageLevels = @[ ReactNativeHDSignerProtectionLevelNormal,
+            ReactNativeHDSignerProtectionLevelICloud,
+            ReactNativeHDSignerProtectionLevelPromptSecureEnclave,
+            ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave];
+    return (UPTHDSignerProtectionLevel)[storageLevels indexOfObject:storageLevel];
+}
+
++ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
+    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
+    if ( characterConverted.length % 4 != 0 ) {
+        NSUInteger numEquals = 4 - characterConverted.length % 4;
+        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
+        [characterConverted appendString:equalsPadding];
+    }
+
+    return characterConverted;
+}
+
++ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
+    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end
