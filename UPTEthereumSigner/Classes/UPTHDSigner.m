@@ -13,7 +13,7 @@
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/obj_mac.h>
 
-// https://github.com/ethereum/EIPs/issues/84#issuecomment-275237722
+// https://github.com/ethereum/EIPs/issues/84
 NSString * const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
 NSString * const METAMASK_ROOT_DERIVATION_PATH = @"m/44'/60'/0'/0";
 
@@ -74,26 +74,36 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel callback:(UPTHDSignerSeedCreationResult)callback {
     [UPTHDSigner
         createHDSeed:protectionLevel
-        derivationPath:UPORT_ROOT_DERIVATION_PATH
+        rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
         callback:callback
     ];
 }
-+ (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel derivationPath:(NSString *)derivationPath callback:(UPTHDSignerSeedCreationResult)callback {
++ (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    rootDerivationPath:(NSString *)rootDerivationPath
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     NSData *randomEntropy = [UPTHDSigner randomEntropy];
     BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:randomEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
     NSString *wordsString = [mnemonic.words componentsJoinedByString:@" "];
-    [UPTHDSigner importSeed:protectionLevel phrase:wordsString derivationPath:derivationPath callback:callback];
+    [UPTHDSigner importSeed:protectionLevel phrase:wordsString rootDerivationPath:rootDerivationPath callback:callback];
 }
 
-+ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase callback:(UPTHDSignerSeedCreationResult)callback {
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    phrase:(NSString *)phrase
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     [UPTHDSigner
         importSeed:protectionLevel
         phrase:phrase
-        derivationPath:UPORT_ROOT_DERIVATION_PATH
+        rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
         callback:callback
     ];
 }
-+ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase derivationPath:(NSString *)derivationPath callback:(UPTHDSignerSeedCreationResult)callback {
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    phrase:(NSString *)phrase
+    rootDerivationPath:(NSString *)derivationPath
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     NSArray<NSString *> *words = [UPTHDSigner wordsFromPhrase:phrase];
     BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
