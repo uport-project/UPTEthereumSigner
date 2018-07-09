@@ -455,8 +455,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				DEVELOPMENT_TEAM = 82SAVLYZ3K;
 				INFOPLIST_FILE = UPTEthereumSignerTestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,8 +473,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				DEVELOPMENT_TEAM = 82SAVLYZ3K;
 				INFOPLIST_FILE = UPTEthereumSignerTestHostApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +491,7 @@
 			baseConfigurationReference = FDB2564AFD663FA6879A0761 /* Pods-UPTEthereumSignerTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				DEVELOPMENT_TEAM = 82SAVLYZ3K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UPTEthereumSigner",
@@ -513,7 +515,7 @@
 			baseConfigurationReference = 04A39B5E1852CCF6FAFDACC5 /* Pods-UPTEthereumSignerTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUU9QUKZJ6;
+				DEVELOPMENT_TEAM = 82SAVLYZ3K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UPTEthereumSigner",

@@ -1,15 +1,19 @@
 # UPTEthereumSigner
 
-## Installation
-
-#### Submodules
-
-Manually checkout the submodule with `git submodule add git@github.com:uport-project/UPTEthereumSigner.git`, drag UPTEthereumSigner.xcodeproj to your project, and add UPTEthereumSigner as a build dependency.
-
 ## Example
 
-This project must be run on a device due to usage of the secure enclave which is not support on the simulator.
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Requirements
+
+## Installation
+
+UPTEthereumSigner is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'UPTEthereumSigner'
+```
 ## Author
 
 Joshua Bell, joshua.bell@consensys.net
