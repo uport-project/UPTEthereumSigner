@@ -9,7 +9,7 @@
 @import Valet;
 #import "UPTHDSigner.h"
 #import "CoreBitcoin/BTCMnemonic.h"
-#import "keccak.h"
+#import "NSData+Keccak.h"
 #import "NSString+Encoding.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/obj_mac.h>
@@ -161,7 +161,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:txPayload options:0];
-    NSData *hash = [UPTHDSigner keccak256:payloadData];
+    NSData *hash = [payloadData keccak256];
     NSDictionary *signature = [self ethereumSignature: derivedKeychain.key forHash:hash];
     callback(signature, nil);
 }
@@ -221,14 +221,8 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 
 + (NSString *)ethereumAddressWithPublicKey:(NSData *)publicKey {
     NSData *strippedPublicKey = [publicKey subdataWithRange:NSMakeRange(1,[publicKey length]-1)];
-    NSData *address = [[UPTHDSigner keccak256:strippedPublicKey] subdataWithRange:NSMakeRange(12, 20)];
+    NSData *address = [[strippedPublicKey keccak256] subdataWithRange:NSMakeRange(12, 20)];
     return [NSString stringWithFormat:@"0x%@", [address hex]];
-}
-
-+ (NSData *)keccak256:(NSData *)input {
-    char *outputBytes = malloc(32);
-    sha3_256((unsigned char *)outputBytes, 32, (unsigned char *)[input bytes], (unsigned int)[input length]);
-    return [NSData dataWithBytes:outputBytes length:32];
 }
 
 + (UPTHDSignerProtectionLevel)protectionLevelWithEthAddress:(NSString *)ethAddress {

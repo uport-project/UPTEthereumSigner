@@ -9,7 +9,10 @@
 @import Valet;
 
 #import "UPTEthereumSigner.h"
+
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
+#include "NSData+Keccak.h"
+
 #import <openssl/rand.h>
 #include <openssl/ec.h>
 #include <openssl/ecdsa.h>
@@ -17,7 +20,6 @@
 #include <openssl/evp.h>
 #include <openssl/obj_mac.h>
 #include <openssl/rand.h>
-#include "keccak.h"
 
 static int     BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key);
 static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check);
@@ -185,7 +187,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     BTCKey *key = [self keyPairWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
     if (key) {
         NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:payload options:0];
-        NSData *hash = [UPTEthereumSigner keccak256:payloadData];
+        NSData *hash = [payloadData keccak256];
         NSDictionary *signature = [self ethereumSignature: key forHash:hash];
         result(signature, nil);
     } else {
@@ -253,7 +255,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 
 + (NSString *)ethAddressWithPublicKey:(NSData *)publicKey {
     NSData *strippedPublicKey = [publicKey subdataWithRange:NSMakeRange(1,[publicKey length]-1)];
-    NSData *address = [[UPTEthereumSigner keccak256:strippedPublicKey] subdataWithRange:NSMakeRange(12, 20)];
+    NSData *address = [[strippedPublicKey keccak256] subdataWithRange:NSMakeRange(12, 20)];
     return [NSString stringWithFormat:@"0x%@", [address hex]];
 }
 
@@ -475,12 +477,6 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
 }
 
 #pragma mark - Utils
-
-+ (NSData *)keccak256:(NSData *)input {
-    char *outputBytes = malloc(32);
-    sha3_256((uint8_t *)outputBytes, 32, (uint8_t *)[input bytes], (size_t)[input length]);
-    return [NSData dataWithBytesNoCopy:outputBytes length:32 freeWhenDone:YES];
-}
 
 + (UPTEthKeychainProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
     NSArray<NSString *> *storageLevels = @[ ReactNativeKeychainProtectionLevelNormal,
