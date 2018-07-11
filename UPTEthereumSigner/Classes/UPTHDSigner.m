@@ -10,6 +10,7 @@
 #import "UPTHDSigner.h"
 #import "CoreBitcoin/BTCMnemonic.h"
 #import "keccak.h"
+#import "NSString+Encoding.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/obj_mac.h>
 
@@ -188,7 +189,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     NSData *hash = [payloadData SHA256];
     NSData *signature = [self simpleSignature:derivedKeychain.key forHash:hash];
     NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
-    NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
+    NSString *webSafeBase64Signature = [base64EncodedSignature base64ToURLEncoding];
     callback(webSafeBase64Signature, nil);
 }
 
@@ -592,21 +593,6 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
             ReactNativeHDSignerProtectionLevelPromptSecureEnclave,
             ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave];
     return (UPTHDSignerProtectionLevel)[storageLevels indexOfObject:storageLevel];
-}
-
-+ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
-    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
-    if ( characterConverted.length % 4 != 0 ) {
-        NSUInteger numEquals = 4 - characterConverted.length % 4;
-        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
-        [characterConverted appendString:equalsPadding];
-    }
-
-    return characterConverted;
-}
-
-+ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
-    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end

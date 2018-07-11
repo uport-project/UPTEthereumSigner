@@ -65,7 +65,5 @@ FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
 + (NSArray<NSString *> *)wordsFromPhrase:(NSString *)phrase;
 + (NSData*)randomEntropy;
 + (UPTHDSignerProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel;
-+ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String;
-+ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String;
 
 @end

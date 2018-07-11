@@ -498,21 +498,4 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     return BTCDataFromHex(originalHexString);
 }
 
-
-+ (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
-    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
-    if ( characterConverted.length % 4 != 0 ) {
-        NSUInteger numEquals = 4 - characterConverted.length % 4;
-        NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
-        [characterConverted appendString:equalsPadding];
-    }
-    
-    return characterConverted;
-    
-}
-
-+ (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
-    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
-}
-
 @end

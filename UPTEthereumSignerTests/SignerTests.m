@@ -12,6 +12,8 @@
 
 #import "UPTEthereumSigner.h"
 
+#import "NSString+Encoding.h"
+
 SpecBegin(UPTEthereumSigner)
 
 describe(@"key creation, address retrieval", ^{
@@ -144,7 +146,7 @@ describe(@"Signing", ^{
             [UPTEthereumSigner signJwt:referenceAddress userPrompt:@"test signing data" data:payload result:^(NSData *signature, NSError *error) {
                 expect(error).to.beNil();
                 NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
-                NSString *webSafeBase64Signature = [UPTEthereumSigner URLEncodedBase64StringWithBase64String:base64Signature];
+                NSString *webSafeBase64Signature = [base64Signature base64ToURLEncoding];
                 expect(webSafeBase64Signature).to.equal(example[@"signature"]);
             }];
         };
@@ -190,7 +192,7 @@ describe(@"Comprehensive tests", ^{
                             [UPTEthereumSigner signJwt:kp[@"address"] userPrompt:@"test signing data" data:jwtData result:^(NSData *signature, NSError *error) {
                                 expect(error).to.beNil();
                                 NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
-                                NSString *webSafeBase64Signature = [UPTEthereumSigner URLEncodedBase64StringWithBase64String:base64Signature];
+                                NSString *webSafeBase64Signature = [base64Signature base64ToURLEncoding];
                                 expect(webSafeBase64Signature).to.equal(kp[@"jwtsig"]);
                             }];
                         }
