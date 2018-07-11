@@ -1,5 +1,5 @@
 PODS:
-  - CoreEthereum (1.0.1):
+  - CoreEthereum (1.0.2):
     - ISO8601DateFormatter
   - Expecta (1.0.6)
   - ISO8601DateFormatter (0.8)
@@ -21,7 +21,7 @@ SPEC REPOS:
     - Valet
 
 SPEC CHECKSUMS:
-  CoreEthereum: 22e2a5fa433400a67dc48f1e543ea94e4870aec2
+  CoreEthereum: bae317b15cc5a7b4423b2946f22a87026a10027b
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
