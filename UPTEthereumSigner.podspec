@@ -38,7 +38,7 @@ s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Dev
 s.pod_target_xcconfig = {
   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CoreEthereum" "${PODS_ROOT}/CoreEthereum/openssl/include"',
 }
-s.dependency 'Valet'
+s.dependency 'Valet', '~> 2.4.2'
 s.dependency 'CoreEthereum'
 end
 
