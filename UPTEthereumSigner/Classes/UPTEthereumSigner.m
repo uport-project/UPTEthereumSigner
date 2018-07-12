@@ -6,8 +6,7 @@
 //  Copyright © 2017 ConsenSys AG. All rights reserved.
 //
 
-@import Valet;
-
+#import <Valet/Valet.h>
 #import "UPTEthereumSigner.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/rand.h>

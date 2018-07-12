@@ -6,13 +6,12 @@
 //  Copyright © 2018 ConsenSys AG. All rights reserved.
 //
 
-@import Valet;
-
 #import "UPTHDSigner.h"
 #import "CoreBitcoin/BTCMnemonic.h"
 #import "keccak.h"
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import <openssl/obj_mac.h>
+#import <Valet/Valet.h>
 
 // https://github.com/ethereum/EIPs/issues/84
 NSString * const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
