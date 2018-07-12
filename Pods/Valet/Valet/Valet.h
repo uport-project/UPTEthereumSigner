@@ -1,9 +1,9 @@
 //
-//  KeychainQueryConvertible.swift
+//  Valet.h
 //  Valet
 //
-//  Created by Dan Federman and Eric Muller on 9/17/17.
-//  Copyright © 2017 Square, Inc.
+//  Created by Dan Federman on 1/21/15.
+//  Copyright 2015 Square, Inc.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -18,12 +18,7 @@
 //  limitations under the License.
 //
 
-import Foundation
-
-
-@objc(VALKeychainQueryConvertible)
-public protocol KeychainQueryConvertible {
-    
-    var keychainQuery: [String : AnyHashable] { get }
-    
-}
+#import <Valet/VALValet.h>
+#import <Valet/VALSecureEnclaveValet.h>
+#import <Valet/VALSynchronizableValet.h>
+#import <Valet/VALSinglePromptSecureEnclaveValet.h>
