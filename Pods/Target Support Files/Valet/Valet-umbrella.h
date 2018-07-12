@@ -11,6 +11,10 @@
 #endif
 
 #import "Valet.h"
+#import "VALSecureEnclaveValet.h"
+#import "VALSinglePromptSecureEnclaveValet.h"
+#import "VALSynchronizableValet.h"
+#import "VALValet.h"
 
 FOUNDATION_EXPORT double ValetVersionNumber;
 FOUNDATION_EXPORT const unsigned char ValetVersionString[];
