@@ -258,7 +258,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)keystoreForProtectionLevels {
-    return [VALValet valetWithIdentifier:UPTProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
+    return [[VALValet alloc] initWithIdentifier:UPTProtectionLevelIdentifier accessibility:VALAccessibilityAlways];
 }
 
 + (NSString *)privateKeyLookupKeyNameWithEthAddress:(NSString *)ethAddress {
@@ -270,7 +270,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 
 + (VALValet *)ethAddressesKeystore {
-    return [VALValet valetWithIdentifier:UPTEthAddressIdentifier accessibility:VALAccessibilityAlways];
+    return [[VALValet alloc] initWithIdentifier:UPTEthAddressIdentifier accessibility:VALAccessibilityAlways];
 }
 
 /// @return NSString a derived version of UPTEthKeychainProtectionLevel appropriate for keychain storage
@@ -317,11 +317,11 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
             break;
         }
         case UPTEthKeychainProtectionLevelPromptSecureEnclave: {
-            privateKey = [(VALSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText userCancelled:nil];
+            privateKey = [(VALSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText];
             break;
         }
         case UPTEthKeychainProtectionLevelSinglePromptSecureEnclave: {
-            privateKey = [(VALSinglePromptSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText userCancelled:nil];
+            privateKey = [(VALSinglePromptSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText];
             break;
         }
         case UPTEthKeychainProtectionLevelNotRecognized:
@@ -351,19 +351,19 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     VALValet *keystore;
     switch ( protectionLevel ) {
         case UPTEthKeychainProtectionLevelNormal: {
-            keystore = [VALValet valetWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
+            keystore = [[VALValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
             break;
         }
         case UPTEthKeychainProtectionLevelICloud: {
-            keystore = [VALValet iCloudValetWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALCloudAccessibilityWhenUnlocked];
+            keystore = [[VALSynchronizableValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlocked];
             break;
         }
         case UPTEthKeychainProtectionLevelPromptSecureEnclave: {
-            keystore = [VALSecureEnclaveValet valetWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
+            keystore = [[VALSecureEnclaveValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
             break;
         }
         case UPTEthKeychainProtectionLevelSinglePromptSecureEnclave: {
-            keystore = [VALSinglePromptSecureEnclaveValet valetWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALSecureEnclaveAccessControlUserPresence];
+            keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
             break;
         }
         case UPTEthKeychainProtectionLevelNotRecognized:
