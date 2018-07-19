@@ -248,7 +248,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     VALValet *keystore;
     switch ( protectionLevel ) {
         case UPTHDSignerProtectionLevelNormal: {
-            keystore = [[VALValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityAlwaysThisDeviceOnly];
+            keystore = [[VALValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
             break;
         }
         case UPTHDSignerProtectionLevelICloud: {
