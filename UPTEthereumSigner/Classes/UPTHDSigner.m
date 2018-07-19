@@ -26,8 +26,10 @@ NSString *const UPTHDAddressIdentifier = @"UportEthAddressIdentifier";
 NSString *const UPTHDEntropyLookupKeyNamePrefix = @"seed-";
 NSString *const UPTHDEntropyProtectionLevelLookupKeyNamePrefix = @"level-seed-";
 
+NSString * const kUPTHDSignerErrorDomain = @"UPTHDSignerError";
 NSString * const UPTHDSignerErrorCodeLevelParamNotRecognized = @"-11";
 NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
+NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 
 @implementation UPTHDSigner
 
@@ -49,7 +51,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)showSeed:(NSString *)rootAddress prompt:(NSString *)prompt callback:(UPTHDSignerSeedPhraseResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
@@ -96,11 +98,33 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 }
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
     phrase:(NSString *)phrase
-    rootDerivationPath:(NSString *)derivationPath
+    rootDerivationPath:(NSString *)rootDerivationPath
     callback:(UPTHDSignerSeedCreationResult)callback
 {
     NSArray<NSString *> *words = [UPTHDSigner wordsFromPhrase:phrase];
+    [UPTHDSigner
+        importSeed:protectionLevel
+        words:words
+        rootDerivationPath:rootDerivationPath
+        callback:callback
+    ];
+}
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
+    words:(NSArray<NSString *> *)words
+    rootDerivationPath:(NSString *)derivationPath
+    callback:(UPTHDSignerSeedCreationResult)callback
+{
     BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    if (!mnemonic) {
+        callback(nil, nil, [[NSError alloc]
+            initWithDomain:kUPTHDSignerErrorDomain
+            code:UPTHDSignerErrorCodeInvalidSeedWords.integerValue
+            userInfo:@{
+                @"message": @"Invalid seed phrase checksum"
+            }
+        ]);
+        return;
+    }
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
 
     BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
@@ -119,7 +143,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)computeAddressForPath:(NSString *)rootAddress derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerSeedCreationResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, nil, protectionLevelError);
         return;
     }
@@ -143,7 +167,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
@@ -168,7 +192,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)signJWT:(NSString *)rootAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
@@ -195,7 +219,7 @@ NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 + (void)privateKeyForPath:(NSString *)rootAddress derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerPrivateKeyResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDSignerError" code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }

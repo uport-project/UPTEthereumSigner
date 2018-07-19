@@ -62,6 +62,19 @@ describe(@"key creation, address retrieval", ^{
             }
         ];
     });
+
+    it(@"rejects invalid phrases", ^{
+        [UPTHDSigner
+            importSeed:UPTHDSignerProtectionLevelPromptSecureEnclave
+            phrase:@"then cat cat cat cat cat cat cat cat cat cat cat"
+            rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
+            callback:^(NSString *rootEthAddress, NSString *publicKey, NSError *error) {
+                expect(rootEthAddress).to.beNil();
+                expect(publicKey).to.beNil();
+                expect(error.code).to.equal(UPTHDSignerErrorCodeInvalidSeedWords.integerValue);
+            }
+        ];
+    });
 });
 
 SpecEnd

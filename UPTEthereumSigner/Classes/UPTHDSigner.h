@@ -27,6 +27,7 @@ typedef void (^UPTHDSignerPrivateKeyResult)(NSString *privateKeyBase64, NSError 
 
 FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeLevelParamNotRecognized;
 FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound;
+FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeInvalidSeedWords;
 
 FOUNDATION_EXPORT NSString * const UPORT_ROOT_DERIVATION_PATH;
 FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
@@ -46,6 +47,7 @@ FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
 /// @param  callback     a root account Ethereum address and root account public key
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase callback:(UPTHDSignerSeedCreationResult)callback __attribute__((deprecated));
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel phrase:(NSString *)phrase rootDerivationPath:(NSString *)rootDerivationPath callback:(UPTHDSignerSeedCreationResult)callback;
++ (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel words:(NSArray<NSString *> *)words rootDerivationPath:(NSString *)rootDerivationPath callback:(UPTHDSignerSeedCreationResult)callback;
 
 /// @param  address     a root account Ethereum address
 /// @param  callback    the derived Ethereum address and derived public key
