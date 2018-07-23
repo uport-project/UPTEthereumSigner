@@ -56,6 +56,7 @@ FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
 
 /// @param  ethereumAddress     a root account Ethereum address
 + (void)signTransaction:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback;
++ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)serializedTxPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback;
 
 /// @param  ethereumAddress     a root account Ethereum address
 + (void)signJWT:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback;

@@ -165,6 +165,16 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 }
 
 + (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
+    NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:txPayload options:0];
+    [UPTHDSigner
+        signTransaction:rootAddress
+        derivationPath:derivationPath
+        serializedTxPayload:payloadData
+        prompt:prompt
+        callback:callback
+    ];
+}
++ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)payloadData prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
@@ -183,7 +193,6 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
-    NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:txPayload options:0];
     NSData *hash = [UPTHDSigner keccak256:payloadData];
     NSDictionary *signature = [self ethereumSignature: derivedKeychain.key forHash:hash];
     callback(signature, nil);
