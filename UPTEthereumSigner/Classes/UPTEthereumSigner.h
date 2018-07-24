@@ -35,6 +35,7 @@ typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
 + (void)saveKey:(NSData *)privateKey protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel result:(UPTEthSignerKeyPairCreationResult)result;
 
 + (void)signTransaction:(NSString *)ethAddress data:(NSString *)payload userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result;
++ (void)signTransaction:(NSString *)ethAddress serializedTxPayload:(NSData *)serializedTxPayload userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result;
 
 + (void)signJwt:(NSString *)ethAddress userPrompt:(NSString*)userPromptText data:(NSData *)payload result:(UPTEthSignerJWTSigningResult)result;
 
