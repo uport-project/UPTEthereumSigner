@@ -490,7 +490,7 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     if (chainId) {
         BIGNUM *v = BN_new(); BN_bin2bn(chainId.bytes, chainId.length, v);
         // TODO support longer chainIDs
-        base = BN_get_word(v);
+        base = BN_get_word(v) * 2 + 35;
         BN_clear_free(v);
     }
 
