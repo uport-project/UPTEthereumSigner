@@ -20,6 +20,7 @@
 		BE9AACDF20DACA8000C9BA17 /* SignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9AACDE20DACA8000C9BA17 /* SignerTests.m */; };
 		BEB5EA6B20DAC64E005239B2 /* libUPTEthereumSigner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BECA74C820D9CBF7002793C8 /* libUPTEthereumSigner.a */; };
 		BEE21FFE2108142E00564078 /* EthereumSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE21FFD2108142E00564078 /* EthereumSigner.m */; };
+		BEE2200321087F9500564078 /* EthereumSignerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE2200221087F9500564078 /* EthereumSignerTest.m */; };
 		CC8F5BF8609D43050A61DD3C /* Pods_UPTEthereumSigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D81C0305A79098E2D3A8A94 /* Pods_UPTEthereumSigner.framework */; };
 		D2009D9B1E6E058DBEA76489 /* Pods_UPTEthereumSignerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803379E1C20F6073CAC656C7 /* Pods_UPTEthereumSignerTests.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		BECA74C820D9CBF7002793C8 /* libUPTEthereumSigner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUPTEthereumSigner.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE21FFC2108142E00564078 /* EthereumSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EthereumSigner.h; path = Classes/EthereumSigner.h; sourceTree = "<group>"; };
 		BEE21FFD2108142E00564078 /* EthereumSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EthereumSigner.m; path = Classes/EthereumSigner.m; sourceTree = "<group>"; };
+		BEE2200221087F9500564078 /* EthereumSignerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EthereumSignerTest.m; sourceTree = "<group>"; };
 		FDB2564AFD663FA6879A0761 /* Pods-UPTEthereumSignerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPTEthereumSignerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPTEthereumSignerTests/Pods-UPTEthereumSignerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		BEB5EA6720DAC64E005239B2 /* UPTEthereumSignerTests */ = {
 			isa = PBXGroup;
 			children = (
+				BEE2200221087F9500564078 /* EthereumSignerTest.m */,
 				BE4D0AFF20EEC8990027EAAC /* UPTHDSignerSpec.m */,
 				BE9AACE020DACAEE00C9BA17 /* Tests-Prefix.pch */,
 				BE9AACDE20DACA8000C9BA17 /* SignerTests.m */,
@@ -408,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE2200321087F9500564078 /* EthereumSignerTest.m in Sources */,
 				BE4D0B0020EEC8990027EAAC /* UPTHDSignerSpec.m in Sources */,
 				BE9AACDF20DACA8000C9BA17 /* SignerTests.m in Sources */,
 			);
