@@ -126,7 +126,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
              };
 }
 
-+ (NSDictionary*) ethereumSignature:(BTCKey*)keypair forHash:(NSData*)hash {
++ (NSDictionary*) ethereumSignature:(BTCKey*)keypair forHash:(NSData*)hash chainId:(NSData *)chainId {
     NSDictionary *sig = [self genericSignature: keypair forHash: hash enforceLowS: YES];
     NSData *rData = (NSData *)sig[@"r"];
     NSData *sData = (NSData *)sig[@"s"];
@@ -153,7 +153,17 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
         }
         NSAssert(foundMatchingPubkey, @"At least one signature must work.");
     }
-    NSDictionary *signatureDictionary = @{ @"v": @(0x1b + rec),
+    BN_clear_free(r);
+    BN_clear_free(s);
+    BN_ULONG base = 0x1b; // pre-EIP155
+    if (chainId) {
+        BIGNUM *v = BN_new(); BN_bin2bn(chainId.bytes, chainId.length, v);
+        // TODO support longer chainIDs
+        base = BN_get_word(v);
+        BN_clear_free(v);
+    }
+
+    NSDictionary *signatureDictionary = @{ @"v": @(base + rec),
             @"r": [rData base64EncodedStringWithOptions:0],
             @"s":[sData base64EncodedStringWithOptions:0]};
     return signatureDictionary;
@@ -178,11 +188,12 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     [UPTEthereumSigner
         signTransaction:ethAddress
         serializedTxPayload:payloadData
+        chainId:nil
         userPrompt:userPromptText
         result:result
     ];
 }
-+ (void)signTransaction:(NSString *)ethAddress serializedTxPayload:(NSData *)payloadData userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result {
++ (void)signTransaction:(NSString *)ethAddress serializedTxPayload:(NSData *)payloadData chainId:(NSData *)chainId userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result {
     UPTEthKeychainProtectionLevel protectionLevel = [UPTEthereumSigner protectionLevelWithEthAddress:ethAddress];
     if ( protectionLevel == UPTEthKeychainProtectionLevelNotRecognized ) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
@@ -193,7 +204,7 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     BTCKey *key = [self keyPairWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
     if (key) {
         NSData *hash = [UPTEthereumSigner keccak256:payloadData];
-        NSDictionary *signature = [self ethereumSignature: key forHash:hash];
+        NSDictionary *signature = [self ethereumSignature:key forHash:hash chainId:(NSData *)chainId];
         result(signature, nil);
     } else {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];

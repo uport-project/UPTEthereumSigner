@@ -170,11 +170,12 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         signTransaction:rootAddress
         derivationPath:derivationPath
         serializedTxPayload:payloadData
+        chainId:nil
         prompt:prompt
         callback:callback
     ];
 }
-+ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)payloadData prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
++ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)payloadData chainId:(NSData *)chainId prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
@@ -194,7 +195,7 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
     NSData *hash = [UPTHDSigner keccak256:payloadData];
-    NSDictionary *signature = [self ethereumSignature: derivedKeychain.key forHash:hash];
+    NSDictionary *signature = [self ethereumSignature:derivedKeychain.key forHash:hash chainId:chainId];
     callback(signature, nil);
 }
 
@@ -456,15 +457,15 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     };
 }
 
-+ (NSDictionary*) ethereumSignature:(BTCKey*)keypair forHash:(NSData*)hash {
++ (NSDictionary *)ethereumSignature:(BTCKey *)keypair forHash:(NSData *)hash chainId:(NSData *)chainId {
     NSDictionary *sig = [self genericSignature: keypair forHash: hash enforceLowS: YES];
     NSData *rData = (NSData *)sig[@"r"];
     NSData *sData = (NSData *)sig[@"s"];
     int rec = -1;
     const unsigned char* hashbytes = hash.bytes;
     int hashlength = (int)hash.length;
-    BIGNUM *r = BN_new(); BN_bin2bn(rData.bytes ,32, r);
-    BIGNUM *s = BN_new(); BN_bin2bn(sData.bytes ,32, s);
+    BIGNUM *r = BN_new(); BN_bin2bn(rData.bytes, 32, r);
+    BIGNUM *s = BN_new(); BN_bin2bn(sData.bytes, 32, s);
     int nBitsR = BN_num_bits(r);
     int nBitsS = BN_num_bits(s);
     if (nBitsR <= 256 && nBitsS <= 256) {
@@ -483,7 +484,17 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         }
         NSAssert(foundMatchingPubkey, @"At least one signature must work.");
     }
-    NSDictionary *signatureDictionary = @{ @"v": @(0x1b + rec),
+    BN_clear_free(r);
+    BN_clear_free(s);
+    BN_ULONG base = 0x1b; // pre-EIP155
+    if (chainId) {
+        BIGNUM *v = BN_new(); BN_bin2bn(chainId.bytes, chainId.length, v);
+        // TODO support longer chainIDs
+        base = BN_get_word(v);
+        BN_clear_free(v);
+    }
+
+    NSDictionary *signatureDictionary = @{ @"v": @(base + rec),
             @"r": [rData base64EncodedStringWithOptions:0],
             @"s":[sData base64EncodedStringWithOptions:0]};
     return signatureDictionary;
