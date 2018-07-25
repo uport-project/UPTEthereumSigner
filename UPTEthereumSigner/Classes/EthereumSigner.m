@@ -217,6 +217,8 @@ NSDictionary *genericSignature(BTCKey *keypair, NSData *hash, BOOL lowS) {
   
     BN_bn2bin(r,rData.mutableBytes);
     BN_bn2bin(s,sData.mutableBytes);
+    BN_clear_free(r);
+    BN_clear_free(s);
     return @{
         @"r": rData,
         @"s": sData
