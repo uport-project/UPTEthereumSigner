@@ -54,8 +54,10 @@ FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;
 + (void)computeAddressForPath:(NSString *)address derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerSeedCreationResult)callback;
 
 
+// if you are supplying chainID, your tx payload contains 9 fields; otherwise it contains 6
 /// @param  ethereumAddress     a root account Ethereum address
-+ (void)signTransaction:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback;
++ (void)signTransaction:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback __attribute__((deprecated));
++ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)serializedTxPayload chainId:(NSData *)chainId prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback;
 
 /// @param  ethereumAddress     a root account Ethereum address
 + (void)signJWT:(NSString *)ethereumAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback;
