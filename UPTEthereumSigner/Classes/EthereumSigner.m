@@ -126,7 +126,7 @@ NSDictionary *ethereumSignature(BTCKey *keypair, NSData *hash, NSData *chainId) 
     if (nBitsR <= 256 && nBitsS <= 256) {
         NSData* pubkey = [keypair compressedPublicKey];
         BOOL foundMatchingPubkey = NO;
-        for (int i=0; i < 4; i++) {
+        for (int i=0; i < 2; i++) {
             EC_KEY* key2 = EC_KEY_new_by_curve_name(NID_secp256k1);
             if (ECDSA_SIG_recover_key_GFp(key2, r, s, hashbytes, hashlength, i, 1) == 1) {
                 NSData* pubkey2 = compressedPublicKey(key2);
