@@ -10,7 +10,7 @@ FOUNDATION_EXPORT NSString *const ReactNativeKeychainProtectionLevelSinglePrompt
 #define ReactNativeHDSignerProtectionLevelPromptSecureEnclave ReactNativeKeychainProtectionLevelPromptSecureEnclave
 #define ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave ReactNativeKeychainProtectionLevelSinglePromptSecureEnclave
 
-typedef NS_ENUM( NSInteger, UPTEthKeychainProtectionLevel ) {
+typedef NS_ENUM(NSInteger, UPTEthKeychainProtectionLevel) {
   /// @description stores key via VALValet with VALAccessibilityWhenUnlockedThisDeviceOnly
   UPTEthKeychainProtectionLevelNormal = 0,
   
@@ -30,6 +30,7 @@ typedef NS_ENUM( NSInteger, UPTEthKeychainProtectionLevel ) {
   ///  3. maybe update string constants in this class
   UPTEthKeychainProtectionLevelNotRecognized = NSNotFound
 };
+
 #define UPTHDSignerProtectionLevel UPTEthKeychainProtectionLevel
 #define UPTHDSignerProtectionLevelNormal UPTEthKeychainProtectionLevelNormal
 #define UPTHDSignerProtectionLevelICloud UPTEthKeychainProtectionLevelICloud

@@ -31,7 +31,13 @@ static int BTCRegenerateKey(EC_KEY *eckey, BIGNUM *priv_key) {
     return success;
 }
 
-static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const unsigned char *msg, int msglen, int recid, int check) {
+static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey,
+                                     BIGNUM *r,
+                                     BIGNUM *s,
+                                     const unsigned char *msg,
+                                     int msglen,
+                                     int recid,
+                                     int check) {
     if (!eckey) return 0;
 
     int ret = 0;
@@ -99,6 +105,7 @@ static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, BIGNUM *r, BIGNUM *s, const 
     if (Q != NULL) EC_POINT_free(Q);
     return ret;
 }
+
 NSMutableData *compressedPublicKey(EC_KEY *key) {
     if (!key) return nil;
     EC_KEY_set_conv_form(key, POINT_CONVERSION_COMPRESSED);
@@ -110,7 +117,6 @@ NSMutableData *compressedPublicKey(EC_KEY *key) {
     if (i2o_ECPublicKey(key, &bytes) != length) return nil;
     return data;
 }
-
 
 NSDictionary *ethereumSignature(BTCKey *keypair, NSData *hash, NSData *chainId) {
     NSDictionary *sig = genericSignature(keypair, hash, YES);
@@ -223,7 +229,6 @@ NSDictionary *genericSignature(BTCKey *keypair, NSData *hash, BOOL lowS) {
         @"r": rData,
         @"s": sData
     };
-
 }
 
 NSData *simpleSignature(BTCKey *keypair, NSData *hash) {

@@ -21,9 +21,7 @@
 - (void)testEIP155Example {
     // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#example
     NSData *privateKey = BTCDataFromHex(@"0x4646464646464646464646464646464646464646464646464646464646464646");
-    BTCKey *key = [[BTCKey alloc]
-        initWithPrivateKey:privateKey
-    ];
+    BTCKey *key = [[BTCKey alloc] initWithPrivateKey:privateKey];
     NSData *hash = BTCDataFromHex(@"0xdaf5a779ae972f972197303d7b574746c7ef83eadac0f2791ad23db92e4c8e53");
     NSData *chainId = BTCDataFromHex(@"0x01");
     NSDictionary *sig = ethereumSignature(key, hash, chainId);
@@ -34,17 +32,13 @@
 
 - (void)testDifficultSigs {
     NSData *privateKey = BTCDataFromHex(@"0x4646464646464646464646464646464646464646464646464646464646464646");
-    BTCKey *key = [[BTCKey alloc]
-        initWithPrivateKey:privateKey
-    ];
+    BTCKey *key = [[BTCKey alloc] initWithPrivateKey:privateKey];
     NSData *chainId = BTCDataFromHex(@"0x01");
     NSMutableArray *all = [NSMutableArray array];
     // these are all values in the range [0x00000000, 0x00000C80) that fail to sign with this private key
-    NSArray *values = @[
-        @(315), @(537), @(543), @(550), @(577), @(642), @(662), @(998), @(1020), @(1241),
-        @(1352), @(1496), @(1541), @(1608), @(1742), @(1760), @(2285), @(2295), @(2304),
-        @(2341), @(2665), @(2817), @(2867), @(2915), @(2927), @(3011), @(3064), @(3101)
-    ];
+    NSArray *values = @[@(315), @(537), @(543), @(550), @(577), @(642), @(662), @(998), @(1020), @(1241),
+                        @(1352), @(1496), @(1541), @(1608), @(1742), @(1760), @(2285), @(2295), @(2304),
+                        @(2341), @(2665), @(2817), @(2867), @(2915), @(2927), @(3011), @(3064), @(3101)];
     NSMutableData *hash = [NSMutableData dataWithLength:sizeof(uint64_t)];
     for (uint64_t val = 0; val < 0xc80; val++) {
         *((uint64_t *)(hash.mutableBytes)) = val;

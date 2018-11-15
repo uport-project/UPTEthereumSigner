@@ -14,8 +14,8 @@
 #import <Valet/Valet.h>
 
 // https://github.com/ethereum/EIPs/issues/84
-NSString * const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
-NSString * const METAMASK_ROOT_DERIVATION_PATH = @"m/44'/60'/0'/0";
+NSString *const UPORT_ROOT_DERIVATION_PATH = @"m/7696500'/0'/0'/0'";
+NSString *const METAMASK_ROOT_DERIVATION_PATH = @"m/44'/60'/0'/0";
 
 /// @description identifiers so valet can encapsulate our keys in the keychain
 NSString *const UPTHDPrivateKeyIdentifier = @"UportPrivateKeys";
@@ -26,10 +26,10 @@ NSString *const UPTHDAddressIdentifier = @"UportEthAddressIdentifier";
 NSString *const UPTHDEntropyLookupKeyNamePrefix = @"seed-";
 NSString *const UPTHDEntropyProtectionLevelLookupKeyNamePrefix = @"level-seed-";
 
-NSString * const kUPTHDSignerErrorDomain = @"UPTHDSignerError";
-NSString * const UPTHDSignerErrorCodeLevelParamNotRecognized = @"-11";
-NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
-NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
+NSString *const kUPTHDSignerErrorDomain = @"UPTHDSignerError";
+NSString *const UPTHDSignerErrorCodeLevelParamNotRecognized = @"-11";
+NSString *const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
+NSString *const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 
 @implementation UPTHDSigner
 
@@ -51,19 +51,27 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 + (void)showSeed:(NSString *)rootAddress prompt:(NSString *)prompt callback:(UPTHDSignerSeedPhraseResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
+                                                                   code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
+                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress
+                                                userPromptText:prompt
+                                               protectionLevel:protectionLevel];
     if (!masterEntropy) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDError"
+                                                                   code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
+                                                               userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     NSString *phrase = [mnemonic.words componentsJoinedByString:@" "];
     callback( phrase, nil );
 }
@@ -75,27 +83,29 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         callback:callback
     ];
 }
+
 + (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel
-    rootDerivationPath:(NSString *)rootDerivationPath
-    callback:(UPTHDSignerSeedCreationResult)callback
+  rootDerivationPath:(NSString *)rootDerivationPath
+            callback:(UPTHDSignerSeedCreationResult)callback
 {
     NSData *randomEntropy = [UPTHDSigner randomEntropy];
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:randomEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:randomEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     NSString *wordsString = [mnemonic.words componentsJoinedByString:@" "];
     [UPTHDSigner importSeed:protectionLevel phrase:wordsString rootDerivationPath:rootDerivationPath callback:callback];
 }
 
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
-    phrase:(NSString *)phrase
-    callback:(UPTHDSignerSeedCreationResult)callback
+            phrase:(NSString *)phrase
+          callback:(UPTHDSignerSeedCreationResult)callback
 {
-    [UPTHDSigner
-        importSeed:protectionLevel
-        phrase:phrase
-        rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
-        callback:callback
-    ];
+    [UPTHDSigner importSeed:protectionLevel
+                     phrase:phrase
+         rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
+                   callback:callback];
 }
+
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
     phrase:(NSString *)phrase
     rootDerivationPath:(NSString *)rootDerivationPath
@@ -109,12 +119,15 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         callback:callback
     ];
 }
+
 + (void)importSeed:(UPTHDSignerProtectionLevel)protectionLevel
     words:(NSArray<NSString *> *)words
     rootDerivationPath:(NSString *)derivationPath
     callback:(UPTHDSignerSeedCreationResult)callback
 {
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words
+                                                      password:@""
+                                                  wordListType:BTCMnemonicWordListTypeEnglish];
     if (!mnemonic) {
         callback(nil, nil, [[NSError alloc]
             initWithDomain:kUPTHDSignerErrorDomain
@@ -125,6 +138,7 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         ]);
         return;
     }
+
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
 
     BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
@@ -140,22 +154,32 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     callback( rootEthereumAddress, rootPublicKeyString, nil );
 }
 
-+ (void)computeAddressForPath:(NSString *)rootAddress derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerSeedCreationResult)callback {
++ (void)computeAddressForPath:(NSString *)rootAddress
+               derivationPath:(NSString *)derivationPath
+                       prompt:(NSString *)prompt
+                     callback:(UPTHDSignerSeedCreationResult)callback
+{
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
+                                                                   code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
+                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, nil, protectionLevelError);
         return;
     }
 
     NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
     if (!masterEntropy) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                                   code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
+                                                               userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, nil, protectionLevelError);
         return;
     }
 
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
 
     BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
@@ -164,7 +188,12 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     callback( rootEthereumAddress, rootPublicKeyString, nil );
 }
 
-+ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath txPayload:(NSString *)txPayload prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
++ (void)signTransaction:(NSString *)rootAddress
+         derivationPath:(NSString *)derivationPath
+              txPayload:(NSString *)txPayload
+                 prompt:(NSString *)prompt
+               callback:(UPTHDSignerTransactionSigningResult)callback
+{
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:txPayload options:0];
     [UPTHDSigner
         signTransaction:rootAddress
@@ -175,22 +204,37 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
         callback:callback
     ];
 }
-+ (void)signTransaction:(NSString *)rootAddress derivationPath:(NSString *)derivationPath serializedTxPayload:(NSData *)payloadData chainId:(NSData *)chainId prompt:(NSString *)prompt callback:(UPTHDSignerTransactionSigningResult)callback {
+
++ (void)signTransaction:(NSString *)rootAddress
+         derivationPath:(NSString *)derivationPath
+    serializedTxPayload:(NSData *)payloadData
+                chainId:(NSData *)chainId
+                 prompt:(NSString *)prompt
+               callback:(UPTHDSignerTransactionSigningResult)callback
+{
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
+                                                                   code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
+                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress
+                                                userPromptText:prompt
+                                               protectionLevel:protectionLevel];
     if (!masterEntropy) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                                   code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
+                                                               userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
@@ -199,22 +243,35 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     callback(signature, nil);
 }
 
-+ (void)signJWT:(NSString *)rootAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback {
++ (void)signJWT:(NSString *)rootAddress
+ derivationPath:(NSString *)derivationPath
+           data:(NSString *)data
+         prompt:(NSString *)prompt
+       callback:(UPTHDSignerJWTSigningResult)callback
+{
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
+                                                                   code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
+                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress
+                                                userPromptText:prompt
+                                               protectionLevel:protectionLevel];
     if (!masterEntropy) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                                   code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
+                                                               userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
@@ -226,22 +283,34 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     callback(webSafeBase64Signature, nil);
 }
 
-+ (void)privateKeyForPath:(NSString *)rootAddress derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerPrivateKeyResult)callback {
++ (void)privateKeyForPath:(NSString *)rootAddress
+           derivationPath:(NSString *)derivationPath
+                   prompt:(NSString *)prompt
+                 callback:(UPTHDSignerPrivateKeyResult)callback
+{
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
+                                                                   code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
+                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress userPromptText:prompt protectionLevel:protectionLevel];
+    NSData *masterEntropy = [UPTHDSigner entropyWithEthAddress:rootAddress
+                                                userPromptText:prompt
+                                               protectionLevel:protectionLevel];
     if (!masterEntropy) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                                   code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
+                                                               userInfo:@{@"message": @"private key not found for eth address"}];
         callback( nil, protectionLevelError);
         return;
     }
 
-    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithEntropy:masterEntropy
+                                                        password:@""
+                                                    wordListType:BTCMnemonicWordListTypeEnglish];
     BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
     BTCKeychain *derivedKeychain = [masterKeychain derivedKeychainWithPath:derivationPath];
 
@@ -271,43 +340,50 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     return [UPTHDSigner protectionLevelFromKeychainSourcedProtectionLevel:keychainSourcedProtectionLevel];
 }
 
-/// @param protectionLevel sourced from the keychain. Was originally created with +(NSString *)keychainCompatibleProtectionLevel:
+/// @param protectionLevel Sourced from the keychain. Was originally created with
+///                        +(NSString *)keychainCompatibleProtectionLevel:
 + (UPTHDSignerProtectionLevel)protectionLevelFromKeychainSourcedProtectionLevel:(NSString *)protectionLevel {
     return (UPTHDSignerProtectionLevel)protectionLevel.integerValue;
 }
 
 /// @param protectionLevel indicates which private keystore to create and return
-/// @return returns VALValet or valid subclass: VALSynchronizableValet, VALSecureEnclaveValet, VALSinglePromptSecureEnclaveValet
+/// @return VALValet or valid subclass: VALSynchronizableValet, VALSecureEnclaveValet, VALSinglePromptSecureEnclaveValet,
+///         otherwise nil for UPTHDSignerProtectionLevelNotRecognized or an not existing protection level.
 + (VALValet *)privateKeystoreWithProtectionLevel:(UPTHDSignerProtectionLevel)protectionLevel {
     VALValet *keystore;
     switch ( protectionLevel ) {
         case UPTHDSignerProtectionLevelNormal: {
-            keystore = [[VALValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
+            keystore = [[VALValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier
+                                              accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
             break;
         }
         case UPTHDSignerProtectionLevelICloud: {
-            keystore = [[VALSynchronizableValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlocked];
+            keystore = [[VALSynchronizableValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier
+                                                            accessibility:VALAccessibilityWhenUnlocked];
             break;
         }
         case UPTHDSignerProtectionLevelPromptSecureEnclave: {
-            keystore = [[VALSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [[VALSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier
+                                                           accessControl:VALAccessControlUserPresence];
             break;
         }
         case UPTHDSignerProtectionLevelSinglePromptSecureEnclave: {
-            keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
+            keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTHDPrivateKeyIdentifier
+                                                                       accessControl:VALAccessControlUserPresence];
             break;
         }
-        case UPTHDSignerProtectionLevelNotRecognized:
-            // then it will return nil
+        case UPTHDSignerProtectionLevelNotRecognized: {
+            keystore = nil;
             break;
-        default:
-            // then it will return nil
+        }
+        default: {
+            keystore = nil;
             break;
+        }
     }
 
     return keystore;
 }
-
 
 + (void)saveProtectionLevel:(UPTHDSignerProtectionLevel)protectionLevel withEthAddress:(NSString *)ethAddress {
     VALValet *protectionLevelsKeystore = [UPTHDSigner keystoreForProtectionLevels];
@@ -344,7 +420,10 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 
 /// @param userPromptText the string to display to the user when requesting access to the secure enclave
 /// @return private key as NSData
-+ (NSData *)entropyWithEthAddress:(NSString *)ethAddress userPromptText:(NSString *)userPromptText protectionLevel:(UPTHDSignerProtectionLevel)protectionLevel {
++ (NSData *)entropyWithEthAddress:(NSString *)ethAddress
+                   userPromptText:(NSString *)userPromptText
+                  protectionLevel:(UPTHDSignerProtectionLevel)protectionLevel
+{
     VALValet *entropyKeystore = [self privateKeystoreWithProtectionLevel:protectionLevel];
     NSString *entropyLookupKeyName = [UPTHDSigner entropyLookupKeyNameWithEthAddress:ethAddress];
     NSData *entropy;
@@ -358,24 +437,29 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
             break;
         }
         case UPTHDSignerProtectionLevelPromptSecureEnclave: {
-            entropy = [(VALSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText userCancelled:nil];
+            entropy = [(VALSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName
+                                                                  userPrompt:userPromptText
+                                                               userCancelled:nil];
             break;
         }
         case UPTHDSignerProtectionLevelSinglePromptSecureEnclave: {
-            entropy = [(VALSinglePromptSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName userPrompt:userPromptText userCancelled:nil];
+            entropy = [(VALSinglePromptSecureEnclaveValet *)entropyKeystore objectForKey:entropyLookupKeyName
+                                                                              userPrompt:userPromptText
+                                                                           userCancelled:nil];
             break;
         }
-        case UPTHDSignerProtectionLevelNotRecognized:
-            // then it will return nil
+        case UPTHDSignerProtectionLevelNotRecognized: {
+            entropy = nil;
             break;
-        default:
-            // then it will return nil
+        }
+        default: {
+            entropy = nil;
             break;
+        }
     }
 
     return entropy;
 }
-
 
 + (NSMutableData*) compressedPublicKey:(EC_KEY *)key {
     if (!key) return nil;
@@ -410,15 +494,18 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 
 + (UPTHDSignerProtectionLevel)enumStorageLevelWithStorageLevel:(NSString *)storageLevel {
     NSArray<NSString *> *storageLevels = @[ ReactNativeHDSignerProtectionLevelNormal,
-            ReactNativeHDSignerProtectionLevelICloud,
-            ReactNativeHDSignerProtectionLevelPromptSecureEnclave,
-            ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave];
+                                            ReactNativeHDSignerProtectionLevelICloud,
+                                            ReactNativeHDSignerProtectionLevelPromptSecureEnclave,
+                                            ReactNativeHDSignerProtectionLevelSinglePromptSecureEnclave ];
+
     return (UPTHDSignerProtectionLevel)[storageLevels indexOfObject:storageLevel];
 }
 
 + (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
-    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
-    if ( characterConverted.length % 4 != 0 ) {
+    NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-"
+                                                                                              withString:@"+"]
+                                            stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
+    if (characterConverted.length % 4 != 0 ) {
         NSUInteger numEquals = 4 - characterConverted.length % 4;
         NSString *equalsPadding = [@"" stringByPaddingToLength:numEquals withString: @"=" startingAtIndex:0];
         [characterConverted appendString:equalsPadding];
@@ -428,7 +515,9 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 }
 
 + (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
-    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"=" withString:@""];
+    return [[[base64String stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
+             stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
+            stringByReplacingOccurrencesOfString:@"=" withString:@""];
 }
 
 @end

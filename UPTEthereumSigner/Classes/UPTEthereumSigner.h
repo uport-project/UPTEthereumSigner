@@ -1,5 +1,5 @@
 //
-//  UPTEthSigner.h
+//  UPTEthereumSigner.h
 //  uPortMobile
 //
 //  Created by josh on 10/18/17.
@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "UPTProtectionLevel.h"
 
 ///
@@ -30,15 +29,29 @@ typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
 
 @interface UPTEthereumSigner : NSObject
 
-+ (void)createKeyPairWithStorageLevel:(UPTEthKeychainProtectionLevel)protectionLevel result:(UPTEthSignerKeyPairCreationResult)result;
++ (void)createKeyPairWithStorageLevel:(UPTEthKeychainProtectionLevel)protectionLevel
+                               result:(UPTEthSignerKeyPairCreationResult)result;
 
-+ (void)saveKey:(NSData *)privateKey protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel result:(UPTEthSignerKeyPairCreationResult)result;
++ (void)saveKey:(NSData *)privateKey
+protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel
+         result:(UPTEthSignerKeyPairCreationResult)result;
 
 // if you are supplying chainID, your tx payload contains 9 fields; otherwise it contains 6
-+ (void)signTransaction:(NSString *)ethAddress data:(NSString *)payload userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result __attribute__((deprecated));
-+ (void)signTransaction:(NSString *)ethAddress serializedTxPayload:(NSData *)serializedTxPayload chainId:(NSData *)chainId userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result;
++ (void)signTransaction:(NSString *)ethAddress
+                   data:(NSString *)payload
+             userPrompt:(NSString *)userPromptText
+                 result:(UPTEthSignerTransactionSigningResult)result __attribute__((deprecated));
 
-+ (void)signJwt:(NSString *)ethAddress userPrompt:(NSString*)userPromptText data:(NSData *)payload result:(UPTEthSignerJWTSigningResult)result;
++ (void)signTransaction:(NSString *)ethAddress
+    serializedTxPayload:(NSData *)serializedTxPayload
+                chainId:(NSData *)chainId
+             userPrompt:(NSString *)userPromptText
+                 result:(UPTEthSignerTransactionSigningResult)result;
+
++ (void)signJwt:(NSString *)ethAddress
+     userPrompt:(NSString *)userPromptText
+           data:(NSData *)payload
+         result:(UPTEthSignerJWTSigningResult)result;
 
 + (NSString *)ethAddressWithPublicKey:(NSData *)publicKey;
 
