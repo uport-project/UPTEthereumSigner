@@ -69,6 +69,31 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     callback( phrase, nil );
 }
 
++ (void)deleteSeed:(NSString *)phrase callback:(UPTEthSignerDeleteSeedResult)callback {
+    NSArray<NSString *> *words = [UPTHDSigner wordsFromPhrase:phrase];
+    BTCMnemonic *mnemonic = [[BTCMnemonic alloc] initWithWords:words password:@"" wordListType:BTCMnemonicWordListTypeEnglish];
+    BTCKeychain *masterKeychain = [[BTCKeychain alloc] initWithSeed:mnemonic.seed];
+    
+    BTCKeychain *rootKeychain = [masterKeychain derivedKeychainWithPath:UPORT_ROOT_DERIVATION_PATH];
+    NSString *rootEthereumAddress = [UPTHDSigner ethereumAddressWithPublicKey:rootKeychain.key.uncompressedPublicKey];
+    
+    UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootEthereumAddress];
+    if ( protectionLevel != UPTHDSignerProtectionLevelNotRecognized ) {
+        VALValet *privateKeystore = [UPTHDSigner privateKeystoreWithProtectionLevel:protectionLevel];
+        NSString *privateKeyLookupKeyName = [UPTHDSigner entropyLookupKeyNameWithEthAddress:rootEthereumAddress];
+        [privateKeystore removeObjectForKey:privateKeyLookupKeyName];
+    }
+    
+    VALValet *protectionLevelsKeystore = [UPTHDSigner keystoreForProtectionLevels];
+    NSString *protectionLevelLookupKey = [UPTHDSigner protectionLevelLookupKeyNameWithEthAddress:rootEthereumAddress];
+    [protectionLevelsKeystore removeObjectForKey:protectionLevelLookupKey];
+    
+    VALValet *addressKeystore = [UPTHDSigner ethAddressesKeystore];
+    [addressKeystore removeObjectForKey:rootEthereumAddress];
+    
+    callback( YES, nil );
+}
+
 + (void)createHDSeed:(UPTHDSignerProtectionLevel)protectionLevel callback:(UPTHDSignerSeedCreationResult)callback {
     [UPTHDSigner
         createHDSeed:protectionLevel
@@ -283,6 +308,9 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     NSString *protectionLevelLookupKeyName = [UPTHDSigner protectionLevelLookupKeyNameWithEthAddress:ethAddress];
     VALValet *protectionLevelsKeystore = [UPTHDSigner keystoreForProtectionLevels];
     NSString *keychainSourcedProtectionLevel = [protectionLevelsKeystore stringForKey:protectionLevelLookupKeyName];
+    if ( !keychainSourcedProtectionLevel ) {
+        return UPTHDSignerProtectionLevelNotRecognized;
+    }
     return [UPTHDSigner protectionLevelFromKeychainSourcedProtectionLevel:keychainSourcedProtectionLevel];
 }
 
