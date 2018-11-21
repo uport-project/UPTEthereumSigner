@@ -30,6 +30,7 @@ NSString * const kUPTHDSignerErrorDomain = @"UPTHDSignerError";
 NSString * const UPTHDSignerErrorCodeLevelParamNotRecognized = @"-11";
 NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
+NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
 
 @implementation UPTHDSigner
 
@@ -196,7 +197,14 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
 
     NSData *hash = [UPTHDSigner keccak256:payloadData];
     NSDictionary *signature = ethereumSignature(derivedKeychain.key, hash, chainId);
-    callback(signature, nil);
+    if (signature) {
+        callback(signature, nil);
+    } else {
+        NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                           code:UPTHDSignerErrorCodeLevelSigningError.integerValue
+                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress]}];
+        callback(nil, signingError);
+    }
 }
 
 + (void)signJWT:(NSString *)rootAddress derivationPath:(NSString *)derivationPath data:(NSString *)data prompt:(NSString *)prompt callback:(UPTHDSignerJWTSigningResult)callback {
@@ -221,9 +229,16 @@ NSString * const UPTHDSignerErrorCodeInvalidSeedWords = @"-13";
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:data options:0];
     NSData *hash = [payloadData SHA256];
     NSData *signature = simpleSignature(derivedKeychain.key, hash);
-    NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
-    NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
-    callback(webSafeBase64Signature, nil);
+    if (signature) {
+        NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
+        NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
+        callback(webSafeBase64Signature, nil);
+    } else {
+        NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                           code:UPTHDSignerErrorCodeLevelSigningError.integerValue
+                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress]}];
+        callback(nil, signingError);
+    }
 }
 
 + (void)privateKeyForPath:(NSString *)rootAddress derivationPath:(NSString *)derivationPath prompt:(NSString *)prompt callback:(UPTHDSignerPrivateKeyResult)callback {
