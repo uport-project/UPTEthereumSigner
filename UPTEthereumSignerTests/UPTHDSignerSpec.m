@@ -87,6 +87,10 @@ describe(@"key creation, address retrieval", ^{
                                  [UPTHDSigner deleteSeed:ethAddress callback:^(BOOL deleted, NSError *error) {
                                      XCTAssertTrue(deleted);
                                      XCTAssertNil(error);
+                                     [UPTHDSigner showSeed:ethAddress prompt:@"Test if seed still exists" callback:^(NSString *phrase, NSError *error) {
+                                         XCTAssertNil(phrase);
+                                         XCTAssertNotNil(error);
+                                     }];
                                  }];
                              }];
         });
