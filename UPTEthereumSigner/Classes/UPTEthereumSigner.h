@@ -16,6 +16,7 @@
 /// @debugStrategy add support for new level value or fix possible typo or incompatibility error on react native js side
 FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelParamNotRecognized;
 FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound;
+FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelSigningError;
 
 /// @param ethAddress    an Ethereum adderss with prefix '0x'. May be nil if error occured
 /// @param publicKey    a base 64 encoded representation of the NSData public key. Note: encoded with no line
