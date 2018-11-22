@@ -26,6 +26,7 @@ typedef void (^UPTEthSignerKeyPairCreationResult)(NSString *ethAddress, NSString
 
 typedef void (^UPTEthSignerTransactionSigningResult)(NSDictionary *signature, NSError *error);
 typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
+typedef void (^UPTEthSignerDeleteKeyResult)(BOOL deleted, NSError *error);
 
 @class VALValet;
 
@@ -42,7 +43,7 @@ typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
 + (void)signJwt:(NSString *)ethAddress userPrompt:(NSString*)userPromptText data:(NSData *)payload result:(UPTEthSignerJWTSigningResult)result;
 
 + (NSString *)ethAddressWithPublicKey:(NSData *)publicKey;
-
++ (void)deleteKey:(NSString *)ethAddress result:(UPTEthSignerDeleteKeyResult)result;
 + (NSArray *)allAddresses;
 
 // utils

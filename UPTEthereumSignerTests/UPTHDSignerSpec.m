@@ -75,6 +75,28 @@ describe(@"key creation, address retrieval", ^{
             }
         ];
     });
+    
+    
+    describe(@"Deletion", ^{
+        it(@"Can delete", ^{
+            [UPTHDSigner createHDSeed:UPTHDSignerProtectionLevelPromptSecureEnclave
+                   rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
+                             callback:^(NSString *ethAddress, NSString *publicKey, NSError *error) {
+                                 NSLog(@"Deletion eth address: %@ . for public key: %@", ethAddress, publicKey);
+                                 expect(error).to.beNil();
+                                 [UPTHDSigner deleteSeed:ethAddress callback:^(BOOL deleted, NSError *error) {
+                                     XCTAssertTrue(deleted);
+                                     XCTAssertNil(error);
+                                     [UPTHDSigner showSeed:ethAddress prompt:@"Test if seed still exists" callback:^(NSString *phrase, NSError *error2) {
+                                         XCTAssertNil(phrase);
+                                         XCTAssertNotNil(error2);
+                                     }];
+                                 }];
+                             }];
+        });
+    });
+    
+
 });
 
 SpecEnd

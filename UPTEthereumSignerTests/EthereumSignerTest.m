@@ -17,7 +17,6 @@
 @end
 
 @implementation EthereumSignerTest
-
 - (void)testEIP155Example {
     // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md#example
     NSData *privateKey = BTCDataFromHex(@"0x4646464646464646464646464646464646464646464646464646464646464646");
@@ -57,7 +56,7 @@
         }
     }
     // the set of values that fail should diminish over time, and never regress
-    XCTAssertEqualObjects(all, values);
+    XCTAssertEqualObjects(all, @[]);
 }
 
 @end
