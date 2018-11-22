@@ -95,6 +95,20 @@ describe(@"Saving", ^{
     });
 });
 
+describe(@"Deletion", ^{
+    it(@"Can delete", ^{
+        NSString *referencePrivateKey = @"5047c789919e943c559d8c134091d47b4642122ba0111dfa842ef6edefb48f38";
+        NSData *privateKeyData = [UPTEthereumSigner dataFromHexString:referencePrivateKey];
+        [UPTEthereumSigner saveKey:privateKeyData protectionLevel:UPTEthKeychainProtectionLevelNormal result:^(NSString *ethAddress, NSString *publicKey, NSError *error) {
+            XCTAssertNil(error);
+            [UPTEthereumSigner deleteKey:ethAddress result:^(BOOL deleted, NSError *error) {
+                XCTAssertTrue(deleted);
+                XCTAssertNil(error);
+            }];
+        }];
+    });
+});
+
 describe(@"Signing", ^{
     it(@"can sign transaction", ^{
         NSString *referencePrivateKey = @"NobiRYkMf5l3Zrc6Idjln2OF4SCIMa84YldHkMvD0Vg=";

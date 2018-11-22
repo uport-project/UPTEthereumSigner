@@ -122,6 +122,22 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     result( ethAddress, publicKeyString, nil );
 }
 
++ (void)deleteKey:(NSString *)ethAddress result:(UPTEthSignerDeleteKeyResult)result {
+    UPTEthKeychainProtectionLevel protectionLevel = [UPTEthereumSigner protectionLevelWithEthAddress:ethAddress];
+    if (protectionLevel != UPTEthKeychainProtectionLevelNotRecognized) {
+        VALValet *privateKeystore = [UPTEthereumSigner privateKeystoreWithProtectionLevel:protectionLevel];
+        [privateKeystore removeObjectForKey:ethAddress];
+    }
+    
+    VALValet *protectionLevelsKeystore = [UPTEthereumSigner keystoreForProtectionLevels];
+    [protectionLevelsKeystore removeObjectForKey:ethAddress];
+    
+    VALValet *addressKeystore = [UPTEthereumSigner ethAddressesKeystore];
+    [addressKeystore removeObjectForKey:ethAddress];
+    
+    result(YES, nil);
+}
+
 #pragma mark - Private
 
 + (void)saveProtectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel withEthAddress:(NSString *)ethAddress {
