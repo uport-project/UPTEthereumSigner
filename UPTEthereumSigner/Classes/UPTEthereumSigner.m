@@ -124,7 +124,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
 
 + (void)deleteKey:(NSString *)ethAddress result:(UPTEthSignerDeleteKeyResult)result {
     UPTEthKeychainProtectionLevel protectionLevel = [UPTEthereumSigner protectionLevelWithEthAddress:ethAddress];
-    if ( protectionLevel != UPTEthKeychainProtectionLevelNotRecognized ) {
+    if (protectionLevel != UPTEthKeychainProtectionLevelNotRecognized) {
         VALValet *privateKeystore = [UPTEthereumSigner privateKeystoreWithProtectionLevel:protectionLevel];
         [privateKeystore removeObjectForKey:ethAddress];
     }
@@ -135,7 +135,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     VALValet *addressKeystore = [UPTEthereumSigner ethAddressesKeystore];
     [addressKeystore removeObjectForKey:ethAddress];
     
-    result( YES, nil );
+    result(YES, nil);
 }
 
 #pragma mark - Private
