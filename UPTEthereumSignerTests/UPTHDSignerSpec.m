@@ -82,14 +82,14 @@ describe(@"key creation, address retrieval", ^{
             [UPTHDSigner createHDSeed:UPTHDSignerProtectionLevelPromptSecureEnclave
                    rootDerivationPath:UPORT_ROOT_DERIVATION_PATH
                              callback:^(NSString *ethAddress, NSString *publicKey, NSError *error) {
-                                 NSLog(@"eth address: %@ . for public key: %@", ethAddress, publicKey);
+                                 NSLog(@"Deletion eth address: %@ . for public key: %@", ethAddress, publicKey);
                                  expect(error).to.beNil();
                                  [UPTHDSigner deleteSeed:ethAddress callback:^(BOOL deleted, NSError *error) {
                                      XCTAssertTrue(deleted);
                                      XCTAssertNil(error);
-                                     [UPTHDSigner showSeed:ethAddress prompt:@"Test if seed still exists" callback:^(NSString *phrase, NSError *error) {
+                                     [UPTHDSigner showSeed:ethAddress prompt:@"Test if seed still exists" callback:^(NSString *phrase, NSError *error2) {
                                          XCTAssertNil(phrase);
-                                         XCTAssertNotNil(error);
+                                         XCTAssertNotNil(error2);
                                      }];
                                  }];
                              }];
