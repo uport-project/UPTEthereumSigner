@@ -1,5 +1,5 @@
 //
-//  UPTEthSigner.m
+//  UPTEthereumSigner.m
 //  UPTEthereumSigner
 //
 //  Created by josh on 10/18/17.
