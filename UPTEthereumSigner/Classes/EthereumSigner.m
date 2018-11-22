@@ -1,6 +1,24 @@
-// EthereumSigner.m
-// uPort Mobile App
-// Copyright (C) 2018 ConsenSys AG
+//
+//  EthereumSigner.m
+//  UPTEthereumSigner
+//
+//  Copyright (C) 2018 ConsenSys AG
+//
+//  This file is part of UPTEthereumSigner.
+//
+//  UPTEthereumSigner is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  UPTEthereumSigner is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with UPTEthereumSigner.  If not, see <http://www.gnu.org/licenses/>.
+//
 
 #import "EthereumSigner.h"
 
@@ -37,7 +55,7 @@ NSDictionary *ethereumSignature(BTCKey *keypair, NSData *hash, NSData *chainId) 
     
     NSDictionary *signatureDictionary = @{ @"v" : @(base + [sig[@"recoveryParam"] intValue]),
                                            @"r" : [rData base64EncodedStringWithOptions:0],
-                                           @"s" :[sData base64EncodedStringWithOptions:0] };
+                                           @"s" : [sData base64EncodedStringWithOptions:0] };
     return signatureDictionary;
 }
 
