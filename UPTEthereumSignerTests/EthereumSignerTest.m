@@ -56,7 +56,7 @@
         }
     }
     // the set of values that fail should diminish over time, and never regress
-    XCTAssertEqualObjects(all, values);
+    XCTAssertEqualObjects(all, @[]);
 }
 
 @end
