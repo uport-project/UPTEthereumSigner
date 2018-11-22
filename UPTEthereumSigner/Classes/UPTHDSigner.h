@@ -28,6 +28,7 @@ typedef void (^UPTHDSignerPrivateKeyResult)(NSString *privateKeyBase64, NSError 
 FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeLevelParamNotRecognized;
 FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeLevelPrivateKeyNotFound;
 FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeInvalidSeedWords;
+FOUNDATION_EXPORT NSString * const UPTHDSignerErrorCodeLevelSigningError;
 
 FOUNDATION_EXPORT NSString * const UPORT_ROOT_DERIVATION_PATH;
 FOUNDATION_EXPORT NSString * const METAMASK_ROOT_DERIVATION_PATH;

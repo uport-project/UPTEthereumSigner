@@ -1,6 +1,6 @@
 //
-//  UPTEthSigner.m
-//  uPortMobile
+//  UPTEthereumSigner.m
+//  UPTEthereumSigner
 //
 //  Created by josh on 10/18/17.
 //  Copyright © 2017 ConsenSys AG. All rights reserved.
@@ -26,8 +26,9 @@ NSString *const UPTEthAddressIdentifier = @"UportEthAddressIdentifier";
 NSString *const UPTPrivateKeyLookupKeyNamePrefix = @"address-";
 NSString *const UPTProtectionLevelLookupKeyNamePrefix = @"level-address-";
 
-NSString * const UPTSignerErrorCodeLevelParamNotRecognized = @"-11";
-NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
+NSString *const UPTSignerErrorCodeLevelParamNotRecognized = @"-11";
+NSString *const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
+NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
 
 @implementation UPTEthereumSigner
 
@@ -39,19 +40,18 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 
 + (void)signTransaction:(NSString *)ethAddress data:(NSString *)payload userPrompt:(NSString*)userPromptText  result:(UPTEthSignerTransactionSigningResult)result {
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:payload options:0];
-    [UPTEthereumSigner
-        signTransaction:ethAddress
-        serializedTxPayload:payloadData
-        chainId:nil
-        userPrompt:userPromptText
-        result:result
-    ];
+    [UPTEthereumSigner signTransaction:ethAddress
+                   serializedTxPayload:payloadData
+                               chainId:nil
+                            userPrompt:userPromptText
+                                result:result];
 }
+
 + (void)signTransaction:(NSString *)ethAddress serializedTxPayload:(NSData *)payloadData chainId:(NSData *)chainId userPrompt:(NSString*)userPromptText result:(UPTEthSignerTransactionSigningResult)result {
     UPTEthKeychainProtectionLevel protectionLevel = [UPTEthereumSigner protectionLevelWithEthAddress:ethAddress];
-    if ( protectionLevel == UPTEthKeychainProtectionLevelNotRecognized ) {
+    if (protectionLevel == UPTEthKeychainProtectionLevelNotRecognized) {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
-        result( nil, protectionLevelError);
+        result(nil, protectionLevelError);
         return;
     }
 
@@ -59,18 +59,28 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     if (key) {
         NSData *hash = [UPTEthereumSigner keccak256:payloadData];
         NSDictionary *signature = ethereumSignature(key, hash, chainId);
-        result(signature, nil);
+        if (signature) {
+            result(signature, nil);
+        } else {
+            NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                               code:UPTSignerErrorCodeLevelSigningError.integerValue
+                                                           userInfo:@{ @"message" : [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", ethAddress] }];
+            result(nil, signingError);
+        }
     } else {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
-        result( nil, protectionLevelError);
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                                   code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue 
+                                                               userInfo:@{ @"message" : @"private key not found for eth address" }];
+        result(nil, protectionLevelError);
     }
-
 }
 
-+ (void)signJwt:(NSString *)ethAddress userPrompt:(NSString*)userPromptText data:(NSData *)payload result:(UPTEthSignerJWTSigningResult)result {
++ (void)signJwt:(NSString *)ethAddress userPrompt:(NSString *)userPromptText data:(NSData *)payload result:(UPTEthSignerJWTSigningResult)result {
     UPTEthKeychainProtectionLevel protectionLevel = [UPTEthereumSigner protectionLevelWithEthAddress:ethAddress];
-    if ( protectionLevel == UPTEthKeychainProtectionLevelNotRecognized ) {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue userInfo:@{@"message": @"protection level not found for eth address"}];
+    if (protectionLevel == UPTEthKeychainProtectionLevelNotRecognized) {
+        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" 
+                                                                   code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue 
+                                                               userInfo:@{ @"message" : @"protection level not found for eth address" }];
         result( nil, protectionLevelError);
         return;
     }
@@ -79,19 +89,24 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     if (key) {
         NSData *hash = [payload SHA256];
         NSData *signature = simpleSignature(key, hash);
-        result(signature, nil);
+        if (signature) {
+            result(signature, nil);
+        } else {
+            NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
+                                                               code:UPTSignerErrorCodeLevelSigningError.integerValue
+                                                           userInfo:@{ @"message" : [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", ethAddress] }];
+            result(nil, signingError);
+        }
     } else {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue userInfo:@{@"message": @"private key not found for eth address"}];
         result( nil, protectionLevelError);
     }
-
 }
 
 + (NSArray *)allAddresses {
     VALValet *addressKeystore = [UPTEthereumSigner ethAddressesKeystore];
     return [[addressKeystore allKeys] allObjects];
 }
-
 
 /// @description - saves the private key and requested protection level in the keychain
 ///              - private key converted to nsdata without base64 encryption
@@ -167,7 +182,6 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     return addresses;
 }
 
-
 + (void)saveEthAddress:(NSString *)ethAddress {
     VALValet *addressKeystore = [UPTEthereumSigner ethAddressesKeystore];
     [addressKeystore setString:ethAddress forKey:ethAddress];
@@ -196,12 +210,14 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
             privateKey = [(VALSinglePromptSecureEnclaveValet *)privateKeystore objectForKey:privateKeyLookupKeyName userPrompt:userPromptText];
             break;
         }
-        case UPTEthKeychainProtectionLevelNotRecognized:
-            // then it will return nil
+        case UPTEthKeychainProtectionLevelNotRecognized: {
+            privateKey = nil;
             break;
-        default:
-            // then it will return nil
+        }
+        default: {
+            privateKey = nil;
             break;
+        }
     }
 
     return privateKey;
@@ -209,19 +225,19 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
 /// @param userPromptText the string to display to the user when requesting access to the secure enclave
 /// @return BTCKey
 + (BTCKey *)keyPairWithEthAddress:(NSString *)ethAddress userPromptText:(NSString *)userPromptText protectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel {
-  NSData *privateKey = [self privateKeyWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
-  if (privateKey) {
-    return [[BTCKey alloc] initWithPrivateKey:privateKey];
-  } else {
-    return nil;
-  }
+    NSData *privateKey = [self privateKeyWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
+    if (privateKey) {
+        return [[BTCKey alloc] initWithPrivateKey:privateKey];
+    } else {
+        return nil;
+    }
 }
 
 /// @param protectionLevel indicates which private keystore to create and return
 /// @return returns VALValet or valid subclass: VALSynchronizableValet, VALSecureEnclaveValet, VALSinglePromptSecureEnclaveValet
 + (VALValet *)privateKeystoreWithProtectionLevel:(UPTEthKeychainProtectionLevel)protectionLevel {
     VALValet *keystore;
-    switch ( protectionLevel ) {
+    switch (protectionLevel) {
         case UPTEthKeychainProtectionLevelNormal: {
             keystore = [[VALValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessibility:VALAccessibilityWhenUnlockedThisDeviceOnly];
             break;
@@ -238,12 +254,14 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
             keystore = [[VALSinglePromptSecureEnclaveValet alloc] initWithIdentifier:UPTPrivateKeyIdentifier accessControl:VALAccessControlUserPresence];
             break;
         }
-        case UPTEthKeychainProtectionLevelNotRecognized:
-            // then it will return nil
+        case UPTEthKeychainProtectionLevelNotRecognized: {
+            keystore = nil;
             break;
-        default:
-            // then it will return nil
+        }
+        default: {
+            keystore = nil;
             break;
+        }
     }
 
     return keystore;
@@ -273,7 +291,6 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     return BTCDataFromHex(originalHexString);
 }
 
-
 + (NSString *)base64StringWithURLEncodedBase64String:(NSString *)URLEncodedBase64String {
     NSMutableString *characterConverted = [[[URLEncodedBase64String stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
     if ( characterConverted.length % 4 != 0 ) {
@@ -283,7 +300,6 @@ NSString * const UPTSignerErrorCodeLevelPrivateKeyNotFound = @"-12";
     }
     
     return characterConverted;
-    
 }
 
 + (NSString *)URLEncodedBase64StringWithBase64String:(NSString *)base64String {
