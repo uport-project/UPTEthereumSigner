@@ -88,9 +88,9 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     BTCKey *key = [self keyPairWithEthAddress:ethAddress userPromptText:userPromptText protectionLevel:protectionLevel];
     if (key) {
         NSData *hash = [payload SHA256];
-        NSData *signature = simpleSignature(key, hash);
+        NSDictionary *signature = ethereumSignature(key, hash, NULL);
         if (signature) {
-            result(signature, nil);
+            result(@{@"r":signature[@"r"], @"s":signature[@"s"], @"v": @([signature[@"v"] intValue] - 27)}, nil);
         } else {
             NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                code:UPTSignerErrorCodeLevelSigningError.integerValue

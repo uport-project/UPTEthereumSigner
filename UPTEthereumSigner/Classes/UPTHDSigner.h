@@ -20,7 +20,7 @@ typedef void (^UPTHDSignerSeedCreationResult)(NSString *ethAddress, NSString *pu
 typedef void (^UPTHDSignerSeedPhraseResult)(NSString *phrase, NSError *error);
 
 typedef void (^UPTHDSignerTransactionSigningResult)(NSDictionary *signature, NSError *error);
-typedef void (^UPTHDSignerJWTSigningResult)(NSString *signature, NSError *error);
+typedef void (^UPTHDSignerJWTSigningResult)(NSDictionary *signature, NSError *error);
 
 /// param privateKey is a base64 string
 typedef void (^UPTHDSignerPrivateKeyResult)(NSString *privateKeyBase64, NSError *error);
