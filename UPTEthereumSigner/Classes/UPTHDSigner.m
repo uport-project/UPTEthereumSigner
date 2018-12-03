@@ -248,11 +248,11 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     NSData *hash = [payloadData SHA256];
     NSDictionary *signature = ethereumSignature(derivedKeychain.key, hash, NULL);
     if (signature) {
-        callback(@{@"r":signature[@"r"], @"s":signature[@"s"], @"v": @([signature[@"v"] intValue] - 27)}, nil);
+        callback(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue] - 27) }, nil);
     } else {
         NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                            code:UPTHDSignerErrorCodeLevelSigningError.integerValue
-                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress]}];
+                                                       userInfo:@{ @"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress] }];
         callback(nil, signingError);
     }
 }
