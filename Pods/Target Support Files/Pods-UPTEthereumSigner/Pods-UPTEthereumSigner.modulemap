@@ -1,6 +1,0 @@
-framework module Pods_UPTEthereumSigner {
-  umbrella header "Pods-UPTEthereumSigner-umbrella.h"
-
-  export *
-  module * { export * }
-}
