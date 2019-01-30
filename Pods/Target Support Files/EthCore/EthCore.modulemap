@@ -1,6 +1,0 @@
-framework module EthCore {
-  umbrella header "EthCore-umbrella.h"
-
-  export *
-  module * { export * }
-}
