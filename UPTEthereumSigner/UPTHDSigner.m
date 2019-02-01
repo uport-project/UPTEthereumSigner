@@ -60,7 +60,7 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
                                                                    code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: showSeed %@", rootAddress]}];
         callback( nil, protectionLevelError);
 
         return;
@@ -71,7 +71,7 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTHDError"
                                                                    code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: showSeed %@", rootAddress]}];
         callback( nil, protectionLevelError);
 
         return;
@@ -186,7 +186,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
                                                                    code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: computeAddressForPath %@", rootAddress]}];
         callback(nil, nil, protectionLevelError);
 
         return;
@@ -199,7 +199,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: computeAddressForPath %@", rootAddress]}];
         callback( nil, nil, protectionLevelError);
 
         return;
@@ -244,7 +244,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
                                                                    code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: signTransaction %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;
@@ -255,7 +255,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: signTransaction %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;
@@ -293,7 +293,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
                                                                    code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: signJWT %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;
@@ -306,7 +306,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: signJwt %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;
@@ -320,18 +320,16 @@ rootDerivationPath:(NSString *)derivationPath
 
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:data options:0];
     NSData *hash = [payloadData SHA256];
-    NSData *signature = simpleSignature(derivedKeychain.key, hash);
+    NSDictionary *signature = ethereumSignature(derivedKeychain.key, hash, NULL);
     if (signature)
     {
-        NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
-        NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
-        callback(webSafeBase64Signature, nil);
+        callback(@{@"r":signature[@"r"], @"s":signature[@"s"], @"v": @([signature[@"v"] intValue] - 27)}, nil);
     }
     else
     {
         NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                            code:UPTHDSignerErrorCodeLevelSigningError.integerValue
-                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress]}];
+                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", rootAddress]}];
         callback(nil, signingError);
     }
 }
@@ -346,7 +344,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:kUPTHDSignerErrorDomain
                                                                    code:UPTHDSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: privateKeyForPath %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;
@@ -359,7 +357,7 @@ rootDerivationPath:(NSString *)derivationPath
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTHDSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: privateKeyForPath %@", rootAddress]}];
         callback(nil, protectionLevelError);
 
         return;

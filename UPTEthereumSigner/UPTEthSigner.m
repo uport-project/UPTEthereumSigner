@@ -64,7 +64,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": @"protection level not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"protection level not found for eth address: signTransaction %@", ethAddress]}];
         result(nil, protectionLevelError);
 
         return;
@@ -91,7 +91,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue 
-                                                               userInfo:@{ @"message" : @"private key not found for eth address" }];
+                                                               userInfo:@{ @"message" : [NSString stringWithFormat:@"private key not found for eth address: signTransaction %@", ethAddress]}];
         result(nil, protectionLevelError);
     }
 }
@@ -106,7 +106,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" 
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue 
-                                                               userInfo:@{ @"message" : @"protection level not found for eth address" }];
+                                                               userInfo:@{ @"message" :[NSString stringWithFormat:@"protection level not found for eth address: signJwt %@", ethAddress]}];
         result(nil, protectionLevelError);
 
         return;
@@ -116,16 +116,16 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     if (key)
     {
         NSData *hash = [payload SHA256];
-        NSData *signature = simpleSignature(key, hash);
+        NSData *signature = ethereumSignature(key, hash, NULL);
         if (signature)
         {
-            result(signature, nil);
+            result(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue] - 27) }, nil);
         }
         else
         {
             NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                code:UPTSignerErrorCodeLevelSigningError.integerValue
-                                                           userInfo:@{ @"message" : [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", ethAddress] }];
+                                                           userInfo:@{ @"message" : [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", ethAddress]}];
             result(nil, signingError);
         }
     }
@@ -133,7 +133,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": @"private key not found for eth address"}];
+                                                               userInfo:@{@"message": [NSString stringWithFormat:@"private key not found for eth address: signJwt %@", ethAddress]}];
         result(nil, protectionLevelError);
     }
 }
