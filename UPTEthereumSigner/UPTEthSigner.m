@@ -107,7 +107,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     UPTEthKeychainProtectionLevel protectionLevel = [UPTEthSigner protectionLevelWithEthAddress:ethAddress];
     if (protectionLevel == UPTEthKeychainProtectionLevelNotRecognized)
     {
-        NSString message = [NSString stringWithFormat:@"protection level not found for eth address: signJwt %@", ethAddress];
+        NSString *message = [NSString stringWithFormat:@"protection level not found for eth address: signJwt %@", ethAddress];
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" 
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue 
                                                                userInfo:@{ @"message" : message }];
@@ -120,7 +120,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     if (key)
     {
         NSData *hash = [payload SHA256];
-        NSData *signature = ethereumSignature(key, hash, NULL);
+        NSDictionary *signature = ethereumSignature(key, hash, NULL);
         if (signature != nil)
         {
             result(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue] - 27) }, nil);
