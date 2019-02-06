@@ -65,7 +65,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
         NSString *message =  [NSString stringWithFormat:@"protection level not found for eth address: signTransaction %@", ethAddress]
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue
-                                                               userInfo:@{@"message": message}];
+                                                               userInfo:@{ @"message" : message }];
         result(nil, protectionLevelError);
 
         return;
@@ -85,7 +85,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
             NSString *message = [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", ethAddress]
             NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                code:UPTSignerErrorCodeLevelSigningError.integerValue
-                                                           userInfo:@{ @"message" : message}];
+                                                           userInfo:@{ @"message" : message }];
             result(nil, signingError);
         }
     }
@@ -94,7 +94,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
         NSString *message = [NSString stringWithFormat:@"private key not found for eth address: signTransaction %@", ethAddress]
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue 
-                                                               userInfo:@{ @"message" : message}];
+                                                               userInfo:@{ @"message" : message }];
         result(nil, protectionLevelError);
     }
 }
@@ -110,7 +110,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
         NSString message = [NSString stringWithFormat:@"protection level not found for eth address: signJwt %@", ethAddress]
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" 
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue 
-                                                               userInfo:@{ @"message" : message}];
+                                                               userInfo:@{ @"message" : message }];
         result(nil, protectionLevelError);
 
         return;
@@ -130,7 +130,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
             NSString *message = [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", ethAddress]
             NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                code:UPTSignerErrorCodeLevelSigningError.integerValue
-                                                           userInfo:@{ @"message" : message}];
+                                                           userInfo:@{ @"message" : message }];
             result(nil, signingError);
         }
     }
@@ -139,7 +139,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
         NSString *message = [NSString stringWithFormat:@"private key not found for eth address: signJwt %@", ethAddress]
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{@"message": message}];
+                                                               userInfo:@{ @"message" : message }];
         result(nil, protectionLevelError);
     }
 }
