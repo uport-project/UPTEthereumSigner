@@ -42,8 +42,8 @@ You need to add these frameworks to your app. See the [**uPort** demo app README
 
 ## Authors
 
-Joshua Bell, joshua.bell@consensys.net
-Cornelis van der Bent, cornelis@meaning-matters.com
+* Joshua Bell, joshua.bell@consensys.net
+* Cornelis van der Bent, cornelis@meaning-matters.com
 
 ## License
 
