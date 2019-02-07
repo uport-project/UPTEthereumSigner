@@ -26,7 +26,6 @@
 		48735D7A21EFD1F800904ED5 /* UPTEthSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 48735D7121EFD1F800904ED5 /* UPTEthSigner.m */; };
 		487BE2B321F517210066D134 /* CoreEth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487BE2B221F517210066D134 /* CoreEth.framework */; };
 		48F72FA521F890010089FBBB /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F72FA421F890010089FBBB /* Valet.framework */; };
-		48F72FA721F890220089FBBB /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F72FA621F890220089FBBB /* openssl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +61,6 @@
 		48735D7121EFD1F800904ED5 /* UPTEthSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPTEthSigner.m; sourceTree = "<group>"; };
 		487BE2B221F517210066D134 /* CoreEth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreEth.framework; path = Carthage/Build/iOS/CoreEth.framework; sourceTree = "<group>"; };
 		48F72FA421F890010089FBBB /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
-		48F72FA621F890220089FBBB /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = Carthage/Build/iOS/openssl.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48F72FA721F890220089FBBB /* openssl.framework in Frameworks */,
 				48F72FA521F890010089FBBB /* Valet.framework in Frameworks */,
 				487BE2B321F517210066D134 /* CoreEth.framework in Frameworks */,
 			);
@@ -141,7 +138,6 @@
 		487BE2B121F517210066D134 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48F72FA621F890220089FBBB /* openssl.framework */,
 				48F72FA421F890010089FBBB /* Valet.framework */,
 				487BE2B221F517210066D134 /* CoreEth.framework */,
 			);
