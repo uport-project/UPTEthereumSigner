@@ -1,2 +1,2 @@
 github "square/Valet" ~> 2.4.2
-github "https://github.com/uport-project/CoreEth" ~> 1.0.0
+github "https://github.com/uport-project/uport-ios-core-eth" ~> 1.0.0
