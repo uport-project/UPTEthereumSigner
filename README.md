@@ -38,12 +38,12 @@ This git-clones the repositories this framework depends on, and subsequently bui
 
 The result of the Carthage build is in directory `Carthage/Build/iOS` which contains: `CoreEth.framework`, `openssl.framework`, and `Valet.framework`.
 
-You need to add these frameworks to your app. See the [**uPort demo app README](https://github.com/uport-project/uport-ios-demo/blob/master/README.md) for a detailed description of how to do that.
+You need to add these frameworks to your app. See the [**uPort** demo app README](https://github.com/uport-project/uport-ios-demo/blob/master/README.md) for a detailed description of how to do that.
 
 ## Authors
 
-Joshua Bell, joshua.bell@consensys.net
-Cornelis van der Bent, cornelis@meaning-matters.com
+* Joshua Bell, joshua.bell@consensys.net
+* Cornelis van der Bent, cornelis@meaning-matters.com
 
 ## License
 
