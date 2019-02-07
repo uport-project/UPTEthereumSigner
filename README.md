@@ -47,4 +47,4 @@ Cornelis van der Bent, cornelis@meaning-matters.com
 
 ## License
 
-UPTEthereumSigner is available under the [Apache License](LICENSE.txt).
+UPTEthereumSigner is available under the [Apache License](LICENSE.md).
