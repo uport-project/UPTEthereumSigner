@@ -155,11 +155,13 @@ describe(@"Signing", ^{
         NSArray *referenceData = [NSArray arrayWithContentsOfFile:referenceDataPath];
         for ( NSDictionary *example in referenceData ) {
             NSData *payload = [[NSData alloc] initWithBase64EncodedString:example[@"encoded"] options:0];
-            [UPTEthereumSigner signJwt:referenceAddress userPrompt:@"test signing data" data:payload result:^(NSData *signature, NSError *error) {
+            [UPTEthereumSigner signJwt:referenceAddress userPrompt:@"test signing data" data:payload result:^(NSDictionary *signature, NSError *error) {
                 expect(error).to.beNil();
-                NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
-                NSString *webSafeBase64Signature = [UPTEthereumSigner URLEncodedBase64StringWithBase64String:base64Signature];
-                expect(webSafeBase64Signature).to.equal(example[@"signature"]);
+                NSLog(@"SIG: %@", signature);
+                expect(signature[@"r"]).to.equal(example[@"r"]);
+                expect(signature[@"s"]).to.equal(example[@"s"]);
+                expect(signature[@"v"]).to.equal(example[@"v"]);
+
             }];
         };
     });
@@ -201,11 +203,11 @@ describe(@"Comprehensive tests", ^{
                             expect(signature[@"r"]).to.equal(kp[@"txsig"][@"r"]);
                             expect(signature[@"s"]).to.equal(kp[@"txsig"][@"s"]);
                             expect(signature[@"v"]).to.equal(kp[@"txsig"][@"v"]);
-                            [UPTEthereumSigner signJwt:kp[@"address"] userPrompt:@"test signing data" data:jwtData result:^(NSData *signature, NSError *error) {
+                            [UPTEthereumSigner signJwt:kp[@"address"] userPrompt:@"test signing data" data:jwtData result:^(NSDictionary *signature, NSError *error) {
                                 expect(error).to.beNil();
-                                NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
-                                NSString *webSafeBase64Signature = [UPTEthereumSigner URLEncodedBase64StringWithBase64String:base64Signature];
-                                expect(webSafeBase64Signature).to.equal(kp[@"jwtsig"]);
+                                expect(signature[@"r"]).to.equal(kp[@"jwtsig"][@"r"]);
+                                expect(signature[@"s"]).to.equal(kp[@"jwtsig"][@"s"]);
+                                expect(signature[@"v"]).to.equal(kp[@"jwtsig"][@"v"]);
                             }];
                         }
                     }];

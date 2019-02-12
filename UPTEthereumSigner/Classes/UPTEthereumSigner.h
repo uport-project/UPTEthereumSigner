@@ -25,7 +25,7 @@ FOUNDATION_EXPORT NSString * const UPTSignerErrorCodeLevelSigningError;
 typedef void (^UPTEthSignerKeyPairCreationResult)(NSString *ethAddress, NSString *publicKey, NSError *error);
 
 typedef void (^UPTEthSignerTransactionSigningResult)(NSDictionary *signature, NSError *error);
-typedef void (^UPTEthSignerJWTSigningResult)(NSData *signature, NSError *error);
+typedef void (^UPTEthSignerJWTSigningResult)(NSDictionary *signature, NSError *error);
 typedef void (^UPTEthSignerDeleteKeyResult)(BOOL deleted, NSError *error);
 
 @class VALValet;
