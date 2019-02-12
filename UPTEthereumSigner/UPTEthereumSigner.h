@@ -14,7 +14,7 @@ FOUNDATION_EXPORT double UPTEthereumSignerVersionNumber;
 //! Project version string for UPTEthereumSigner.
 FOUNDATION_EXPORT const unsigned char UPTEthereumSignerVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <UPTEthereumSigner/PublicHeader.h>
-
+@import CoreEth;
+@import Valet;
 #import <UPTEthereumSigner/UPTEthSigner.h>
 #import <UPTEthereumSigner/UPTProtectionLevel.h>
