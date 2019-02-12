@@ -38,7 +38,7 @@
                                 prompt:@""
                               callback:^(NSString *account0Address, NSString *account0PublicKey, NSError *error)
     {
-        XCTAssertEqual(account0Address, expectedAddress);
+        XCTAssertTrue([account0Address isEqualToString:expectedAddress]);
     }];
 }
 
@@ -51,7 +51,7 @@
                    callback:^(NSString *rootEthAddress, NSString *publicKey, NSError *error)
     {
         XCTAssertNil(error);
-        XCTAssertEqual(rootEthAddress, @"0x108ceb4960947426ae50ded628a49df6856ce851");
+        XCTAssertTrue([rootEthAddress isEqualToString:@"0x108ceb4960947426ae50ded628a49df6856ce851"]);
 
         [self checkChild:0
          expectedAddress:@"0x171d67ebf279e85aff100cdb96506d835d133589"
@@ -70,7 +70,7 @@
                    callback:^(NSString *rootEthAddress, NSString *publicKey, NSError *error)
     {
         XCTAssertNil(error);
-        XCTAssertEqual(rootEthAddress, @"0x1f03a97add0d17538c88ab058b472015094a45e7");
+        XCTAssertTrue([rootEthAddress isEqualToString:@"0x1f03a97add0d17538c88ab058b472015094a45e7"]);
     }];
 }
 

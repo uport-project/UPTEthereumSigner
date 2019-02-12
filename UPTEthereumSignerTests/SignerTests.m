@@ -50,12 +50,9 @@
 - (void)testCanRecreateKeysFromItsOwnPrivateKeys
 {
     NSData *privateKey = [BTCKey new].privateKey;
-    NSString *privateKeyString = [[NSString alloc] initWithData:privateKey encoding:NSUTF8StringEncoding];
     BTCKey *keyCopy = [[BTCKey alloc] initWithPrivateKey:privateKey];
-    NSString *keyCopyString = [[NSString alloc] initWithData:keyCopy.privateKey encoding:NSUTF8StringEncoding];
 
-    XCTAssertEqual(privateKey, keyCopy.privateKey);
-    XCTAssertEqual(privateKeyString, keyCopyString);
+    XCTAssertTrue([privateKey isEqualToData:keyCopy.privateKey]);
 }
 
 - (void)testCanCreateValidKeysFromExternalPrivateKeys
@@ -65,15 +62,15 @@
     NSLog(@"private key data from hex strin has num bytes -> %@", @(privateKeyData32Bytes.length));
 
     BTCKey *keyPair = [[BTCKey alloc] initWithPrivateKey:privateKeyData32Bytes];
-    XCTAssertEqual(privateKeyData32Bytes, keyPair.privateKey);
+    XCTAssertTrue([privateKeyData32Bytes isEqualToData:keyPair.privateKey]);
 
     NSString *referencePublicKey = @"04bf42759e6d2a684ef64a8210c55bf2308e4101f78959ffa335ff045ef1e4252b1c09710281f8971b39efed7bfb61ae381ed73b9faa5a96f17e00c1a4c32796b1";
     NSString *hexPublicKeyRecreation = BTCHexFromData(keyPair.publicKey);
-    XCTAssertEqual(hexPublicKeyRecreation, referencePublicKey);
+    XCTAssertTrue([hexPublicKeyRecreation isEqualToString:referencePublicKey]);
 
     NSString *hexPrivateKeyRecreation = BTCHexFromData(keyPair.privateKey);
     NSLog(@"privatekey reference: %@ and generated privateKey: %@", referencePrivateKey, hexPrivateKeyRecreation);
-    XCTAssertEqual(referencePrivateKey, hexPrivateKeyRecreation);
+    XCTAssertTrue([referencePrivateKey isEqualToString:hexPrivateKeyRecreation]);
 }
 
 - (void)testCanCreateValidPublicKeyFromExternalPublicKeys
@@ -83,11 +80,11 @@
     NSLog(@"public key data from hex strin has num bytes -> %@", @(publicKeyDataBytes.length));
 
     BTCKey *keyPair = [[BTCKey alloc] initWithPublicKey:publicKeyDataBytes];
-    XCTAssertEqual(publicKeyDataBytes, keyPair.publicKey);
+    XCTAssertTrue([publicKeyDataBytes isEqualToData:keyPair.publicKey]);
 
     NSString *hexPublicKeyRecreation = BTCHexFromData(keyPair.publicKey);
     NSLog(@"public key reference : %@ and generated public key : %@", referencePublicKey, hexPublicKeyRecreation);
-    XCTAssertEqual(referencePublicKey, hexPublicKeyRecreation);
+    XCTAssertTrue([referencePublicKey isEqualToString:hexPublicKeyRecreation]);
 }
 
 #pragma mark - Saving
@@ -104,8 +101,8 @@
     {
         NSLog(@"testSavingKey, created public key is -> %@ and the eth address is %@", publicKey, ethAddress);
         XCTAssertNil(error);
-        XCTAssertEqual(referencePublicKey, publicKey);
-        XCTAssertEqual(referenceEthAddress, ethAddress);
+        XCTAssertTrue([referencePublicKey isEqualToString:publicKey]);
+        XCTAssertTrue([referenceEthAddress isEqualToString:ethAddress]);
     }];
 }
 
@@ -147,7 +144,7 @@
     {
         NSLog(@"testSavingKey, created public key is -> %@ and the eth address is %@", publicKey, ethAddress);
         XCTAssertNil(error);
-        XCTAssertEqual(ethAddress, referenceEthAddress);
+        XCTAssertTrue([ethAddress isEqualToString:referenceEthAddress]);
     }];
 
     [UPTEthSigner signTransaction:referenceEthAddress
@@ -159,9 +156,9 @@
         if (error == nil)
         {
             NSLog(@"signature: %@", signature);
-            XCTAssertEqual(signature[@"r"], rReference);
-            XCTAssertEqual(signature[@"s"], sReference);
-            XCTAssertEqual(signature[@"v"], @(vReference));
+            XCTAssertTrue([signature[@"r"] isEqualToString:rReference]);
+            XCTAssertTrue([signature[@"s"] isEqualToString:sReference]);
+            XCTAssertEqual([signature[@"v"] intValue], vReference);
         }
         else
         {
@@ -182,7 +179,7 @@
     {
         NSLog(@"testSavingKey, created public key is -> %@ and the eth address is %@", publicKey, ethAddress);
         XCTAssertNil(error);
-        XCTAssertEqual(ethAddress, referenceAddress);
+        XCTAssertTrue([ethAddress isEqualToString:referenceAddress]);
     }];
 
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -199,7 +196,7 @@
             XCTAssertNil(error);
             NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
             NSString *webSafeBase64Signature = [UPTEthSigner URLEncodedBase64StringWithBase64String:base64Signature];
-            XCTAssertEqual(webSafeBase64Signature, example[@"signature"]);
+            XCTAssertTrue([webSafeBase64Signature isEqualToString:example[@"signature"]]);
         }];
     }
 }
@@ -219,16 +216,16 @@
         NSData *privateKeyData32Bytes = BTCDataFromHex(kp[@"privateKey"]);
         XCTAssertEqual(privateKeyData32Bytes.length, 32);
         BTCKey *keyPair = [[BTCKey alloc] initWithPrivateKey:privateKeyData32Bytes];
-        XCTAssertEqual(privateKeyData32Bytes, keyPair.privateKey);
+        XCTAssertTrue([privateKeyData32Bytes isEqualToData:keyPair.privateKey]);
 
         NSString *hexPublicKeyRecreation = BTCHexFromData(keyPair.publicKey);
-        XCTAssertEqual(hexPublicKeyRecreation, kp[@"publicKey"]);
+        XCTAssertTrue([hexPublicKeyRecreation isEqualToString:kp[@"publicKey"]]);
 
         NSString *ethAddress = [UPTEthSigner ethAddressWithPublicKey:keyPair.publicKey];
-        XCTAssertEqual(ethAddress, kp[@"address"]);
+        XCTAssertTrue([ethAddress isEqualToString:kp[@"address"]]);
 
         NSString *hexPrivateKeyRecreation = BTCHexFromData(keyPair.privateKey);
-        XCTAssertEqual(hexPrivateKeyRecreation, kp[@"privateKey"]);
+        XCTAssertTrue([hexPrivateKeyRecreation isEqualToString:kp[@"privateKey"]]);
 
         [UPTEthSigner saveKey:privateKeyData32Bytes
               protectionLevel:UPTEthKeychainProtectionLevelNormal
@@ -237,9 +234,9 @@
             XCTAssertNil(error);
             if (error == nil)
             {
-                XCTAssertEqual(ethAddress, kp[@"address"]);
+                XCTAssertTrue([ethAddress isEqualToString:kp[@"address"]]);
                 NSString *refPublicKey = [BTCDataFromHex(kp[@"publicKey"]) base64EncodedStringWithOptions:0];
-                XCTAssertEqual(publicKey, refPublicKey);
+                XCTAssertTrue([publicKey isEqualToString:refPublicKey]);
                 NSString *transaction = kp[@"address"];
                 [UPTEthSigner signTransaction:transaction
                                          data:txData
@@ -249,9 +246,9 @@
                     XCTAssertNil(error);
                     if (error == nil)
                     {
-                        XCTAssertEqual(signature[@"r"], kp[@"txsig"][@"r"]);
-                        XCTAssertEqual(signature[@"s"], kp[@"txsig"][@"s"]);
-                        XCTAssertEqual(signature[@"v"], kp[@"txsig"][@"v"]);
+                        XCTAssertTrue([signature[@"r"] isEqualToString:kp[@"txsig"][@"r"]]);
+                        XCTAssertTrue([signature[@"s"] isEqualToString:kp[@"txsig"][@"s"]]);
+                        XCTAssertEqual([signature[@"v"] intValue], [kp[@"txsig"][@"v"] intValue]);
                         [UPTEthSigner signJwt:kp[@"address"]
                                    userPrompt:@"test signing data"
                                          data:jwtData
@@ -260,7 +257,7 @@
                             XCTAssertNil(error);
                             NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
                             NSString *webSafeBase64Signature = [UPTEthSigner URLEncodedBase64StringWithBase64String:base64Signature];
-                            XCTAssertEqual(webSafeBase64Signature, kp[@"jwtsig"]);
+                            XCTAssertTrue([webSafeBase64Signature isEqualToString:kp[@"jwtsig"]]);
                         }];
                     }
                 }];
