@@ -255,9 +255,27 @@
                                        result:^(NSData *signature, NSError *error)
                         {
                             XCTAssertNil(error);
-                            NSString *base64Signature = [signature base64EncodedStringWithOptions:0];
-                            NSString *webSafeBase64Signature = [UPTEthSigner URLEncodedBase64StringWithBase64String:base64Signature];
-                            XCTAssertTrue([webSafeBase64Signature isEqualToString:kp[@"jwtsig"]]);
+
+                            NSString *jwtsigBase64 = [UPTEthSigner base64StringWithURLEncodedBase64String:kp[@"jwtsig"]];
+                            NSData *jwtsigData = [[NSData alloc] initWithBase64EncodedString:jwtsigBase64 options:0];
+                            NSData *rData = [jwtsigData subdataWithRange:NSMakeRange(0, 32)];
+                            NSData *sData = [jwtsigData subdataWithRange:NSMakeRange(32, 32)];
+                            NSString *rBase64 = [rData base64EncodedStringWithOptions:0];
+                            NSString *sBase64 = [sData base64EncodedStringWithOptions:0];
+
+                            // TODO: Sort out why about half of the tests fail.
+                            if ([signature[@"s"] isEqualToString:sBase64] == NO)
+                            {
+                                NSLog(@"\n%@ != %@\n", signature[@"s"], sBase64);
+                            }
+                            else
+                            {
+                                NSLog(@"\n%@ == %@\n", signature[@"s"], sBase64);
+                            }
+
+                            XCTAssertTrue([signature[@"r"] isEqualToString:rBase64]);
+                            XCTAssertTrue([signature[@"s"] isEqualToString:sBase64]);
+                            // `kp[@"jwtsig"]` does not contain `v` parameter, so can't be checked.
                         }];
                     }
                 }];
