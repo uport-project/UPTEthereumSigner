@@ -263,18 +263,8 @@
                             NSString *rBase64 = [rData base64EncodedStringWithOptions:0];
                             NSString *sBase64 = [sData base64EncodedStringWithOptions:0];
 
-                            // TODO: Sort out why about half of the tests fail.
-                            if ([signature[@"s"] isEqualToString:sBase64] == NO)
-                            {
-                                NSLog(@"\n%@ != %@\n", signature[@"s"], sBase64);
-                            }
-                            else
-                            {
-                                NSLog(@"\n%@ == %@\n", signature[@"s"], sBase64);
-                            }
-
                             XCTAssertTrue([signature[@"r"] isEqualToString:rBase64]);
-                            XCTAssertTrue([signature[@"s"] isEqualToString:sBase64]);
+                            XCTAssertTrue([signature[@"s"] isEqualToString:sBase64]); // TODO: Sort out why this tests fails.
                             // `kp[@"jwtsig"]` does not contain `v` parameter, so can't be checked.
                         }];
                     }

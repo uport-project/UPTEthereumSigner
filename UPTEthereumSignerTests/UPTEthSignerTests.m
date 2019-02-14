@@ -37,11 +37,13 @@
     NSData *chainId = BTCDataFromHex(@"0x01");
     NSMutableArray *all = [NSMutableArray array];
 
+#ifdef NOT_USED
     // TODO: Sort out why this array is not used and if it could perhaps be used in a test.
     // These are all values in the range [0x00000000, 0x00000C80) that fail to sign with this private key.
     NSArray *values = @[ @(315), @(537), @(543), @(550), @(577), @(642), @(662), @(998), @(1020), @(1241),
                          @(1352), @(1496), @(1541), @(1608), @(1742), @(1760), @(2285), @(2295), @(2304),
                          @(2341), @(2665), @(2817), @(2867), @(2915), @(2927), @(3011), @(3064), @(3101) ];
+#endif
 
     NSMutableData *hash = [NSMutableData dataWithLength:sizeof(uint64_t)];
     for (uint64_t val = 0; val < 0xc80; val++)

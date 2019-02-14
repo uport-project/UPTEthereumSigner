@@ -45,8 +45,8 @@ NSDictionary *ethereumSignature(BTCKey *keypair, NSData *hash, NSData *chainId)
     BN_ULONG base = 0x1b; // pre-EIP155
     if (chainId)
     {
-        BIGNUM *v = BN_new(); BN_bin2bn(chainId.bytes, chainId.length, v);
-        // TODO support longer chainIDs
+        BIGNUM *v = BN_new(); BN_bin2bn(chainId.bytes, (int)chainId.length, v);
+        // TODO: support longer chainIDs
         base = BN_get_word(v) * 2 + 35;
         BN_clear_free(v);
     }
@@ -151,6 +151,7 @@ NSData *simpleSignature(BTCKey *keypair, NSData *hash)
 }
 
 // Not used here but leave in for use in library when pulling out again
+#ifdef NOT_USED
 static int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey,
                                      BIGNUM *r,
                                      BIGNUM *s,
@@ -230,3 +231,4 @@ err:
 
     return ret;
 }
+#endif
