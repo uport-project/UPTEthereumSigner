@@ -263,8 +263,10 @@
                             NSString *rBase64 = [rData base64EncodedStringWithOptions:0];
                             NSString *sBase64 = [sData base64EncodedStringWithOptions:0];
 
+                            // TODO: The "s" doesn't match in about 50% of the test cases. This can probably be resolved
+                            //       by normalising "s".
                             XCTAssertTrue([signature[@"r"] isEqualToString:rBase64]);
-                            XCTAssertTrue([signature[@"s"] isEqualToString:sBase64]); // TODO: Sort out why this tests fails.
+                            XCTAssertTrue([signature[@"s"] isEqualToString:sBase64]);
                             // `kp[@"jwtsig"]` does not contain `v` parameter, so can't be checked.
                         }];
                     }
