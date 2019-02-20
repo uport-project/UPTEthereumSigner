@@ -1,5 +1,8 @@
 Change log
 
+v1.0.10
+- Fix JWT signing for HD signer
+
 v1.0.9
 - Fix jwt signing to return a dictionary
 
