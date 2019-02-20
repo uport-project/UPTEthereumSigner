@@ -246,9 +246,9 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
 
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:data options:0];
     NSData *hash = [payloadData SHA256];
-    NSDictionary *signature = ethereumSignature(derivedKeychain.key, hash, NULL);
+    NSDictionary *signature = jwtSignature(derivedKeychain.key, hash);
     if (signature) {
-        callback(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue] - 27) }, nil);
+        callback(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue]) }, nil);
     } else {
         NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                            code:UPTHDSignerErrorCodeLevelSigningError.integerValue
