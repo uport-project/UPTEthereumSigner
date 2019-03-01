@@ -49,6 +49,11 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     return hasSeed;
 }
 
++ (NSArray *)listSeedAddresses {
+  VALValet *addressKeystore = [UPTHDSigner ethAddressesKeystore];
+  return [[addressKeystore allKeys] allObjects];
+}
+
 + (void)showSeed:(NSString *)rootAddress prompt:(NSString *)prompt callback:(UPTHDSignerSeedPhraseResult)callback {
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if ( protectionLevel == UPTHDSignerProtectionLevelNotRecognized ) {
@@ -246,15 +251,13 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
 
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:data options:0];
     NSData *hash = [payloadData SHA256];
-    NSData *signature = simpleSignature(derivedKeychain.key, hash);
+    NSDictionary *signature = jwtSignature(derivedKeychain.key, hash);
     if (signature) {
-        NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
-        NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
-        callback(webSafeBase64Signature, nil);
+        callback(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue]) }, nil);
     } else {
         NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                            code:UPTHDSignerErrorCodeLevelSigningError.integerValue
-                                                       userInfo:@{@"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress]}];
+                                                       userInfo:@{ @"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress] }];
         callback(nil, signingError);
     }
 }
