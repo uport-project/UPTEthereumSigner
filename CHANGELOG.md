@@ -1,5 +1,8 @@
 Change log
 
+v1.1.0
+- Add listing seed adresses
+
 v1.0.10
 - Fix JWT signing for HD signer
 
