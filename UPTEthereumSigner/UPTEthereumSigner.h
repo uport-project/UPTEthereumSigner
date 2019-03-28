@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char UPTEthereumSignerVersionString[];
 @import Valet;
 #import <UPTEthereumSigner/UPTEthSigner.h>
 #import <UPTEthereumSigner/UPTProtectionLevel.h>
+#import <UPTEthereumSigner/UPTHDSigner.h>
