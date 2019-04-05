@@ -19,3 +19,4 @@ FOUNDATION_EXPORT const unsigned char UPTEthereumSignerVersionString[];
 #import <UPTEthereumSigner/UPTEthSigner.h>
 #import <UPTEthereumSigner/UPTProtectionLevel.h>
 #import <UPTEthereumSigner/UPTHDSigner.h>
+#import <UPTEthereumSigner/EthereumSigner.h>

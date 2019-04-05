@@ -15,7 +15,7 @@
 		48735D5921EFCFBF00904ED5 /* UPTEthereumSigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48735D4F21EFCFBF00904ED5 /* UPTEthereumSigner.framework */; };
 		48735D5E21EFCFBF00904ED5 /* UPTEthSignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48735D5D21EFCFBF00904ED5 /* UPTEthSignerTests.m */; };
 		48735D6021EFCFBF00904ED5 /* UPTEthereumSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 48735D5221EFCFBF00904ED5 /* UPTEthereumSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48735D7221EFD1F800904ED5 /* EthereumSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 48735D6921EFD1F700904ED5 /* EthereumSigner.h */; };
+		48735D7221EFD1F800904ED5 /* EthereumSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 48735D6921EFD1F700904ED5 /* EthereumSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48735D7321EFD1F800904ED5 /* EthereumSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 48735D6A21EFD1F800904ED5 /* EthereumSigner.m */; };
 		48735D7421EFD1F800904ED5 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = 48735D6B21EFD1F800904ED5 /* keccak.c */; };
 		48735D7521EFD1F800904ED5 /* UPTProtectionLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 48735D6C21EFD1F800904ED5 /* UPTProtectionLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -194,8 +194,8 @@
 			files = (
 				48735D7621EFD1F800904ED5 /* UPTHDSigner.h in Headers */,
 				48735D6021EFCFBF00904ED5 /* UPTEthereumSigner.h in Headers */,
-				48735D7221EFD1F800904ED5 /* EthereumSigner.h in Headers */,
 				48735D7921EFD1F800904ED5 /* UPTEthSigner.h in Headers */,
+				48735D7221EFD1F800904ED5 /* EthereumSigner.h in Headers */,
 				48735D7821EFD1F800904ED5 /* keccak.h in Headers */,
 				48735D7521EFD1F800904ED5 /* UPTProtectionLevel.h in Headers */,
 			);
