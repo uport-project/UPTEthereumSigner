@@ -1,32 +1,24 @@
 PODS:
-  - CoreEthereum (1.0.3):
-    - ISO8601DateFormatter
   - Expecta (1.0.6)
-  - ISO8601DateFormatter (0.8)
   - Specta (1.0.7)
   - Valet (2.4.2)
 
 DEPENDENCIES:
-  - CoreEthereum
   - Expecta
   - Specta
   - Valet (~> 2.4.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - CoreEthereum
     - Expecta
-    - ISO8601DateFormatter
     - Specta
     - Valet
 
 SPEC CHECKSUMS:
-  CoreEthereum: efc6b6d6ef38d808b7bbdaf61a2152d24ec5e03d
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   Valet: 14463ef24fab8fd5809044ecedb61484b799fdd6
 
-PODFILE CHECKSUM: 45b322f4edbd4b35dff17186fca7f589ba762bae
+PODFILE CHECKSUM: b5704e1d7c2b6d4d759b492002b749ba430f99d7
 
 COCOAPODS: 1.5.3
