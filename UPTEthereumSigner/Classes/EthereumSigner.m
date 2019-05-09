@@ -24,9 +24,9 @@
 
 #import "CoreBitcoin/CoreBitcoin+Categories.h"
 #import "CoreBitcoin/BTCKey.h"
-#include <openssl/bn.h>
-#include <openssl/ec.h>
-#include <openssl/obj_mac.h>
+#include "CoreBitcoin/openssl/bn.h"
+#include "CoreBitcoin/openssl/ec.h"
+#include "CoreBitcoin/openssl/obj_mac.h"
 
 NSMutableData *compressedPublicKey(EC_KEY *key) {
     if (!key) return nil;

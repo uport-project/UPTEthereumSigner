@@ -145,15 +145,11 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Specta/Specta.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/CoreEthereum/CoreEthereum.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Valet/Valet.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Specta/Specta.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/CoreEthereum/CoreEthereum.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Valet/Valet.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
