@@ -40,6 +40,6 @@ s.pod_target_xcconfig = {
   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CoreEthereum" "${PODS_ROOT}/CoreEthereum/openssl/include"',
 }
 s.dependency 'Valet', '~> 2.4.2'
-s.dependency 'CoreEthereum'
+s.dependency 'CoreEthereum', '~> 1.0.6'
 end
 
