@@ -1,6 +1,6 @@
 {
   "name": "CoreEthereum",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "summary": "CoreEthereum is a subset of CoreBitcoin in Objective-C.",
   "description": "CoreEthereum provides helpful functions for deriving and signing with Ethereum keychains.",
   "homepage": "https://github.com/wjmelements/CoreBitcoin",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/wjmelements/CoreBitcoin.git",
-    "tag": "1.0.6"
+    "tag": "1.0.7"
   },
   "source_files": [
     "CoreBitcoin",
