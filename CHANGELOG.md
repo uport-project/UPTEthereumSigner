@@ -1,4 +1,5 @@
 Change log
+    
 v1.1.1
 - Fix missing listSeedAddresses function header
 
