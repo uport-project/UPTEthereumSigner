@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'UPTEthereumSigner'
-s.version          = '1.1.3'
+s.version          = '1.1.4'
 s.summary          = 'Ethereum signer library'
 
 # This description is used to generate tags and improve search results.
@@ -34,10 +34,10 @@ s.ios.deployment_target = '9.3'
 s.source_files = 'UPTEthereumSigner/Classes/**/*'
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
-s.frameworks = 'CoreEthereum', 'AVFoundation'
+s.frameworks = 'EthCore', 'AVFoundation'
 s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
 s.pod_target_xcconfig = {
-  'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CoreEthereum" "${PODS_ROOT}/CoreEthereum/openssl/include"',
+  'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/EthCore" "${PODS_ROOT}/EthCore/openssl/include"',
 }
 s.dependency 'Valet', '~> 2.4.2'
 s.dependency 'EthCore', '~> 1.0.9'
