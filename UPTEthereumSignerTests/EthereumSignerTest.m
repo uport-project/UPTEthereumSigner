@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 
 #import "EthereumSigner.h"
-#import "CoreBitcoin/BTCData.h"
+#import "EthCore/BTCData.h"
 
 
 @interface EthereumSignerTest : XCTestCase
