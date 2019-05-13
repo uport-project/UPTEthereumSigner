@@ -1,4 +1,6 @@
 Change log
+v1.1.3
+- replace CoreEthereum with EthCore 1.0.9
     
 v1.1.1
 - Fix missing listSeedAddresses function header

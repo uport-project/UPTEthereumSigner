@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'UPTEthereumSigner'
-s.version          = '1.1.2'
+s.version          = '1.1.3'
 s.summary          = 'Ethereum signer library'
 
 # This description is used to generate tags and improve search results.
@@ -40,6 +40,6 @@ s.pod_target_xcconfig = {
   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/CoreEthereum" "${PODS_ROOT}/CoreEthereum/openssl/include"',
 }
 s.dependency 'Valet', '~> 2.4.2'
-s.dependency 'EthCore'
+s.dependency 'EthCore', '~> 1.0.9'
 end
 
