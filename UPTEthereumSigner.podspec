@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'UPTEthereumSigner'
-s.version          = '1.1.3'
+s.version          = '1.1.4'
 s.summary          = 'Ethereum signer library'
 
 # This description is used to generate tags and improve search results.
