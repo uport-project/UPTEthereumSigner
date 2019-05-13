@@ -8,7 +8,7 @@
 #import "Specta/Specta.h"
 
 @import Foundation;
-#import "CoreBitcoin/CoreBitcoin.h"
+#import "EthCore/EthCore.h"
 
 #import "UPTEthereumSigner.h"
 
