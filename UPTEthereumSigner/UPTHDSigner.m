@@ -53,17 +53,12 @@ NSString * const UPTHDSignerErrorCodeLevelSigningError = @"-14";
     return hasSeed;
 }
 
-<<<<<<< HEAD:UPTEthereumSigner/Classes/UPTHDSigner.m
 + (NSArray *)listSeedAddresses {
   VALValet *addressKeystore = [UPTHDSigner ethAddressesKeystore];
   return [[addressKeystore allKeys] allObjects];
 }
 
 + (void)showSeed:(NSString *)rootAddress prompt:(NSString *)prompt callback:(UPTHDSignerSeedPhraseResult)callback {
-=======
-+ (void)showSeed:(NSString *)rootAddress prompt:(NSString *)prompt callback:(UPTHDSignerSeedPhraseResult)callback
-{
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/UPTHDSigner.m
     UPTHDSignerProtectionLevel protectionLevel = [UPTHDSigner protectionLevelWithEthAddress:rootAddress];
     if (protectionLevel == UPTHDSignerProtectionLevelNotRecognized)
     {
@@ -329,22 +324,10 @@ rootDerivationPath:(NSString *)derivationPath
 
     NSData *payloadData = [[NSData alloc] initWithBase64EncodedString:data options:0];
     NSData *hash = [payloadData SHA256];
-<<<<<<< HEAD:UPTEthereumSigner/Classes/UPTHDSigner.m
     NSDictionary *signature = jwtSignature(derivedKeychain.key, hash);
     if (signature) {
         callback(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue]) }, nil);
     } else {
-=======
-    NSData *signature = simpleSignature(derivedKeychain.key, hash);
-    if (signature)
-    {
-        NSString *base64EncodedSignature = [signature base64EncodedStringWithOptions:0];
-        NSString *webSafeBase64Signature = [UPTHDSigner URLEncodedBase64StringWithBase64String:base64EncodedSignature];
-        callback(webSafeBase64Signature, nil);
-    }
-    else
-    {
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/UPTHDSigner.m
         NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                            code:UPTHDSignerErrorCodeLevelSigningError.integerValue
                                                        userInfo:@{ @"message": [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signTransaction %@", rootAddress] }];

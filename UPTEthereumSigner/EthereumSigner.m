@@ -57,7 +57,6 @@ NSDictionary *ethereumSignature(BTCKey *keypair, NSData *hash, NSData *chainId)
     return signatureDictionary;
 }
 
-<<<<<<< HEAD:UPTEthereumSigner/Classes/EthereumSigner.m
 NSDictionary *jwtSignature(BTCKey *keypair, NSData *hash) {
     NSDictionary *sig = genericSignature(keypair, hash, NO);
     if (sig == nil) return NULL;
@@ -71,10 +70,6 @@ NSDictionary *jwtSignature(BTCKey *keypair, NSData *hash) {
 }
 
 NSDictionary *genericSignature(BTCKey *keypair, NSData *hash, BOOL lowS) {
-=======
-NSDictionary *genericSignature(BTCKey *keypair, NSData *hash, BOOL lowS)
-{
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/EthereumSigner.m
     BTCBigNumber* privkeyBN = [[BTCBigNumber alloc] initWithUnsignedBigEndian:[keypair privateKey]];
     BTCBigNumber* n = [BTCCurvePoint curveOrder];
     

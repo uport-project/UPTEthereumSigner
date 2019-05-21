@@ -108,10 +108,7 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
                                                                    code:UPTSignerErrorCodeLevelParamNotRecognized.integerValue 
                                                                userInfo:@{ @"message" : @"protection level not found for eth address" }];
         result(nil, protectionLevelError);
-<<<<<<< HEAD:UPTEthereumSigner/Classes/UPTEthereumSigner.m
-=======
 
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/UPTEthSigner.m
         return;
     }
 
@@ -119,38 +116,21 @@ NSString *const UPTSignerErrorCodeLevelSigningError = @"-14";
     if (key)
     {
         NSData *hash = [payload SHA256];
-<<<<<<< HEAD:UPTEthereumSigner/Classes/UPTEthereumSigner.m
         NSDictionary *signature = jwtSignature(key, hash);
         if (signature) {
             result(@{ @"r" : signature[@"r"], @"s" : signature[@"s"], @"v" : @([signature[@"v"] intValue]) }, nil);
         } else {
-=======
-        NSData *signature = simpleSignature(key, hash);
-        if (signature)
-        {
-            result(signature, nil);
-        }
-        else
-        {
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/UPTEthSigner.m
             NSError *signingError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                code:UPTSignerErrorCodeLevelSigningError.integerValue
                                                            userInfo:@{ @"message" : [NSString stringWithFormat:@"signing failed due to invalid signature components for eth address: signJwt %@", ethAddress] }];
             result(nil, signingError);
         }
-<<<<<<< HEAD:UPTEthereumSigner/Classes/UPTEthereumSigner.m
-    } else {
-        NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError" 
-                                                                   code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue
-                                                               userInfo:@{ @"message": @"private key not found for eth address" }];
-=======
     }
     else
     {
         NSError *protectionLevelError = [[NSError alloc] initWithDomain:@"UPTError"
                                                                    code:UPTSignerErrorCodeLevelPrivateKeyNotFound.integerValue
                                                                userInfo:@{@"message": @"private key not found for eth address"}];
->>>>>>> Replace with Carthage based setup and eliminate Specta from tests:UPTEthereumSigner/UPTEthSigner.m
         result(nil, protectionLevelError);
     }
 }
