@@ -34,7 +34,7 @@ s.ios.deployment_target = '9.3'
 s.source_files = 'UPTEthereumSigner/Classes/**/*'
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
-s.frameworks = 'EthCore', 'AVFoundation'
+s.frameworks = 'AVFoundation'
 s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '/Applications/Xcode.app/Contents/Developer/Library/Frameworks' }
 s.pod_target_xcconfig = {
   'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/EthCore" "${PODS_ROOT}/EthCore/openssl/include"',
